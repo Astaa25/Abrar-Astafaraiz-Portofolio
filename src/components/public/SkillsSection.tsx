@@ -175,11 +175,33 @@ export function SkillsSection({
           <div className="w-16 h-1 rounded-full gradient-aurora mx-auto mt-2" />
         </div>
 
-        {/* Category Filter Pills (2 Rows Layout with Horizontal Scrolling) */}
-        <div className="relative mb-10 max-w-5xl mx-auto px-1">
-          <div className="overflow-x-auto no-scrollbar scroll-smooth py-1">
-            <div className="grid grid-rows-2 grid-flow-col gap-2.5 auto-cols-max justify-start sm:justify-center mx-auto w-max max-w-full">
-              {categories.map((cat) => {
+        {/* Category Filter Pills: 4 on top, 3 centered below */}
+        <div className="flex flex-col items-center gap-2.5 mb-10 max-w-5xl mx-auto px-1">
+          {/* Row 1 (4 kategori teratas, rata tengah) */}
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
+            {categories.slice(0, 4).map((cat) => {
+              const isActive = activeCategory.toLowerCase() === cat.toLowerCase();
+              return (
+                <button
+                  key={cat}
+                  suppressHydrationWarning
+                  onClick={() => setActiveCategory(cat)}
+                  className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap border ${
+                    isActive
+                      ? 'bg-[#5846DE] text-white border-[#5846DE] shadow-sm dark:bg-[#7966D9] dark:border-[#7966D9] dark:text-white'
+                      : 'bg-white dark:bg-[#10111B] text-[#4F526B] dark:text-[#C4C2D8] border-[#D4D6E6] dark:border-[#353449] hover:border-[#5846DE] dark:hover:border-[#7966D9]'
+                  }`}
+                >
+                  {cat === 'all' ? 'Semua Keahlian' : cat}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Row 2 (3 sisa kategori di bawah, rata tengah) */}
+          {categories.length > 4 && (
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
+              {categories.slice(4).map((cat) => {
                 const isActive = activeCategory.toLowerCase() === cat.toLowerCase();
                 return (
                   <button
@@ -197,10 +219,10 @@ export function SkillsSection({
                 );
               })}
             </div>
-          </div>
+          )}
         </div>
 
-        {/* Skills Cards (2 Rows Horizontal Scroll with Left/Right Navigation) */}
+        {/* Skills Cards (2 Rows Horizontal Scroll without visible scrollbar) */}
         <div className="relative group/carousel">
           {/* Controls Bar */}
           <div className="flex items-center justify-between mb-4 px-1">
@@ -227,10 +249,11 @@ export function SkillsSection({
             </div>
           </div>
 
-          {/* Cards Container: 2 Rows, Horizontal Scroll */}
+          {/* Cards Container: 2 Rows, Horizontal Scroll without ugly scrollbar */}
           <div
             ref={cardsScrollRef}
-            className="grid grid-rows-2 grid-flow-col auto-cols-[280px] sm:auto-cols-[310px] gap-4 sm:gap-5 overflow-x-auto pb-4 pt-1 px-1 scroll-smooth scrollbar-thin"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            className="grid grid-rows-2 grid-flow-col auto-cols-[280px] sm:auto-cols-[310px] gap-4 sm:gap-5 overflow-x-auto pb-4 pt-1 px-1 scroll-smooth no-scrollbar [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
           >
             {filteredSkills.map((skill) => (
               <div
