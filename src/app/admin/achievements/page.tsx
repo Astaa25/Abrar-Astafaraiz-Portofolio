@@ -13,6 +13,8 @@ import { Plus, Edit2, Trash2, Award, ExternalLink, Calendar } from 'lucide-react
 
 export default function AdminAchievementsPage() {
   const [achievements, setAchievements] = useState<Achievement[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isSaving, setIsSaving] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editing, setEditing] = useState<Partial<Achievement> | null>(null);
 
@@ -23,7 +25,13 @@ export default function AdminAchievementsPage() {
   };
 
   useEffect(() => {
-    loadAchievements();
+    async function init() {
+      setIsLoading(true);
+      await DataService.syncWithServer();
+      loadAchievements();
+      setIsLoading(false);
+    }
+    init();
   }, []);
 
   const handleOpenAdd = () => {
@@ -46,15 +54,23 @@ export default function AdminAchievementsPage() {
     setIsModalOpen(true);
   };
 
-  const handleDelete = (id: string, title: string) => {
-    if (confirm(`Hapus sertifikat "${title}" dari draft?`)) {
-      DataService.deleteDraftAchievement(id);
-      success(`Sertifikat "${title}" berhasil dihapus.`);
-      loadAchievements();
+  const handleDelete = async (id: string, title: string) => {
+    if (confirm(`Hapus sertifikat "${title}" dari portofolio?`)) {
+      try {
+        setIsSaving(true);
+        DataService.deleteDraftAchievement(id);
+        await DataService.persistToServer();
+        success(`Sertifikat "${title}" berhasil dihapus dari database.`);
+        loadAchievements();
+      } catch {
+        error('Gagal menghapus sertifikat.');
+      } finally {
+        setIsSaving(false);
+      }
     }
   };
 
-  const handleSaveModal = (e: React.FormEvent) => {
+  const handleSaveModal = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!editing?.title || !editing?.organizer) {
       error('Judul dan penyelenggara sertifikat wajib diisi.');
@@ -62,6 +78,7 @@ export default function AdminAchievementsPage() {
     }
 
     try {
+      setIsSaving(true);
       DataService.saveDraftAchievement({
         id: editing.id,
         title: editing.title,
@@ -75,12 +92,15 @@ export default function AdminAchievementsPage() {
         publication_status: editing.publication_status || 'published',
       });
 
-      success('Sertifikat berhasil disimpan ke draft!');
+      await DataService.persistToServer();
+      success('Sertifikat berhasil disimpan dan langsung live di database!');
       setIsModalOpen(false);
       setEditing(null);
       loadAchievements();
     } catch {
       error('Gagal menyimpan sertifikat.');
+    } finally {
+      setIsSaving(false);
     }
   };
 

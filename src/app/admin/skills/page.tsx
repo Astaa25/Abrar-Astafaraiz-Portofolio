@@ -42,7 +42,11 @@ export default function AdminSkillsPage() {
   };
 
   useEffect(() => {
-    loadSkills();
+    async function init() {
+      await DataService.syncWithServer();
+      loadSkills();
+    }
+    init();
   }, []);
 
   const handleOpenAdd = () => {
@@ -63,24 +67,34 @@ export default function AdminSkillsPage() {
     setIsModalOpen(true);
   };
 
-  const handleDelete = (id: string, name: string) => {
+  const handleDelete = async (id: string, name: string) => {
     if (confirm(`Hapus keahlian "${name}"?`)) {
-      DataService.deleteDraftSkill(id);
-      success(`Skill "${name}" berhasil dihapus.`);
-      loadSkills();
+      try {
+        DataService.deleteDraftSkill(id);
+        await DataService.persistToServer();
+        success(`Skill "${name}" berhasil dihapus dari database.`);
+        loadSkills();
+      } catch {
+        error('Gagal menghapus skill.');
+      }
     }
   };
 
-  const handleToggleVisible = (skill: Skill, nextChecked: boolean) => {
-    DataService.saveDraftSkill({
-      ...skill,
-      is_visible: nextChecked,
-    });
-    loadSkills();
-    success(`Skill "${skill.name}" kini ${nextChecked ? 'Aktif (Tampil)' : 'Nonaktif (Tersembunyi)'}.`);
+  const handleToggleVisible = async (skill: Skill, nextChecked: boolean) => {
+    try {
+      DataService.saveDraftSkill({
+        ...skill,
+        is_visible: nextChecked,
+      });
+      await DataService.persistToServer();
+      loadSkills();
+      success(`Skill "${skill.name}" kini ${nextChecked ? 'Aktif (Tampil)' : 'Nonaktif (Tersembunyi)'}.`);
+    } catch {
+      error('Gagal memperbarui status skill.');
+    }
   };
 
-  const handleSaveModal = (e: React.FormEvent) => {
+  const handleSaveModal = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!editingSkill?.name || !editingSkill?.category) {
       error('Nama dan kategori skill wajib diisi.');
@@ -99,7 +113,8 @@ export default function AdminSkillsPage() {
         is_visible: editingSkill.is_visible !== undefined ? editingSkill.is_visible : true,
       });
 
-      success('Skill berhasil disimpan dan langsung aktif!');
+      await DataService.persistToServer();
+      success('Skill berhasil disimpan dan langsung live di database!');
       setIsModalOpen(false);
       setEditingSkill(null);
       loadSkills();

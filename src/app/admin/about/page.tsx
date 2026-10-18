@@ -75,17 +75,22 @@ export default function AdminAboutPage() {
   };
 
   useEffect(() => {
-    loadData();
+    async function init() {
+      await DataService.syncWithServer();
+      loadData();
+    }
+    init();
   }, []);
 
-  const handleSave = (e: React.FormEvent) => {
+  const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSaving(true);
     try {
       DataService.updateDraftAbout(aboutContent);
       // Save highlights to settings
       DataService.updateDraftSettings('about_highlights' as any, highlights);
-      success('Konten Tentang Saya & kartu highlight berhasil disimpan dan langsung aktif!');
+      await DataService.persistToServer();
+      success('Konten Tentang Saya & kartu highlight berhasil disimpan dan langsung live di database!');
     } catch {
       error('Gagal menyimpan konten.');
     } finally {

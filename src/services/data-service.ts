@@ -1890,6 +1890,72 @@ export class DataService {
   static syncFromServerStore(store: ContentStoreState) {
     memoryStore = store;
   }
+
+  /**
+   * Synchronizes local client store with latest server & Supabase data.
+   */
+  static async syncWithServer(): Promise<ContentStoreState> {
+    if (typeof window === 'undefined') return memoryStore;
+    try {
+      const res = await fetch('/api/content', {
+        cache: 'no-store',
+        headers: { 'Cache-Control': 'no-cache' },
+      });
+      if (res.ok) {
+        const liveContent = await res.json();
+        if (liveContent && liveContent.profile) {
+          const store = loadFromStorage();
+          store.published = {
+            ...store.published,
+            profile: liveContent.profile || store.published.profile,
+            sections: liveContent.sections || store.published.sections,
+            skills: liveContent.skills || store.published.skills,
+            projects: liveContent.projects || store.published.projects,
+            achievements: liveContent.achievements || store.published.achievements,
+            experiences: liveContent.experiences || store.published.experiences,
+            socialLinks: liveContent.socialLinks || store.published.socialLinks,
+            settings: liveContent.settings || store.published.settings,
+          };
+          store.draft = JSON.parse(JSON.stringify(store.published));
+          memoryStore = store;
+          try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+          } catch {}
+          return store;
+        }
+      }
+    } catch (err) {
+      console.warn('Failed to sync with server:', err);
+    }
+    return loadFromStorage();
+  }
+
+  /**
+   * Persists draft to localStorage and immediately synchronizes to server & Supabase.
+   */
+  static async persistToServer(customStore?: ContentStoreState): Promise<boolean> {
+    const store = customStore || loadFromStorage();
+    store.published = JSON.parse(JSON.stringify(store.draft));
+    store.lastPublishedAt = new Date().toISOString();
+    memoryStore = store;
+    if (typeof window !== 'undefined') {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+      } catch {}
+      try {
+        const res = await fetch('/api/content', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(store),
+        });
+        return res.ok;
+      } catch (err) {
+        console.error('Failed to persist to server /api/content:', err);
+        return false;
+      }
+    }
+    return true;
+  }
   /**
    * Retrieves strictly published and visible content for the public website.
    * Drafts are NEVER returned here.

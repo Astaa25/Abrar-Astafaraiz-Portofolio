@@ -22,7 +22,11 @@ export default function AdminSectionsPage() {
   };
 
   useEffect(() => {
-    loadSections();
+    async function init() {
+      await DataService.syncWithServer();
+      loadSections();
+    }
+    init();
   }, []);
 
   const handleOpenEdit = (sec: SectionSetting) => {
@@ -30,19 +34,21 @@ export default function AdminSectionsPage() {
     setIsModalOpen(true);
   };
 
-  const handleToggleVisible = (sec: SectionSetting) => {
+  const handleToggleVisible = async (sec: SectionSetting) => {
     DataService.updateDraftSection(sec.id, { is_visible: !sec.is_visible });
+    await DataService.persistToServer();
     success(`Bagian "${sec.title}" sekarang ${!sec.is_visible ? 'ditampilkan' : 'disembunyikan'}.`);
     loadSections();
   };
 
-  const handleToggleNav = (sec: SectionSetting) => {
+  const handleToggleNav = async (sec: SectionSetting) => {
     DataService.updateDraftSection(sec.id, { show_in_nav: !sec.show_in_nav });
+    await DataService.persistToServer();
     success(`Navigasi untuk "${sec.nav_label}" diperbarui.`);
     loadSections();
   };
 
-  const handleSaveModal = (e: React.FormEvent) => {
+  const handleSaveModal = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!editing) return;
     try {
@@ -55,12 +61,13 @@ export default function AdminSectionsPage() {
         show_in_nav: editing.show_in_nav,
       });
 
-      success('Pengaturan bagian berhasil disimpan ke draft!');
+      await DataService.persistToServer();
+      success('Pengaturan bagian berhasil disimpan dan langsung live di database!');
       setIsModalOpen(false);
       setEditing(null);
       loadSections();
     } catch {
-      error('Gagal memperbarui bagian.');
+      error('Gagal menyimpan pengaturan.');
     }
   };
 

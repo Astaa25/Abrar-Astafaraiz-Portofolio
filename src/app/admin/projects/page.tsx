@@ -32,6 +32,8 @@ export default function AdminProjectsPage() {
   const [newImageUrl, setNewImageUrl] = useState('');
   const [newImageCaption, setNewImageCaption] = useState('');
 
+  const [isLoading, setIsLoading] = useState(true);
+  const [isSaving, setIsSaving] = useState(false);
   const { success, error } = useToast();
 
   const loadProjects = () => {
@@ -39,7 +41,13 @@ export default function AdminProjectsPage() {
   };
 
   useEffect(() => {
-    loadProjects();
+    async function init() {
+      setIsLoading(true);
+      await DataService.syncWithServer();
+      loadProjects();
+      setIsLoading(false);
+    }
+    init();
   }, []);
 
   const handleOpenAdd = () => {
@@ -70,19 +78,35 @@ export default function AdminProjectsPage() {
     setIsModalOpen(true);
   };
 
-  const handleDuplicate = (id: string) => {
-    const dup = DataService.duplicateDraftProject(id);
-    if (dup) {
-      success(`Proyek "${dup.title}" berhasil diduplikasi sebagai draft.`);
-      loadProjects();
+  const handleDuplicate = async (id: string) => {
+    try {
+      setIsSaving(true);
+      const dup = DataService.duplicateDraftProject(id);
+      if (dup) {
+        await DataService.persistToServer();
+        success(`Proyek "${dup.title}" berhasil diduplikasi dan disinkronkan ke database.`);
+        loadProjects();
+      }
+    } catch {
+      error('Gagal menduplikasi proyek.');
+    } finally {
+      setIsSaving(false);
     }
   };
 
-  const handleDelete = (id: string, title: string) => {
-    if (confirm(`Hapus proyek "${title}" dari draft?`)) {
-      DataService.deleteDraftProject(id);
-      success(`Proyek "${title}" berhasil dihapus.`);
-      loadProjects();
+  const handleDelete = async (id: string, title: string) => {
+    if (confirm(`Hapus proyek "${title}" dari portofolio?`)) {
+      try {
+        setIsSaving(true);
+        DataService.deleteDraftProject(id);
+        await DataService.persistToServer();
+        success(`Proyek "${title}" berhasil dihapus dari database.`);
+        loadProjects();
+      } catch {
+        error('Gagal menghapus proyek.');
+      } finally {
+        setIsSaving(false);
+      }
     }
   };
 
@@ -113,7 +137,7 @@ export default function AdminProjectsPage() {
     }));
   };
 
-  const handleSaveModal = (e: React.FormEvent) => {
+  const handleSaveModal = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!editingProject?.title || !editingProject?.short_description) {
       error('Judul dan deskripsi singkat proyek wajib diisi.');
@@ -126,6 +150,7 @@ export default function AdminProjectsPage() {
       .filter(Boolean);
 
     try {
+      setIsSaving(true);
       DataService.saveDraftProject({
         id: editingProject.id,
         title: editingProject.title,
@@ -146,12 +171,15 @@ export default function AdminProjectsPage() {
         images: editingProject.images || [],
       });
 
-      success('Proyek berhasil disimpan ke draft!');
+      await DataService.persistToServer();
+      success('Proyek berhasil disimpan dan langsung live di database!');
       setIsModalOpen(false);
       setEditingProject(null);
       loadProjects();
     } catch {
       error('Gagal menyimpan proyek.');
+    } finally {
+      setIsSaving(false);
     }
   };
 

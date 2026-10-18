@@ -39,6 +39,8 @@ const parseDateParts = (dateStr?: string | null) => {
 
 export default function AdminExperiencesPage() {
   const [experiences, setExperiences] = useState<Experience[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isSaving, setIsSaving] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editing, setEditing] = useState<Partial<Experience> | null>(null);
   const [respInput, setRespInput] = useState('');
@@ -56,7 +58,13 @@ export default function AdminExperiencesPage() {
   };
 
   useEffect(() => {
-    loadExperiences();
+    async function init() {
+      setIsLoading(true);
+      await DataService.syncWithServer();
+      loadExperiences();
+      setIsLoading(false);
+    }
+    init();
   }, []);
 
   const handleOpenAdd = () => {
@@ -96,15 +104,27 @@ export default function AdminExperiencesPage() {
     setIsModalOpen(true);
   };
 
-  const handleDelete = (id: string, title: string) => {
-    if (confirm(`Hapus pengalaman "${title}" dari draft?`)) {
-      DataService.deleteDraftExperience(id);
-      success(`Pengalaman "${title}" berhasil dihapus.`);
-      loadExperiences();
+  const handleDelete = async (id: string, title: string) => {
+    if (confirm(`Hapus pengalaman "${title}" dari portofolio?`)) {
+      try {
+        setIsSaving(true);
+        DataService.deleteDraftExperience(id);
+        const synced = await DataService.persistToServer();
+        if (synced) {
+          success(`Pengalaman "${title}" berhasil dihapus dari database!`);
+        } else {
+          success(`Pengalaman "${title}" dihapus.`);
+        }
+        loadExperiences();
+      } catch {
+        error('Gagal menghapus pengalaman.');
+      } finally {
+        setIsSaving(false);
+      }
     }
   };
 
-  const handleSaveModal = (e: React.FormEvent) => {
+  const handleSaveModal = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!editing?.position || !editing?.organization) {
       error('Posisi dan nama organisasi wajib diisi.');
@@ -120,6 +140,7 @@ export default function AdminExperiencesPage() {
     const finalEndDate = editing.is_current ? null : `${endMonth} ${endYear}`.trim();
 
     try {
+      setIsSaving(true);
       DataService.saveDraftExperience({
         id: editing.id,
         position: editing.position,
@@ -134,12 +155,19 @@ export default function AdminExperiencesPage() {
         publication_status: editing.publication_status || 'published',
       });
 
-      success('Pengalaman berhasil disimpan ke draft!');
+      const synced = await DataService.persistToServer();
+      if (synced) {
+        success('Pengalaman berhasil disimpan dan langsung live di database!');
+      } else {
+        success('Pengalaman berhasil disimpan ke draft!');
+      }
       setIsModalOpen(false);
       setEditing(null);
       loadExperiences();
     } catch {
       error('Gagal menyimpan pengalaman.');
+    } finally {
+      setIsSaving(false);
     }
   };
 
@@ -353,11 +381,11 @@ export default function AdminExperiencesPage() {
             />
 
             <div className="flex justify-end gap-3 pt-4 border-t border-[#E6E0F1] dark:border-[#3B334D]">
-              <Button type="button" variant="secondary" onClick={() => setIsModalOpen(false)}>
+              <Button type="button" variant="secondary" onClick={() => setIsModalOpen(false)} disabled={isSaving}>
                 Batal
               </Button>
-              <Button type="submit" variant="admin-primary">
-                Simpan Pengalaman
+              <Button type="submit" variant="admin-primary" disabled={isSaving}>
+                {isSaving ? 'Menyimpan ke Database...' : 'Simpan Pengalaman'}
               </Button>
             </div>
           </form>

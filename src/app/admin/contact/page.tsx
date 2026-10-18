@@ -26,16 +26,21 @@ export default function AdminContactPage() {
   };
 
   useEffect(() => {
-    loadData();
+    async function init() {
+      await DataService.syncWithServer();
+      loadData();
+    }
+    init();
   }, []);
 
-  const handleSaveContactInfo = (e: React.FormEvent) => {
+  const handleSaveContactInfo = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!contactInfo) return;
     setIsSaving(true);
     try {
       DataService.updateDraftSettings('contact_info', contactInfo);
-      success('Pengaturan kontak & footer berhasil disimpan ke draft!');
+      await DataService.persistToServer();
+      success('Pengaturan kontak & footer berhasil disimpan dan live di database!');
     } catch {
       error('Gagal menyimpan kontak.');
     } finally {
@@ -60,15 +65,20 @@ export default function AdminContactPage() {
     setIsModalOpen(true);
   };
 
-  const handleDeleteSocial = (id: string, label: string) => {
+  const handleDeleteSocial = async (id: string, label: string) => {
     if (confirm(`Hapus link sosial "${label}"?`)) {
-      DataService.deleteDraftSocial(id);
-      success(`Tautan "${label}" berhasil dihapus.`);
-      loadData();
+      try {
+        DataService.deleteDraftSocial(id);
+        await DataService.persistToServer();
+        success(`Tautan "${label}" berhasil dihapus dari database.`);
+        loadData();
+      } catch {
+        error('Gagal menghapus tautan.');
+      }
     }
   };
 
-  const handleSaveSocialModal = (e: React.FormEvent) => {
+  const handleSaveSocialModal = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!editingSocial?.platform || !editingSocial?.url) {
       error('Platform dan URL wajib diisi.');
@@ -86,7 +96,8 @@ export default function AdminContactPage() {
         is_visible: editingSocial.is_visible !== undefined ? editingSocial.is_visible : true,
       });
 
-      success('Tautan sosial berhasil disimpan ke draft!');
+      await DataService.persistToServer();
+      success('Tautan sosial berhasil disimpan dan langsung live di database!');
       setIsModalOpen(false);
       setEditingSocial(null);
       loadData();

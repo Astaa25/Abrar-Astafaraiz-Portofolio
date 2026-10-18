@@ -16,18 +16,22 @@ export default function AdminProfilePage() {
   const { success, error } = useToast();
 
   useEffect(() => {
-    const draft = DataService.getDraftContent();
-    setProfile(draft.profile);
+    async function init() {
+      const live = await DataService.syncWithServer();
+      setProfile(live.draft.profile);
+    }
+    init();
   }, []);
 
   if (!profile) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSaving(true);
     try {
       DataService.updateDraftProfile(profile);
-      success('Perubahan profil berhasil disimpan ke draft!');
+      await DataService.persistToServer();
+      success('Perubahan profil berhasil disimpan dan langsung live di database!');
     } catch {
       error('Gagal menyimpan profil.');
     } finally {
