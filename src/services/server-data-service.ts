@@ -17,8 +17,9 @@ export class ServerDataService {
     const fallback = DataService.getPublishedContent();
 
     // 1. Try Supabase if configured
-    try {
-      const supabase = createAdminClient() || (await createServerSupabaseClient());
+    if (process.env.NEXT_PUBLIC_SUPABASE_URL?.trim()) {
+      try {
+        const supabase = createAdminClient() || (await createServerSupabaseClient());
       if (supabase) {
         const { data: profile, error: profileErr } = await supabase
           .from('profiles')
@@ -74,8 +75,9 @@ export class ServerDataService {
           };
         }
       }
-    } catch (err) {
-      console.warn('Supabase server fetch error, falling back to local file/memory store:', err);
+      } catch (err) {
+        console.warn('Supabase server fetch error, falling back to local file/memory store:', err);
+      }
     }
 
     // 2. Try Local File Storage (data/published-content.json)

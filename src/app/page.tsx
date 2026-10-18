@@ -11,6 +11,8 @@ import { ExperienceSection } from '@/components/public/ExperienceSection';
 import { ContactSection } from '@/components/public/ContactSection';
 import { Footer } from '@/components/layout/Footer';
 
+export const instant = false;
+
 export default async function HomePage() {
   await connection();
   const content = await ServerDataService.getPublishedContent();
