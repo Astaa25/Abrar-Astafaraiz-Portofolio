@@ -15,7 +15,7 @@ interface ProjectsSectionProps {
 export function ProjectsSection({
   projects,
   title = 'Proyek Pilihan',
-  subtitle = 'Koleksi Portofolio Rekayasa Perangkat Lunak',
+  subtitle = 'Karya & Proyek Terpilih',
 }: ProjectsSectionProps) {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [filterCategory, setFilterCategory] = useState<string>('all');

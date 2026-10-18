@@ -37,7 +37,7 @@ export const INITIAL_SECTIONS: SectionSetting[] = [
     id: 's-1',
     section_key: 'hero',
     title: 'Beranda',
-    subtitle: 'Pengantar Profil Profesional',
+    subtitle: 'Pengantar Singkat',
     nav_label: 'Home',
     is_visible: true,
     show_in_nav: true,
@@ -48,7 +48,7 @@ export const INITIAL_SECTIONS: SectionSetting[] = [
     id: 's-2',
     section_key: 'about',
     title: 'Tentang Saya',
-    subtitle: 'Mengenal Latar Belakang & Fokus Profesional',
+    subtitle: 'Latar Belakang & Profil Singkat',
     nav_label: 'About',
     is_visible: true,
     show_in_nav: true,
@@ -59,7 +59,7 @@ export const INITIAL_SECTIONS: SectionSetting[] = [
     id: 's-3',
     section_key: 'skills',
     title: 'Keahlian & Teknologi',
-    subtitle: 'Kompetensi Teknis dan Alat Pengembangan',
+    subtitle: 'Teknologi & Tools yang Dikuasai',
     nav_label: 'Skills',
     is_visible: true,
     show_in_nav: true,
@@ -70,7 +70,7 @@ export const INITIAL_SECTIONS: SectionSetting[] = [
     id: 's-4',
     section_key: 'projects',
     title: 'Proyek Pilihan',
-    subtitle: 'Koleksi Portofolio Rekayasa Perangkat Lunak',
+    subtitle: 'Karya & Proyek Terpilih',
     nav_label: 'Projects',
     is_visible: true,
     show_in_nav: true,
@@ -81,7 +81,7 @@ export const INITIAL_SECTIONS: SectionSetting[] = [
     id: 's-5',
     section_key: 'achievements',
     title: 'Sertifikat & Pencapaian',
-    subtitle: 'Apresiasi Akademik dan Lisensi Profesional',
+    subtitle: 'Sertifikasi & Lisensi',
     nav_label: 'Achievements',
     is_visible: true,
     show_in_nav: true,
@@ -92,7 +92,7 @@ export const INITIAL_SECTIONS: SectionSetting[] = [
     id: 's-6',
     section_key: 'experience',
     title: 'Pengalaman & Organisasi',
-    subtitle: 'Rekam Jejak Kolaborasi dan Kontribusi',
+    subtitle: 'Riwayat Kerja & Organisasi',
     nav_label: 'Experience',
     is_visible: true,
     show_in_nav: true,
@@ -103,7 +103,7 @@ export const INITIAL_SECTIONS: SectionSetting[] = [
     id: 's-7',
     section_key: 'contact',
     title: 'Hubungi Saya',
-    subtitle: 'Mari Berkolaborasi Membangun Solusi Digital',
+    subtitle: 'Informasi Kontak & Media Sosial',
     nav_label: 'Contact',
     is_visible: true,
     show_in_nav: true,
@@ -1715,9 +1715,9 @@ export const INITIAL_SETTINGS: SiteSettingsMap = {
   contact_info: {
     email: 'abrar.astafaraiz@gmail.com',
     location: 'Indonesia',
-    cta_heading: 'Tertarik Membangun Sesuatu yang Hebat Bersama?',
+    cta_heading: 'Hubungi Saya Langsung',
     cta_subtext:
-      'Saya selalu terbuka untuk diskusi proyek baru, peluang magang, atau kolaborasi software engineering.',
+      'Ingin bertanya seputar proyek, mendiskusikan peluang kerja sama, atau sekadar bertukar pengalaman? Anda bisa langsung menghubungi saya lewat kontak di bawah.',
     footer_text: '© 2026 Abrar Astafaraiz. All rights reserved. Crafted with Next.js & Supabase.',
   },
   about_highlights: [
@@ -1771,6 +1771,51 @@ interface ContentStoreState {
 
 const STORAGE_KEY = 'abrar_portfolio_content_store_v4';
 
+const SUBTITLE_MIGRATION: Record<string, string> = {
+  'Mengenal Latar Belakang & Fokus Profesional': 'Latar Belakang & Profil Singkat',
+  'Kompetensi Teknis dan Alat Pengembangan': 'Teknologi & Tools yang Dikuasai',
+  'Koleksi Portofolio Rekayasa Perangkat Lunak': 'Karya & Proyek Terpilih',
+  'Apresiasi Akademik dan Lisensi Profesional': 'Sertifikasi & Lisensi',
+  'Rekam Jejak Kolaborasi dan Kontribusi': 'Riwayat Kerja & Organisasi',
+  'Mari Berkolaborasi Membangun Solusi Digital': 'Informasi Kontak & Media Sosial',
+};
+
+function migrateSubtitlesAndContact(store: ContentStoreState): boolean {
+  let changed = false;
+  const updateSections = (sections?: SectionSetting[]) => {
+    if (!sections) return;
+    sections.forEach((sec) => {
+      if (sec.subtitle && SUBTITLE_MIGRATION[sec.subtitle]) {
+        sec.subtitle = SUBTITLE_MIGRATION[sec.subtitle];
+        changed = true;
+      }
+    });
+  };
+
+  const updateContact = (settings?: SiteSettingsMap) => {
+    if (!settings?.contact_info) return;
+    if (settings.contact_info.cta_heading === 'Tertarik Membangun Sesuatu yang Hebat Bersama?') {
+      settings.contact_info.cta_heading = 'Hubungi Saya Langsung';
+      changed = true;
+    }
+    if (
+      settings.contact_info.cta_subtext?.includes('peluang magang') ||
+      settings.contact_info.cta_subtext?.includes('visi pengembangan')
+    ) {
+      settings.contact_info.cta_subtext =
+        'Ingin bertanya seputar proyek, mendiskusikan peluang kerja sama, atau sekadar bertukar pengalaman? Anda bisa langsung menghubungi saya lewat kontak di bawah.';
+      changed = true;
+    }
+  };
+
+  updateSections(store.published?.sections);
+  updateSections(store.draft?.sections);
+  updateContact(store.published?.settings);
+  updateContact(store.draft?.settings);
+
+  return changed;
+}
+
 function getDefaultStore(): ContentStoreState {
   const baseContent: WebsiteContent = {
     profile: { ...INITIAL_PROFILE },
@@ -1804,6 +1849,9 @@ function loadFromStorage(): ContentStoreState {
     if (raw) {
       const parsed = JSON.parse(raw);
       if (parsed && parsed.draft && parsed.published) {
+        if (migrateSubtitlesAndContact(parsed)) {
+          saveToStorage(parsed);
+        }
         memoryStore = parsed;
         return memoryStore;
       }

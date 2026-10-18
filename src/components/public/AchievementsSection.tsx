@@ -12,7 +12,7 @@ interface AchievementsSectionProps {
 export function AchievementsSection({
   achievements,
   title = 'Sertifikat & Pencapaian',
-  subtitle = 'Apresiasi Akademik dan Lisensi Profesional',
+  subtitle = 'Sertifikasi & Lisensi',
 }: AchievementsSectionProps) {
   if (achievements.length === 0) return null;
 

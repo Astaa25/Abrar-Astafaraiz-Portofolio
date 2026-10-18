@@ -47,7 +47,7 @@ interface SkillsSectionProps {
 export function SkillsSection({
   skills,
   title = 'Keahlian & Teknologi',
-  subtitle = 'Kompetensi Teknis dan Alat Pengembangan',
+  subtitle = 'Teknologi & Tools yang Dikuasai',
 }: SkillsSectionProps) {
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [isExpanded, setIsExpanded] = useState<boolean>(false);

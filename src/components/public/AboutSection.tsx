@@ -25,7 +25,7 @@ interface AboutSectionProps {
 export function AboutSection({
   profile,
   title = 'Tentang Saya',
-  subtitle = 'Mengenal Latar Belakang & Fokus Profesional',
+  subtitle = 'Latar Belakang & Profil Singkat',
   highlights,
 }: AboutSectionProps) {
   const getHighlightIcon = (iconName?: string) => {

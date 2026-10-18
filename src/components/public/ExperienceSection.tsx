@@ -12,7 +12,7 @@ interface ExperienceSectionProps {
 export function ExperienceSection({
   experiences,
   title = 'Pengalaman & Organisasi',
-  subtitle = 'Rekam Jejak Kolaborasi dan Kontribusi',
+  subtitle = 'Riwayat Kerja & Organisasi',
 }: ExperienceSectionProps) {
   if (experiences.length === 0) return null;
 
@@ -54,6 +54,26 @@ export function ExperienceSection({
                     <Briefcase className="w-4 h-4" />
                   </div>
 
+                  {/* Opposite Column: Jangka Waktu / Time Range Display */}
+                  <div
+                    className={`hidden sm:flex flex-col w-full sm:w-1/2 ${
+                      isEven ? 'items-end pr-10 text-right' : 'items-start pl-10 text-left'
+                    }`}
+                  >
+                    <span className="text-[11px] font-bold text-[#5846DE] dark:text-[#A99BFF] uppercase tracking-wider">
+                      Jangka Waktu
+                    </span>
+                    <span className="text-xl sm:text-2xl font-extrabold text-[#181A2A] dark:text-[#F5F3FF] mt-1">
+                      {exp.start_date} — {exp.is_current ? 'Sekarang' : exp.end_date || '-'}
+                    </span>
+                    <div className="mt-2">
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#EAE7FF] text-[#5846DE] dark:bg-[#302B4D] dark:text-[#A99BFF] border border-[#D4D6E6] dark:border-[#353449]">
+                        <Calendar className="w-3.5 h-3.5" />
+                        <span>{exp.is_current ? 'Posisi Aktif (Berjalan)' : 'Selesai'}</span>
+                      </span>
+                    </div>
+                  </div>
+
                   {/* Card Content Container */}
                   <div className={`w-full sm:w-1/2 ${isEven ? 'sm:pl-10' : 'sm:pr-10'}`}>
                     <div className="p-6 rounded-2xl bg-[#F7F8FC] dark:bg-[#1B1C2A] border border-[#D4D6E6] dark:border-[#353449] hover:border-[#6C5CE7] dark:hover:border-[#A99BFF]/50 shadow-xs hover:shadow-md transition-all">
@@ -61,10 +81,11 @@ export function ExperienceSection({
                         <span className="text-xs font-bold text-[#5846DE] dark:text-[#A99BFF]">
                           {exp.organization}
                         </span>
-                        <div className="flex items-center gap-1.5 text-xs font-semibold text-[#4F526B] dark:text-[#9A99B5]">
-                          <Calendar className="w-3.5 h-3.5" />
+                        {/* Mobile & In-card Date Range Badge */}
+                        <div className="flex items-center gap-1.5 text-xs font-semibold text-[#4F526B] dark:text-[#9A99B5] bg-white dark:bg-[#10111B] px-2.5 py-1 rounded-lg border border-[#E6E7F0] dark:border-[#353449]">
+                          <Calendar className="w-3.5 h-3.5 text-[#5846DE] dark:text-[#A99BFF]" />
                           <span>
-                            {exp.start_date} - {exp.is_current ? 'Sekarang' : exp.end_date || '-'}
+                            {exp.start_date} — {exp.is_current ? 'Sekarang' : exp.end_date || '-'}
                           </span>
                         </div>
                       </div>
