@@ -1,0 +1,2080 @@
+{
+  "published": {
+    "profile": {
+      "id": "a0000000-0000-0000-0000-000000000001",
+      "display_name": "Abrar Astafaraiz",
+      "headline": "Full-Stack Developer | Web & Software Development",
+      "short_bio": "Mahasiswa Teknik Informatika dengan dedikasi tinggi dalam rekayasa perangkat lunak, pengembangan web modern, dan arsitektur database.",
+      "about_content": "Halo! Saya Abrar Astafaraiz, mahasiswa Teknik Informatika dengan dedikasi tinggi dalam software engineering dan modern web development. Saya berfokus pada perancangan dan implementasi aplikasi yang aman, skalabel, serta berorientasi pada kepuasan pengguna. Melalui berbagai proyek akademik dan kolaboratif, saya terbiasa memecahkan masalah kompleks dengan pendekatan rekayasa perangkat lunak yang sistematis.",
+      "profile_image_path": "/images/profile-avatar.webp",
+      "hero_image_path": "/images/hero-visual.webp",
+      "tagline": "Informatics Engineer & Full-Stack Architect.",
+      "primary_cta_label": "Lihat Proyek",
+      "primary_cta_target": "#projects",
+      "secondary_cta_label": "Hubungi Saya",
+      "secondary_cta_target": "#contact",
+      "updated_at": "2026-10-18T14:47:00.076Z"
+    },
+    "skills": [
+      {
+        "id": "sk-1",
+        "name": "TypeScript",
+        "category": "Programming Languages",
+        "description": "Static typing for scalable modern web applications and robust architectures",
+        "icon_name": "Code2",
+        "proficiency_label": "Proficient",
+        "sort_order": 1,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-2",
+        "name": "JavaScript",
+        "category": "Programming Languages",
+        "description": "Core scripting for frontend interactivity, event-driven DOM, and backend APIs",
+        "icon_name": "FileCode2",
+        "proficiency_label": "Advanced",
+        "sort_order": 2,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-3",
+        "name": "Next.js",
+        "category": "Web Development",
+        "description": "Full-stack React framework with App Router, SSR, Turbopack, and Server Actions",
+        "icon_name": "Layers",
+        "proficiency_label": "Advanced",
+        "sort_order": 3,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-4",
+        "name": "React",
+        "category": "Web Development",
+        "description": "Component-driven interactive UI engineering with hooks and state management",
+        "icon_name": "Atom",
+        "proficiency_label": "Advanced",
+        "sort_order": 4,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-5",
+        "name": "Node.js & Express",
+        "category": "Web Development",
+        "description": "High-performance event-driven runtime and RESTful API backend architecture",
+        "icon_name": "Server",
+        "proficiency_label": "Proficient",
+        "sort_order": 5,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-6",
+        "name": "Python",
+        "category": "Programming Languages",
+        "description": "Data processing, scripting, backend development, and AI/automation scripts",
+        "icon_name": "Terminal",
+        "proficiency_label": "Proficient",
+        "sort_order": 6,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-7",
+        "name": "PHP & Laravel",
+        "category": "Web Development",
+        "description": "Robust MVC backend web application development and Eloquent ORM",
+        "icon_name": "FileCode",
+        "proficiency_label": "Proficient",
+        "sort_order": 7,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-8",
+        "name": "C++",
+        "category": "Programming Languages",
+        "description": "Algorithmic problem solving, low-level data structures, and computer science foundations",
+        "icon_name": "Cpu",
+        "proficiency_label": "Familiar",
+        "sort_order": 8,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-11",
+        "name": "Tailwind CSS",
+        "category": "Web Development",
+        "description": "Utility-first modern styling, responsive layouts, and dynamic themes",
+        "icon_name": "Palette",
+        "proficiency_label": "Advanced",
+        "sort_order": 11,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-12",
+        "name": "PostgreSQL",
+        "category": "Database Management",
+        "description": "Advanced relational schema modeling, indexing, foreign keys, and complex queries",
+        "icon_name": "Database",
+        "proficiency_label": "Proficient",
+        "sort_order": 12,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-13",
+        "name": "Supabase",
+        "category": "Database Management",
+        "description": "BaaS: Auth, Realtime Postgres, Storage, and Row Level Security (RLS)",
+        "icon_name": "ShieldCheck",
+        "proficiency_label": "Proficient",
+        "sort_order": 13,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-14",
+        "name": "MySQL",
+        "category": "Database Management",
+        "description": "Relational data management, database normalization, and query optimization",
+        "icon_name": "DatabaseZap",
+        "proficiency_label": "Proficient",
+        "sort_order": 14,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-17",
+        "name": "Git & GitHub",
+        "category": "Tools & Platforms",
+        "description": "Version control, branch workflows, pull requests, and collaboration",
+        "icon_name": "GitBranch",
+        "proficiency_label": "Advanced",
+        "sort_order": 17,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-18",
+        "name": "Docker",
+        "category": "Tools & Platforms",
+        "description": "Containerization, Dockerfile configuration, and consistent development environments",
+        "icon_name": "Box",
+        "proficiency_label": "Familiar",
+        "sort_order": 18,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-19",
+        "name": "Cisco Packet Tracer",
+        "category": "Network & Security",
+        "description": "Simulasi dan perancangan topologi jaringan skala LAN, MAN, hingga WAN",
+        "icon_name": "Network",
+        "proficiency_label": "Advanced",
+        "sort_order": 19,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-20",
+        "name": "Mikrotik RouterOS",
+        "category": "Network & Security",
+        "description": "Konfigurasi routing, firewall filter, bandwidth queue management, dan hotspot gateway",
+        "icon_name": "Router",
+        "proficiency_label": "Proficient",
+        "sort_order": 20,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-21",
+        "name": "Wireshark",
+        "category": "Network & Security",
+        "description": "Analisis protokol paket data jaringan (TCP/IP, UDP, DNS, HTTP) dan troubleshooting koneksi",
+        "icon_name": "Activity",
+        "proficiency_label": "Proficient",
+        "sort_order": 21,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-22",
+        "name": "Routing & Switching",
+        "category": "Network & Security",
+        "description": "Implementasi VLAN, Trunking, Spanning Tree Protocol (STP), OSPF, RIP, dan BGP routing",
+        "icon_name": "Network",
+        "proficiency_label": "Proficient",
+        "sort_order": 22,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-23",
+        "name": "Network Security & Firewall",
+        "category": "Network & Security",
+        "description": "Keamanan jaringan, IDS/IPS, konfigurasi NAT, VPN (OpenVPN, WireGuard), dan access control list",
+        "icon_name": "ShieldAlert",
+        "proficiency_label": "Proficient",
+        "sort_order": 23,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-24",
+        "name": "Linux Server Administration",
+        "category": "Network & Security",
+        "description": "Pengelolaan Ubuntu Server, Debian, Nginx/Apache web server, SSH, DNS, dan Bash script",
+        "icon_name": "TerminalSquare",
+        "proficiency_label": "Advanced",
+        "sort_order": 24,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-29",
+        "name": "Figma",
+        "category": "UI/UX Design",
+        "description": "UI/UX design, wireframing, high-fidelity interactive prototyping, and design tokens",
+        "icon_name": "Layout",
+        "proficiency_label": "Advanced",
+        "sort_order": 29,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-30",
+        "name": "Adobe Photoshop",
+        "category": "UI/UX Design",
+        "description": "Pengolahan citra digital, manipulasi raster grafis, retouching foto, dan komposisi visual",
+        "icon_name": "Image",
+        "proficiency_label": "Proficient",
+        "sort_order": 30,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-31",
+        "name": "Adobe Illustrator",
+        "category": "UI/UX Design",
+        "description": "Pembuatan grafis vektor, desain logo, ikon antarmuka, dan branding visual presisi",
+        "icon_name": "PenTool",
+        "proficiency_label": "Proficient",
+        "sort_order": 31,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-32",
+        "name": "Adobe Premiere Pro",
+        "category": "UI/UX Design",
+        "description": "Editing video profesional, timeline trimming, color correction Lumetri, dan mixing audio",
+        "icon_name": "Video",
+        "proficiency_label": "Proficient",
+        "sort_order": 32,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-53",
+        "name": "CI/CD Pipelines (GitHub Actions)",
+        "category": "Tools & Platforms",
+        "description": "Automasi pengujian, build, linting, dan continuous deployment ke server produksi",
+        "icon_name": "GitBranch",
+        "proficiency_label": "Proficient",
+        "sort_order": 53,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-55",
+        "name": "Unit & Integration Testing (Jest/Vitest)",
+        "category": "Tools & Platforms",
+        "description": "Pengujian kode otomatis untuk memastikan keandalan fungsi, regresi, dan clean architecture",
+        "icon_name": "ShieldCheck",
+        "proficiency_label": "Proficient",
+        "sort_order": 55,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-57",
+        "name": "Vite & Webpack",
+        "category": "Tools & Platforms",
+        "description": "Modern frontend build tool, Hot Module Replacement (HMR), dan bundling aset produksi",
+        "icon_name": "Zap",
+        "proficiency_label": "Advanced",
+        "sort_order": 57,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-62",
+        "name": "LLM & AI Prompt Engineering",
+        "category": "Tools & Platforms",
+        "description": "Integrasi model bahasa besar (OpenAI, Gemini API, Claude) dan Retrieval-Augmented Generation (RAG)",
+        "icon_name": "Terminal",
+        "proficiency_label": "Proficient",
+        "sort_order": 62,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-63",
+        "name": "pfSense & OPNsense",
+        "category": "Network & Security",
+        "description": "Implementasi firewall tingkat lanjut, traffic shaper, captive portal, dan gateway keamanan",
+        "icon_name": "ShieldAlert",
+        "proficiency_label": "Proficient",
+        "sort_order": 63,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-64",
+        "name": "OpenVPN & WireGuard",
+        "category": "Network & Security",
+        "description": "Konfigurasi virtual private network (VPN) terenkripsi untuk akses jarak jauh yang aman",
+        "icon_name": "ShieldCheck",
+        "proficiency_label": "Advanced",
+        "sort_order": 64,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-65",
+        "name": "Nginx & Reverse Proxy",
+        "category": "Network & Security",
+        "description": "Web server berkinerja tinggi, load balancer, SSL/TLS certificate management, dan caching",
+        "icon_name": "Server",
+        "proficiency_label": "Advanced",
+        "sort_order": 65,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-67",
+        "name": "DHCP & IP Subnetting (CIDR)",
+        "category": "Network & Security",
+        "description": "Alokasi alamat IP dinamis, reservasi MAC, pembagian subnetting VLSM dan supernetting",
+        "icon_name": "Network",
+        "proficiency_label": "Advanced",
+        "sort_order": 67,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-74",
+        "name": "Cloudflare WAF & CDN",
+        "category": "Network & Security",
+        "description": "Pengaturan keamanan Web Application Firewall (WAF), mitigasi DDoS, dan caching edge global",
+        "icon_name": "ShieldCheck",
+        "proficiency_label": "Advanced",
+        "sort_order": 74,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z"
+      },
+      {
+        "id": "sk-75",
+        "name": "AWS Cloud (EC2, S3, VPC)",
+        "category": "Database Management",
+        "description": "Arsitektur cloud publik Amazon Web Services: virtual instance, routing VPC, dan cloud storage",
+        "icon_name": "Server",
+        "proficiency_label": "Proficient",
+        "sort_order": 75,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z"
+      },
+      {
+        "id": "sk-80",
+        "name": "Wireless Networking (WLAN 802.11)",
+        "category": "Network & Security",
+        "description": "Perencanaan frekuensi 2.4GHz/5GHz, site survey WiFi, WPA3 Enterprise, dan roaming access point",
+        "icon_name": "Network",
+        "proficiency_label": "Proficient",
+        "sort_order": 80,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z"
+      },
+      {
+        "id": "sk-82",
+        "name": "Framer Motion & Web Animation",
+        "category": "Web Development",
+        "description": "Animasi antarmuka web interaktif yang halus dengan spring physics dan micro-interaction",
+        "icon_name": "Palette",
+        "proficiency_label": "Advanced",
+        "sort_order": 82,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z"
+      },
+      {
+        "id": "sk-93",
+        "name": "OBS Studio (Broadcasting)",
+        "category": "UI/UX Design",
+        "description": "Setup streaming live profesional, mixing audio-visual multi-source, dan encoding video RTMP",
+        "icon_name": "Video",
+        "proficiency_label": "Advanced",
+        "sort_order": 93,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z"
+      },
+      {
+        "id": "sk-95",
+        "name": "CapCut Pro & Creative Editing",
+        "category": "UI/UX Design",
+        "description": "Produksi video pendek viral, transisi dinamis, auto-captioning, dan format mobile vertical",
+        "icon_name": "Video",
+        "proficiency_label": "Advanced",
+        "sort_order": 95,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z"
+      },
+      {
+        "id": "sk-96",
+        "name": "Design Systems & UI Token",
+        "category": "UI/UX Design",
+        "description": "Penyusunan komponen desain terstandarisasi, token warna, tipografi, dan konsistensi UX",
+        "icon_name": "Layout",
+        "proficiency_label": "Advanced",
+        "sort_order": 96,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z"
+      }
+    ],
+    "projects": [
+      {
+        "id": "b-1",
+        "title": "Personal Portfolio & Content Management System",
+        "slug": "personal-portfolio-cms",
+        "short_description": "Website portofolio dinamis dengan dashboard CMS terpadu berbasis Next.js App Router dan Supabase.",
+        "full_description": "Platform portofolio digital komprehensif yang dirancang untuk menampilkan profil, keterampilan, pengalaman, dan proyek secara elegan dengan visual Aurora Violet. Dilengkapi dengan dashboard admin Lavender Studio untuk mengelola seluruh konten secara dinamis tanpa perlu redeploy kode. Sistem mendukung workflow draft, preview privat, publikasi berversi, optimasi gambar, dan Row Level Security.",
+        "year": "2026",
+        "category": "Web Development",
+        "technologies": [
+          "Next.js",
+          "TypeScript",
+          "Tailwind CSS",
+          "Supabase",
+          "Framer Motion"
+        ],
+        "cover_image_path": "/images/projects/portfolio-cms-cover.webp",
+        "project_url": "https://abrar-astafaraiz.vercel.app",
+        "project_url_enabled": true,
+        "is_featured": true,
+        "is_visible": true,
+        "sort_order": 1,
+        "publication_status": "published",
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z",
+        "published_at": "2026-10-18T14:47:00.078Z",
+        "images": [
+          {
+            "id": "img-1-1",
+            "project_id": "b-1",
+            "storage_path": "/images/projects/portfolio-cms-cover.webp",
+            "alt_text": "Tampilan Halaman Utama Portofolio",
+            "caption": "Desain responsif website publik dengan palet Aurora Violet",
+            "sort_order": 1,
+            "created_at": "2026-10-18T14:47:00.078Z"
+          },
+          {
+            "id": "img-1-2",
+            "project_id": "b-1",
+            "storage_path": "/images/projects/portfolio-admin-preview.webp",
+            "alt_text": "Dashboard Manajemen Lavender Studio",
+            "caption": "Panel admin untuk manajemen profil, keterampilan, dan proyek",
+            "sort_order": 2,
+            "created_at": "2026-10-18T14:47:00.078Z"
+          },
+          {
+            "id": "img-1-3",
+            "project_id": "b-1",
+            "storage_path": "/images/projects/portfolio-modal-preview.webp",
+            "alt_text": "Detail Interaktif & Carousel",
+            "caption": "Modal proyek dengan navigasi keyboard, touch swipe, dan informasi komprehensif",
+            "sort_order": 3,
+            "created_at": "2026-10-18T14:47:00.078Z"
+          }
+        ]
+      },
+      {
+        "id": "b-2",
+        "title": "Sistem Kasir Restoran Berbasis Web",
+        "slug": "sistem-kasir-restoran",
+        "short_description": "Aplikasi Point of Sale (POS) restoran dengan pencatatan transaksi real-time, manajemen meja, dan laporan keuangan.",
+        "full_description": "Sistem Point of Sale web modern yang mengotomatisasi proses pemesanan menu, pembagian nomor meja, kalkulasi pajak, diskon, cetak struk transaksi, dan pembuatan rekap laporan penjualan harian dan bulanan secara akurat.",
+        "year": "2025",
+        "category": "Web Development",
+        "technologies": [
+          "React",
+          "Node.js",
+          "Express",
+          "PostgreSQL",
+          "Tailwind CSS"
+        ],
+        "cover_image_path": "/images/projects/pos-restoran-cover.webp",
+        "project_url": "https://pos-restoran.demo.app",
+        "project_url_enabled": false,
+        "is_featured": true,
+        "is_visible": true,
+        "sort_order": 2,
+        "publication_status": "published",
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z",
+        "published_at": "2026-10-18T14:47:00.078Z",
+        "images": [
+          {
+            "id": "img-2-1",
+            "project_id": "b-2",
+            "storage_path": "/images/projects/pos-restoran-cover.webp",
+            "alt_text": "Antarmuka Kasir Restoran",
+            "caption": "Katalog menu interaktif dan panel pemesanan meja kasir",
+            "sort_order": 1,
+            "created_at": "2026-10-18T14:47:00.078Z"
+          },
+          {
+            "id": "img-2-2",
+            "project_id": "b-2",
+            "storage_path": "/images/projects/pos-report-preview.webp",
+            "alt_text": "Laporan Keuangan & Struk",
+            "caption": "Statistik omzet harian dan cetak struk otomatis",
+            "sort_order": 2,
+            "created_at": "2026-10-18T14:47:00.078Z"
+          }
+        ]
+      },
+      {
+        "id": "b-3",
+        "title": "ASTRACK",
+        "slug": "astrack-asset-tracking",
+        "short_description": "Sistem manajemen pelacakan aset dan inventaris perangkat laboratorium berbasis web.",
+        "full_description": "ASTRACK memfasilitasi pencatatan inventaris perangkat keras, pelacakan histori peminjaman, monitoring status kondisi perangkat, serta penjadwalan pemeliharaan berkala guna mencegah kehilangan aset laboratorium.",
+        "year": "2025",
+        "category": "Software Development",
+        "technologies": [
+          "TypeScript",
+          "Next.js",
+          "Tailwind CSS",
+          "PostgreSQL",
+          "Prisma"
+        ],
+        "cover_image_path": "/images/projects/astrack-cover.webp",
+        "project_url": "https://astrack.demo.app",
+        "project_url_enabled": false,
+        "is_featured": true,
+        "is_visible": true,
+        "sort_order": 3,
+        "publication_status": "published",
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z",
+        "published_at": "2026-10-18T14:47:00.078Z",
+        "images": [
+          {
+            "id": "img-3-1",
+            "project_id": "b-3",
+            "storage_path": "/images/projects/astrack-cover.webp",
+            "alt_text": "Dashboard Inventaris ASTRACK",
+            "caption": "Monitoring ketersediaan perangkat keras dan peralatan laboratorium",
+            "sort_order": 1,
+            "created_at": "2026-10-18T14:47:00.078Z"
+          }
+        ]
+      },
+      {
+        "id": "b-4",
+        "title": "BICHAMP",
+        "slug": "bichamp-tournament-platform",
+        "short_description": "Platform manajemen kompetisi dan turnamen olahraga dengan bagan pertandingan interaktif.",
+        "full_description": "BICHAMP menyediakan pengelolaan turnamen mulai dari pendaftaran tim, pengundian bagan (bracket elimination & round-robin), pembaruan skor langsung, hingga pengumuman klasemen secara real-time.",
+        "year": "2024",
+        "category": "Web Development",
+        "technologies": [
+          "Next.js",
+          "Tailwind CSS",
+          "Supabase",
+          "TypeScript"
+        ],
+        "cover_image_path": "/images/projects/bichamp-cover.webp",
+        "project_url": "https://bichamp.demo.app",
+        "project_url_enabled": false,
+        "is_featured": false,
+        "is_visible": true,
+        "sort_order": 4,
+        "publication_status": "published",
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z",
+        "published_at": "2026-10-18T14:47:00.078Z",
+        "images": [
+          {
+            "id": "img-4-1",
+            "project_id": "b-4",
+            "storage_path": "/images/projects/bichamp-cover.webp",
+            "alt_text": "Turnamen Bracket BICHAMP",
+            "caption": "Bagan eliminasi interaktif dengan kalkulasi otomatis",
+            "sort_order": 1,
+            "created_at": "2026-10-18T14:47:00.078Z"
+          }
+        ]
+      },
+      {
+        "id": "b-5",
+        "title": "MOTOCARE",
+        "slug": "motocare-service-booking",
+        "short_description": "Aplikasi web manajemen servis dan pemeliharaan kendaraan bermotor dengan sistem booking jadwal.",
+        "full_description": "MOTOCARE memudahkan pemilik kendaraan dalam mereservasi jadwal servis bengkel, memantau estimasi biaya perbaikan dan sparepart, serta menerima notifikasi pengingat servis rutin berkala.",
+        "year": "2024",
+        "category": "Web Development",
+        "technologies": [
+          "React",
+          "PHP",
+          "MySQL",
+          "Bootstrap",
+          "JavaScript"
+        ],
+        "cover_image_path": "/images/projects/motocare-cover.webp",
+        "project_url": "https://motocare.demo.app",
+        "project_url_enabled": false,
+        "is_featured": false,
+        "is_visible": true,
+        "sort_order": 5,
+        "publication_status": "published",
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z",
+        "published_at": "2026-10-18T14:47:00.078Z",
+        "images": [
+          {
+            "id": "img-5-1",
+            "project_id": "b-5",
+            "storage_path": "/images/projects/motocare-cover.webp",
+            "alt_text": "MOTOCARE Booking Portal",
+            "caption": "Antarmuka reservasi antrean servis kendaraan bengkel",
+            "sort_order": 1,
+            "created_at": "2026-10-18T14:47:00.078Z"
+          }
+        ]
+      },
+      {
+        "id": "b-6",
+        "title": "Sistem Absensi Digital Expo Wisuda Jurusan TIK",
+        "slug": "absensi-expo-wisuda-tik",
+        "short_description": "Sistem presensi cepat menggunakan QR Code dan verifikasi digital untuk pengunjung Expo Wisuda.",
+        "full_description": "Sistem presensi digital yang dirancang untuk menangani lonjakan ribuan pengunjung acara Expo Wisuda TIK secara cepat. Menggunakan pemindaian barcode/QR Code terenkripsi untuk meminimalkan antrean dan menyediakan rekapitulasi data demografi pengunjung secara instan.",
+        "year": "2024",
+        "category": "Web Development",
+        "technologies": [
+          "JavaScript",
+          "HTML5",
+          "Node.js",
+          "MySQL",
+          "Tailwind CSS"
+        ],
+        "cover_image_path": "/images/projects/absensi-expo-cover.webp",
+        "project_url": "https://expo-tik.demo.app",
+        "project_url_enabled": false,
+        "is_featured": false,
+        "is_visible": true,
+        "sort_order": 6,
+        "publication_status": "published",
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z",
+        "published_at": "2026-10-18T14:47:00.078Z",
+        "images": [
+          {
+            "id": "img-6-1",
+            "project_id": "b-6",
+            "storage_path": "/images/projects/absensi-expo-cover.webp",
+            "alt_text": "Presensi Digital QR Expo",
+            "caption": "Pemindai kamera QR instan pada gerbang masuk Expo",
+            "sort_order": 1,
+            "created_at": "2026-10-18T14:47:00.078Z"
+          }
+        ]
+      },
+      {
+        "id": "b-7",
+        "title": "Sistem Absensi dan Monitoring Aktivitas Santri",
+        "slug": "absensi-monitoring-santri",
+        "short_description": "Platform pencatatan kehadiran, kedisiplinan, dan laporan perkembangan santri berbasis web.",
+        "full_description": "Aplikasi pemantauan santri yang mengintegrasikan pencatatan kehadiran salat berjamaah, kegiatan halaqah tahfiz, serta catatan kepribadian dan perizinan pulang. Informasi dapat diakses pengurus dan wali santri secara transparan.",
+        "year": "2024",
+        "category": "Web Development",
+        "technologies": [
+          "PHP",
+          "Laravel",
+          "MySQL",
+          "Bootstrap",
+          "JavaScript"
+        ],
+        "cover_image_path": "/images/projects/absensi-santri-cover.webp",
+        "project_url": "https://santri-monitor.demo.app",
+        "project_url_enabled": false,
+        "is_featured": false,
+        "is_visible": true,
+        "sort_order": 7,
+        "publication_status": "published",
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z",
+        "published_at": "2026-10-18T14:47:00.078Z",
+        "images": [
+          {
+            "id": "img-7-1",
+            "project_id": "b-7",
+            "storage_path": "/images/projects/absensi-santri-cover.webp",
+            "alt_text": "Dashboard Monitoring Santri",
+            "caption": "Rekap kehadiran hafalan Al-Qur’an dan absensi harian",
+            "sort_order": 1,
+            "created_at": "2026-10-18T14:47:00.078Z"
+          }
+        ]
+      }
+    ],
+    "achievements": [
+      {
+        "id": "ach-1",
+        "title": "Juara 1 Software Development Competition",
+        "organizer": "Himpunan Mahasiswa Teknik Informatika",
+        "achievement_date": "2025",
+        "description": "Meraih peringkat pertama dalam kompetisi perancangan dan implementasi solusi perangkat lunak inovatif tingkat mahasiswa.",
+        "image_path": "/images/achievements/cert-competition.webp",
+        "verification_url": "https://certificate.verification.url/sample1",
+        "category": "Award",
+        "sort_order": 1,
+        "is_visible": true,
+        "publication_status": "published",
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z"
+      },
+      {
+        "id": "ach-2",
+        "title": "Certified Web Developer: Modern Frontend & Backend",
+        "organizer": "Dicoding Academy Indonesia",
+        "achievement_date": "2025",
+        "description": "Sertifikasi kompetensi pengembangan aplikasi web berskala enterprise menggunakan JavaScript, Next.js, dan RESTful architecture.",
+        "image_path": "/images/achievements/cert-dicoding.webp",
+        "verification_url": "https://www.dicoding.com/certificates/sample",
+        "category": "Certification",
+        "sort_order": 2,
+        "is_visible": true,
+        "publication_status": "published",
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z"
+      },
+      {
+        "id": "ach-3",
+        "title": "Database Engineering & Cloud Foundations",
+        "organizer": "Cisco Networking Academy",
+        "achievement_date": "2024",
+        "description": "Kompetensi perancangan skema relasional, optimasi query SQL, serta konfigurasi keamanan data dan basis komputasi awan.",
+        "image_path": "/images/achievements/cert-cisco.webp",
+        "verification_url": "https://cisco.credential.net/sample",
+        "category": "Certification",
+        "sort_order": 3,
+        "is_visible": true,
+        "publication_status": "published",
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z"
+      }
+    ],
+    "experiences": [
+      {
+        "id": "exp-1",
+        "position": "Koordinator Divisi Riset & Pengembangan Web",
+        "organization": "Himpunan Mahasiswa Teknik Informatika",
+        "start_date": "2024",
+        "end_date": null,
+        "is_current": true,
+        "description": "Memimpin tim teknis dalam pengembangan website himpunan, platform informasi kegiatan akademik, dan workshop coding bagi mahasiswa baru.",
+        "responsibilities": [
+          "Mengkoordinasikan tim pengembangan web dan arsitektur database proyek mahasiswa",
+          "Mengadakan pelatihan dasar pemrograman web dan Git collaboration untuk 50+ peserta",
+          "Merancang standarisasi kode dan code review internal himpunan"
+        ],
+        "logo_path": "/images/experience/hmti-logo.webp",
+        "sort_order": 1,
+        "is_visible": true,
+        "publication_status": "published",
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z"
+      },
+      {
+        "id": "exp-2",
+        "position": "Full-Stack Developer (Proyek Kolaboratif)",
+        "organization": "Lab Rekayasa Perangkat Lunak TIK",
+        "start_date": "2024",
+        "end_date": "2025",
+        "is_current": false,
+        "description": "Berkontribusi dalam riset dan implementasi sistem informasi absensi dan pelacakan aset laboratorium jurusan.",
+        "responsibilities": [
+          "Mengembangkan modul frontend interaktif berbasis React dan Tailwind CSS",
+          "Mengintegrasikan API backend PostgreSQL dengan keamanan autentikasi berbasis token",
+          "Melakukan uji fungsionalitas dan pemeliharaan performa sistem"
+        ],
+        "logo_path": "/images/experience/lab-logo.webp",
+        "sort_order": 2,
+        "is_visible": true,
+        "publication_status": "published",
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z"
+      }
+    ],
+    "socialLinks": [
+      {
+        "id": "soc-1",
+        "platform": "github",
+        "label": "GitHub",
+        "url": "https://github.com/abrar-astafaraiz",
+        "icon_name": "Github",
+        "sort_order": 1,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z"
+      },
+      {
+        "id": "soc-2",
+        "platform": "linkedin",
+        "label": "LinkedIn",
+        "url": "https://linkedin.com/in/abrar-astafaraiz",
+        "icon_name": "Linkedin",
+        "sort_order": 2,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z"
+      },
+      {
+        "id": "soc-3",
+        "platform": "instagram",
+        "label": "Instagram",
+        "url": "https://instagram.com/abrar_astafaraiz",
+        "icon_name": "Instagram",
+        "sort_order": 3,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z"
+      },
+      {
+        "id": "soc-4",
+        "platform": "email",
+        "label": "Email",
+        "url": "mailto:abrar.astafaraiz@gmail.com",
+        "icon_name": "Mail",
+        "sort_order": 4,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z"
+      }
+    ],
+    "sections": [
+      {
+        "id": "s-1",
+        "section_key": "hero",
+        "title": "Beranda",
+        "subtitle": "Pengantar Singkat",
+        "nav_label": "Home",
+        "is_visible": true,
+        "show_in_nav": true,
+        "sort_order": 1,
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "s-2",
+        "section_key": "about",
+        "title": "Tentang Saya",
+        "subtitle": "Latar Belakang & Profil Singkat",
+        "nav_label": "About",
+        "is_visible": true,
+        "show_in_nav": true,
+        "sort_order": 2,
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "s-3",
+        "section_key": "skills",
+        "title": "Keahlian & Teknologi",
+        "subtitle": "Teknologi & Tools yang Dikuasai",
+        "nav_label": "Skills",
+        "is_visible": true,
+        "show_in_nav": true,
+        "sort_order": 3,
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "s-4",
+        "section_key": "projects",
+        "title": "Proyek Pilihan",
+        "subtitle": "Karya & Proyek Terpilih",
+        "nav_label": "Projects",
+        "is_visible": true,
+        "show_in_nav": true,
+        "sort_order": 4,
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "s-5",
+        "section_key": "achievements",
+        "title": "Sertifikat & Pencapaian",
+        "subtitle": "Sertifikasi & Lisensi",
+        "nav_label": "Achievements",
+        "is_visible": true,
+        "show_in_nav": true,
+        "sort_order": 5,
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "s-6",
+        "section_key": "experience",
+        "title": "Pengalaman & Organisasi",
+        "subtitle": "Riwayat Kerja & Organisasi",
+        "nav_label": "Experience",
+        "is_visible": true,
+        "show_in_nav": true,
+        "sort_order": 6,
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "s-7",
+        "section_key": "contact",
+        "title": "Hubungi Saya",
+        "subtitle": "Informasi Kontak & Media Sosial",
+        "nav_label": "Contact",
+        "is_visible": true,
+        "show_in_nav": true,
+        "sort_order": 7,
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      }
+    ],
+    "settings": {
+      "appearance": {
+        "default_public_theme": "light",
+        "animations_enabled": true,
+        "animation_intensity": "standard",
+        "hero_gradient": "aurora"
+      },
+      "seo": {
+        "site_title": "Abrar Astafaraiz | Personal Website",
+        "meta_description": "Personal website of Abrar Astafaraiz, showcasing software development projects, technical skills, experience, and professional achievements.",
+        "canonical_url": "https://abrar-astafaraiz.vercel.app",
+        "og_title": "Abrar Astafaraiz — Full-Stack Developer Portfolio",
+        "og_description": "Building Digital Experiences Through Code. Explore web engineering projects, certifications, and technical proficiencies.",
+        "og_image": "/images/og-image.webp",
+        "robots": "index, follow"
+      },
+      "contact_info": {
+        "email": "abrar.astafaraiz@gmail.com",
+        "location": "Indonesia",
+        "cta_heading": "Hubungi Saya Langsung",
+        "cta_subtext": "Ingin bertanya seputar proyek, mendiskusikan peluang kerja sama, atau sekadar bertukar pengalaman? Anda bisa langsung menghubungi saya lewat kontak di bawah.",
+        "footer_text": "© 2026 Abrar Astafaraiz. All rights reserved. Crafted with Next.js & Supabase."
+      },
+      "about_highlights": [
+        {
+          "id": "ah-1",
+          "icon_name": "GraduationCap",
+          "title": "Pendidikan Akademik",
+          "description": "Mahasiswa Teknik Informatika dengan pemahaman teori komputasi, algoritma, dan rekayasa perangkat lunak."
+        },
+        {
+          "id": "ah-2",
+          "icon_name": "Terminal",
+          "title": "Software & Web Engineering",
+          "description": "Berpengalaman membangun aplikasi full-stack modern dengan TypeScript, React, Next.js, dan RESTful API."
+        },
+        {
+          "id": "ah-3",
+          "icon_name": "Database",
+          "title": "Manajemen Data & Keamanan",
+          "description": "Perancangan skema relasional, optimasi query PostgreSQL/MySQL, serta integrasi Supabase Auth & RLS."
+        },
+        {
+          "id": "ah-4",
+          "icon_name": "Sparkles",
+          "title": "Desain & Pengalaman Pengguna",
+          "description": "Mengutamakan kejelasan hierarki visual, aksesibilitas, responsivitas, dan interaksi yang halus."
+        }
+      ]
+    },
+    "lastUpdated": "2026-10-18T14:47:00.079Z"
+  },
+  "draft": {
+    "profile": {
+      "id": "a0000000-0000-0000-0000-000000000001",
+      "display_name": "Abrar Astafaraiz",
+      "headline": "Full-Stack Developer | Web & Software Development",
+      "short_bio": "Mahasiswa Teknik Informatika dengan dedikasi tinggi dalam rekayasa perangkat lunak, pengembangan web modern, dan arsitektur database.",
+      "about_content": "Halo! Saya Abrar Astafaraiz, mahasiswa Teknik Informatika dengan dedikasi tinggi dalam software engineering dan modern web development. Saya berfokus pada perancangan dan implementasi aplikasi yang aman, skalabel, serta berorientasi pada kepuasan pengguna. Melalui berbagai proyek akademik dan kolaboratif, saya terbiasa memecahkan masalah kompleks dengan pendekatan rekayasa perangkat lunak yang sistematis.",
+      "profile_image_path": "/images/profile-avatar.webp",
+      "hero_image_path": "/images/hero-visual.webp",
+      "tagline": "Informatics Engineer & Full-Stack Architect.",
+      "primary_cta_label": "Lihat Proyek",
+      "primary_cta_target": "#projects",
+      "secondary_cta_label": "Hubungi Saya",
+      "secondary_cta_target": "#contact",
+      "updated_at": "2026-10-18T14:47:00.076Z"
+    },
+    "skills": [
+      {
+        "id": "sk-1",
+        "name": "TypeScript",
+        "category": "Programming Languages",
+        "description": "Static typing for scalable modern web applications and robust architectures",
+        "icon_name": "Code2",
+        "proficiency_label": "Proficient",
+        "sort_order": 1,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-2",
+        "name": "JavaScript",
+        "category": "Programming Languages",
+        "description": "Core scripting for frontend interactivity, event-driven DOM, and backend APIs",
+        "icon_name": "FileCode2",
+        "proficiency_label": "Advanced",
+        "sort_order": 2,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-3",
+        "name": "Next.js",
+        "category": "Web Development",
+        "description": "Full-stack React framework with App Router, SSR, Turbopack, and Server Actions",
+        "icon_name": "Layers",
+        "proficiency_label": "Advanced",
+        "sort_order": 3,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-4",
+        "name": "React",
+        "category": "Web Development",
+        "description": "Component-driven interactive UI engineering with hooks and state management",
+        "icon_name": "Atom",
+        "proficiency_label": "Advanced",
+        "sort_order": 4,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-5",
+        "name": "Node.js & Express",
+        "category": "Web Development",
+        "description": "High-performance event-driven runtime and RESTful API backend architecture",
+        "icon_name": "Server",
+        "proficiency_label": "Proficient",
+        "sort_order": 5,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-6",
+        "name": "Python",
+        "category": "Programming Languages",
+        "description": "Data processing, scripting, backend development, and AI/automation scripts",
+        "icon_name": "Terminal",
+        "proficiency_label": "Proficient",
+        "sort_order": 6,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-7",
+        "name": "PHP & Laravel",
+        "category": "Web Development",
+        "description": "Robust MVC backend web application development and Eloquent ORM",
+        "icon_name": "FileCode",
+        "proficiency_label": "Proficient",
+        "sort_order": 7,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-8",
+        "name": "C++",
+        "category": "Programming Languages",
+        "description": "Algorithmic problem solving, low-level data structures, and computer science foundations",
+        "icon_name": "Cpu",
+        "proficiency_label": "Familiar",
+        "sort_order": 8,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-11",
+        "name": "Tailwind CSS",
+        "category": "Web Development",
+        "description": "Utility-first modern styling, responsive layouts, and dynamic themes",
+        "icon_name": "Palette",
+        "proficiency_label": "Advanced",
+        "sort_order": 11,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-12",
+        "name": "PostgreSQL",
+        "category": "Database Management",
+        "description": "Advanced relational schema modeling, indexing, foreign keys, and complex queries",
+        "icon_name": "Database",
+        "proficiency_label": "Proficient",
+        "sort_order": 12,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-13",
+        "name": "Supabase",
+        "category": "Database Management",
+        "description": "BaaS: Auth, Realtime Postgres, Storage, and Row Level Security (RLS)",
+        "icon_name": "ShieldCheck",
+        "proficiency_label": "Proficient",
+        "sort_order": 13,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-14",
+        "name": "MySQL",
+        "category": "Database Management",
+        "description": "Relational data management, database normalization, and query optimization",
+        "icon_name": "DatabaseZap",
+        "proficiency_label": "Proficient",
+        "sort_order": 14,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-17",
+        "name": "Git & GitHub",
+        "category": "Tools & Platforms",
+        "description": "Version control, branch workflows, pull requests, and collaboration",
+        "icon_name": "GitBranch",
+        "proficiency_label": "Advanced",
+        "sort_order": 17,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-18",
+        "name": "Docker",
+        "category": "Tools & Platforms",
+        "description": "Containerization, Dockerfile configuration, and consistent development environments",
+        "icon_name": "Box",
+        "proficiency_label": "Familiar",
+        "sort_order": 18,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-19",
+        "name": "Cisco Packet Tracer",
+        "category": "Network & Security",
+        "description": "Simulasi dan perancangan topologi jaringan skala LAN, MAN, hingga WAN",
+        "icon_name": "Network",
+        "proficiency_label": "Advanced",
+        "sort_order": 19,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-20",
+        "name": "Mikrotik RouterOS",
+        "category": "Network & Security",
+        "description": "Konfigurasi routing, firewall filter, bandwidth queue management, dan hotspot gateway",
+        "icon_name": "Router",
+        "proficiency_label": "Proficient",
+        "sort_order": 20,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-21",
+        "name": "Wireshark",
+        "category": "Network & Security",
+        "description": "Analisis protokol paket data jaringan (TCP/IP, UDP, DNS, HTTP) dan troubleshooting koneksi",
+        "icon_name": "Activity",
+        "proficiency_label": "Proficient",
+        "sort_order": 21,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-22",
+        "name": "Routing & Switching",
+        "category": "Network & Security",
+        "description": "Implementasi VLAN, Trunking, Spanning Tree Protocol (STP), OSPF, RIP, dan BGP routing",
+        "icon_name": "Network",
+        "proficiency_label": "Proficient",
+        "sort_order": 22,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-23",
+        "name": "Network Security & Firewall",
+        "category": "Network & Security",
+        "description": "Keamanan jaringan, IDS/IPS, konfigurasi NAT, VPN (OpenVPN, WireGuard), dan access control list",
+        "icon_name": "ShieldAlert",
+        "proficiency_label": "Proficient",
+        "sort_order": 23,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-24",
+        "name": "Linux Server Administration",
+        "category": "Network & Security",
+        "description": "Pengelolaan Ubuntu Server, Debian, Nginx/Apache web server, SSH, DNS, dan Bash script",
+        "icon_name": "TerminalSquare",
+        "proficiency_label": "Advanced",
+        "sort_order": 24,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-29",
+        "name": "Figma",
+        "category": "UI/UX Design",
+        "description": "UI/UX design, wireframing, high-fidelity interactive prototyping, and design tokens",
+        "icon_name": "Layout",
+        "proficiency_label": "Advanced",
+        "sort_order": 29,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-30",
+        "name": "Adobe Photoshop",
+        "category": "UI/UX Design",
+        "description": "Pengolahan citra digital, manipulasi raster grafis, retouching foto, dan komposisi visual",
+        "icon_name": "Image",
+        "proficiency_label": "Proficient",
+        "sort_order": 30,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-31",
+        "name": "Adobe Illustrator",
+        "category": "UI/UX Design",
+        "description": "Pembuatan grafis vektor, desain logo, ikon antarmuka, dan branding visual presisi",
+        "icon_name": "PenTool",
+        "proficiency_label": "Proficient",
+        "sort_order": 31,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-32",
+        "name": "Adobe Premiere Pro",
+        "category": "UI/UX Design",
+        "description": "Editing video profesional, timeline trimming, color correction Lumetri, dan mixing audio",
+        "icon_name": "Video",
+        "proficiency_label": "Proficient",
+        "sort_order": 32,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-53",
+        "name": "CI/CD Pipelines (GitHub Actions)",
+        "category": "Tools & Platforms",
+        "description": "Automasi pengujian, build, linting, dan continuous deployment ke server produksi",
+        "icon_name": "GitBranch",
+        "proficiency_label": "Proficient",
+        "sort_order": 53,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-55",
+        "name": "Unit & Integration Testing (Jest/Vitest)",
+        "category": "Tools & Platforms",
+        "description": "Pengujian kode otomatis untuk memastikan keandalan fungsi, regresi, dan clean architecture",
+        "icon_name": "ShieldCheck",
+        "proficiency_label": "Proficient",
+        "sort_order": 55,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-57",
+        "name": "Vite & Webpack",
+        "category": "Tools & Platforms",
+        "description": "Modern frontend build tool, Hot Module Replacement (HMR), dan bundling aset produksi",
+        "icon_name": "Zap",
+        "proficiency_label": "Advanced",
+        "sort_order": 57,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-62",
+        "name": "LLM & AI Prompt Engineering",
+        "category": "Tools & Platforms",
+        "description": "Integrasi model bahasa besar (OpenAI, Gemini API, Claude) dan Retrieval-Augmented Generation (RAG)",
+        "icon_name": "Terminal",
+        "proficiency_label": "Proficient",
+        "sort_order": 62,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-63",
+        "name": "pfSense & OPNsense",
+        "category": "Network & Security",
+        "description": "Implementasi firewall tingkat lanjut, traffic shaper, captive portal, dan gateway keamanan",
+        "icon_name": "ShieldAlert",
+        "proficiency_label": "Proficient",
+        "sort_order": 63,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-64",
+        "name": "OpenVPN & WireGuard",
+        "category": "Network & Security",
+        "description": "Konfigurasi virtual private network (VPN) terenkripsi untuk akses jarak jauh yang aman",
+        "icon_name": "ShieldCheck",
+        "proficiency_label": "Advanced",
+        "sort_order": 64,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-65",
+        "name": "Nginx & Reverse Proxy",
+        "category": "Network & Security",
+        "description": "Web server berkinerja tinggi, load balancer, SSL/TLS certificate management, dan caching",
+        "icon_name": "Server",
+        "proficiency_label": "Advanced",
+        "sort_order": 65,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-67",
+        "name": "DHCP & IP Subnetting (CIDR)",
+        "category": "Network & Security",
+        "description": "Alokasi alamat IP dinamis, reservasi MAC, pembagian subnetting VLSM dan supernetting",
+        "icon_name": "Network",
+        "proficiency_label": "Advanced",
+        "sort_order": 67,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.077Z",
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "sk-74",
+        "name": "Cloudflare WAF & CDN",
+        "category": "Network & Security",
+        "description": "Pengaturan keamanan Web Application Firewall (WAF), mitigasi DDoS, dan caching edge global",
+        "icon_name": "ShieldCheck",
+        "proficiency_label": "Advanced",
+        "sort_order": 74,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z"
+      },
+      {
+        "id": "sk-75",
+        "name": "AWS Cloud (EC2, S3, VPC)",
+        "category": "Database Management",
+        "description": "Arsitektur cloud publik Amazon Web Services: virtual instance, routing VPC, dan cloud storage",
+        "icon_name": "Server",
+        "proficiency_label": "Proficient",
+        "sort_order": 75,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z"
+      },
+      {
+        "id": "sk-80",
+        "name": "Wireless Networking (WLAN 802.11)",
+        "category": "Network & Security",
+        "description": "Perencanaan frekuensi 2.4GHz/5GHz, site survey WiFi, WPA3 Enterprise, dan roaming access point",
+        "icon_name": "Network",
+        "proficiency_label": "Proficient",
+        "sort_order": 80,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z"
+      },
+      {
+        "id": "sk-82",
+        "name": "Framer Motion & Web Animation",
+        "category": "Web Development",
+        "description": "Animasi antarmuka web interaktif yang halus dengan spring physics dan micro-interaction",
+        "icon_name": "Palette",
+        "proficiency_label": "Advanced",
+        "sort_order": 82,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z"
+      },
+      {
+        "id": "sk-93",
+        "name": "OBS Studio (Broadcasting)",
+        "category": "UI/UX Design",
+        "description": "Setup streaming live profesional, mixing audio-visual multi-source, dan encoding video RTMP",
+        "icon_name": "Video",
+        "proficiency_label": "Advanced",
+        "sort_order": 93,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z"
+      },
+      {
+        "id": "sk-95",
+        "name": "CapCut Pro & Creative Editing",
+        "category": "UI/UX Design",
+        "description": "Produksi video pendek viral, transisi dinamis, auto-captioning, dan format mobile vertical",
+        "icon_name": "Video",
+        "proficiency_label": "Advanced",
+        "sort_order": 95,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z"
+      },
+      {
+        "id": "sk-96",
+        "name": "Design Systems & UI Token",
+        "category": "UI/UX Design",
+        "description": "Penyusunan komponen desain terstandarisasi, token warna, tipografi, dan konsistensi UX",
+        "icon_name": "Layout",
+        "proficiency_label": "Advanced",
+        "sort_order": 96,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z"
+      }
+    ],
+    "projects": [
+      {
+        "id": "b-1",
+        "title": "Personal Portfolio & Content Management System",
+        "slug": "personal-portfolio-cms",
+        "short_description": "Website portofolio dinamis dengan dashboard CMS terpadu berbasis Next.js App Router dan Supabase.",
+        "full_description": "Platform portofolio digital komprehensif yang dirancang untuk menampilkan profil, keterampilan, pengalaman, dan proyek secara elegan dengan visual Aurora Violet. Dilengkapi dengan dashboard admin Lavender Studio untuk mengelola seluruh konten secara dinamis tanpa perlu redeploy kode. Sistem mendukung workflow draft, preview privat, publikasi berversi, optimasi gambar, dan Row Level Security.",
+        "year": "2026",
+        "category": "Web Development",
+        "technologies": [
+          "Next.js",
+          "TypeScript",
+          "Tailwind CSS",
+          "Supabase",
+          "Framer Motion"
+        ],
+        "cover_image_path": "/images/projects/portfolio-cms-cover.webp",
+        "project_url": "https://abrar-astafaraiz.vercel.app",
+        "project_url_enabled": true,
+        "is_featured": true,
+        "is_visible": true,
+        "sort_order": 1,
+        "publication_status": "published",
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z",
+        "published_at": "2026-10-18T14:47:00.078Z",
+        "images": [
+          {
+            "id": "img-1-1",
+            "project_id": "b-1",
+            "storage_path": "/images/projects/portfolio-cms-cover.webp",
+            "alt_text": "Tampilan Halaman Utama Portofolio",
+            "caption": "Desain responsif website publik dengan palet Aurora Violet",
+            "sort_order": 1,
+            "created_at": "2026-10-18T14:47:00.078Z"
+          },
+          {
+            "id": "img-1-2",
+            "project_id": "b-1",
+            "storage_path": "/images/projects/portfolio-admin-preview.webp",
+            "alt_text": "Dashboard Manajemen Lavender Studio",
+            "caption": "Panel admin untuk manajemen profil, keterampilan, dan proyek",
+            "sort_order": 2,
+            "created_at": "2026-10-18T14:47:00.078Z"
+          },
+          {
+            "id": "img-1-3",
+            "project_id": "b-1",
+            "storage_path": "/images/projects/portfolio-modal-preview.webp",
+            "alt_text": "Detail Interaktif & Carousel",
+            "caption": "Modal proyek dengan navigasi keyboard, touch swipe, dan informasi komprehensif",
+            "sort_order": 3,
+            "created_at": "2026-10-18T14:47:00.078Z"
+          }
+        ]
+      },
+      {
+        "id": "b-2",
+        "title": "Sistem Kasir Restoran Berbasis Web",
+        "slug": "sistem-kasir-restoran",
+        "short_description": "Aplikasi Point of Sale (POS) restoran dengan pencatatan transaksi real-time, manajemen meja, dan laporan keuangan.",
+        "full_description": "Sistem Point of Sale web modern yang mengotomatisasi proses pemesanan menu, pembagian nomor meja, kalkulasi pajak, diskon, cetak struk transaksi, dan pembuatan rekap laporan penjualan harian dan bulanan secara akurat.",
+        "year": "2025",
+        "category": "Web Development",
+        "technologies": [
+          "React",
+          "Node.js",
+          "Express",
+          "PostgreSQL",
+          "Tailwind CSS"
+        ],
+        "cover_image_path": "/images/projects/pos-restoran-cover.webp",
+        "project_url": "https://pos-restoran.demo.app",
+        "project_url_enabled": false,
+        "is_featured": true,
+        "is_visible": true,
+        "sort_order": 2,
+        "publication_status": "published",
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z",
+        "published_at": "2026-10-18T14:47:00.078Z",
+        "images": [
+          {
+            "id": "img-2-1",
+            "project_id": "b-2",
+            "storage_path": "/images/projects/pos-restoran-cover.webp",
+            "alt_text": "Antarmuka Kasir Restoran",
+            "caption": "Katalog menu interaktif dan panel pemesanan meja kasir",
+            "sort_order": 1,
+            "created_at": "2026-10-18T14:47:00.078Z"
+          },
+          {
+            "id": "img-2-2",
+            "project_id": "b-2",
+            "storage_path": "/images/projects/pos-report-preview.webp",
+            "alt_text": "Laporan Keuangan & Struk",
+            "caption": "Statistik omzet harian dan cetak struk otomatis",
+            "sort_order": 2,
+            "created_at": "2026-10-18T14:47:00.078Z"
+          }
+        ]
+      },
+      {
+        "id": "b-3",
+        "title": "ASTRACK",
+        "slug": "astrack-asset-tracking",
+        "short_description": "Sistem manajemen pelacakan aset dan inventaris perangkat laboratorium berbasis web.",
+        "full_description": "ASTRACK memfasilitasi pencatatan inventaris perangkat keras, pelacakan histori peminjaman, monitoring status kondisi perangkat, serta penjadwalan pemeliharaan berkala guna mencegah kehilangan aset laboratorium.",
+        "year": "2025",
+        "category": "Software Development",
+        "technologies": [
+          "TypeScript",
+          "Next.js",
+          "Tailwind CSS",
+          "PostgreSQL",
+          "Prisma"
+        ],
+        "cover_image_path": "/images/projects/astrack-cover.webp",
+        "project_url": "https://astrack.demo.app",
+        "project_url_enabled": false,
+        "is_featured": true,
+        "is_visible": true,
+        "sort_order": 3,
+        "publication_status": "published",
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z",
+        "published_at": "2026-10-18T14:47:00.078Z",
+        "images": [
+          {
+            "id": "img-3-1",
+            "project_id": "b-3",
+            "storage_path": "/images/projects/astrack-cover.webp",
+            "alt_text": "Dashboard Inventaris ASTRACK",
+            "caption": "Monitoring ketersediaan perangkat keras dan peralatan laboratorium",
+            "sort_order": 1,
+            "created_at": "2026-10-18T14:47:00.078Z"
+          }
+        ]
+      },
+      {
+        "id": "b-4",
+        "title": "BICHAMP",
+        "slug": "bichamp-tournament-platform",
+        "short_description": "Platform manajemen kompetisi dan turnamen olahraga dengan bagan pertandingan interaktif.",
+        "full_description": "BICHAMP menyediakan pengelolaan turnamen mulai dari pendaftaran tim, pengundian bagan (bracket elimination & round-robin), pembaruan skor langsung, hingga pengumuman klasemen secara real-time.",
+        "year": "2024",
+        "category": "Web Development",
+        "technologies": [
+          "Next.js",
+          "Tailwind CSS",
+          "Supabase",
+          "TypeScript"
+        ],
+        "cover_image_path": "/images/projects/bichamp-cover.webp",
+        "project_url": "https://bichamp.demo.app",
+        "project_url_enabled": false,
+        "is_featured": false,
+        "is_visible": true,
+        "sort_order": 4,
+        "publication_status": "published",
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z",
+        "published_at": "2026-10-18T14:47:00.078Z",
+        "images": [
+          {
+            "id": "img-4-1",
+            "project_id": "b-4",
+            "storage_path": "/images/projects/bichamp-cover.webp",
+            "alt_text": "Turnamen Bracket BICHAMP",
+            "caption": "Bagan eliminasi interaktif dengan kalkulasi otomatis",
+            "sort_order": 1,
+            "created_at": "2026-10-18T14:47:00.078Z"
+          }
+        ]
+      },
+      {
+        "id": "b-5",
+        "title": "MOTOCARE",
+        "slug": "motocare-service-booking",
+        "short_description": "Aplikasi web manajemen servis dan pemeliharaan kendaraan bermotor dengan sistem booking jadwal.",
+        "full_description": "MOTOCARE memudahkan pemilik kendaraan dalam mereservasi jadwal servis bengkel, memantau estimasi biaya perbaikan dan sparepart, serta menerima notifikasi pengingat servis rutin berkala.",
+        "year": "2024",
+        "category": "Web Development",
+        "technologies": [
+          "React",
+          "PHP",
+          "MySQL",
+          "Bootstrap",
+          "JavaScript"
+        ],
+        "cover_image_path": "/images/projects/motocare-cover.webp",
+        "project_url": "https://motocare.demo.app",
+        "project_url_enabled": false,
+        "is_featured": false,
+        "is_visible": true,
+        "sort_order": 5,
+        "publication_status": "published",
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z",
+        "published_at": "2026-10-18T14:47:00.078Z",
+        "images": [
+          {
+            "id": "img-5-1",
+            "project_id": "b-5",
+            "storage_path": "/images/projects/motocare-cover.webp",
+            "alt_text": "MOTOCARE Booking Portal",
+            "caption": "Antarmuka reservasi antrean servis kendaraan bengkel",
+            "sort_order": 1,
+            "created_at": "2026-10-18T14:47:00.078Z"
+          }
+        ]
+      },
+      {
+        "id": "b-6",
+        "title": "Sistem Absensi Digital Expo Wisuda Jurusan TIK",
+        "slug": "absensi-expo-wisuda-tik",
+        "short_description": "Sistem presensi cepat menggunakan QR Code dan verifikasi digital untuk pengunjung Expo Wisuda.",
+        "full_description": "Sistem presensi digital yang dirancang untuk menangani lonjakan ribuan pengunjung acara Expo Wisuda TIK secara cepat. Menggunakan pemindaian barcode/QR Code terenkripsi untuk meminimalkan antrean dan menyediakan rekapitulasi data demografi pengunjung secara instan.",
+        "year": "2024",
+        "category": "Web Development",
+        "technologies": [
+          "JavaScript",
+          "HTML5",
+          "Node.js",
+          "MySQL",
+          "Tailwind CSS"
+        ],
+        "cover_image_path": "/images/projects/absensi-expo-cover.webp",
+        "project_url": "https://expo-tik.demo.app",
+        "project_url_enabled": false,
+        "is_featured": false,
+        "is_visible": true,
+        "sort_order": 6,
+        "publication_status": "published",
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z",
+        "published_at": "2026-10-18T14:47:00.078Z",
+        "images": [
+          {
+            "id": "img-6-1",
+            "project_id": "b-6",
+            "storage_path": "/images/projects/absensi-expo-cover.webp",
+            "alt_text": "Presensi Digital QR Expo",
+            "caption": "Pemindai kamera QR instan pada gerbang masuk Expo",
+            "sort_order": 1,
+            "created_at": "2026-10-18T14:47:00.078Z"
+          }
+        ]
+      },
+      {
+        "id": "b-7",
+        "title": "Sistem Absensi dan Monitoring Aktivitas Santri",
+        "slug": "absensi-monitoring-santri",
+        "short_description": "Platform pencatatan kehadiran, kedisiplinan, dan laporan perkembangan santri berbasis web.",
+        "full_description": "Aplikasi pemantauan santri yang mengintegrasikan pencatatan kehadiran salat berjamaah, kegiatan halaqah tahfiz, serta catatan kepribadian dan perizinan pulang. Informasi dapat diakses pengurus dan wali santri secara transparan.",
+        "year": "2024",
+        "category": "Web Development",
+        "technologies": [
+          "PHP",
+          "Laravel",
+          "MySQL",
+          "Bootstrap",
+          "JavaScript"
+        ],
+        "cover_image_path": "/images/projects/absensi-santri-cover.webp",
+        "project_url": "https://santri-monitor.demo.app",
+        "project_url_enabled": false,
+        "is_featured": false,
+        "is_visible": true,
+        "sort_order": 7,
+        "publication_status": "published",
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z",
+        "published_at": "2026-10-18T14:47:00.078Z",
+        "images": [
+          {
+            "id": "img-7-1",
+            "project_id": "b-7",
+            "storage_path": "/images/projects/absensi-santri-cover.webp",
+            "alt_text": "Dashboard Monitoring Santri",
+            "caption": "Rekap kehadiran hafalan Al-Qur’an dan absensi harian",
+            "sort_order": 1,
+            "created_at": "2026-10-18T14:47:00.078Z"
+          }
+        ]
+      }
+    ],
+    "achievements": [
+      {
+        "id": "ach-1",
+        "title": "Juara 1 Software Development Competition",
+        "organizer": "Himpunan Mahasiswa Teknik Informatika",
+        "achievement_date": "2025",
+        "description": "Meraih peringkat pertama dalam kompetisi perancangan dan implementasi solusi perangkat lunak inovatif tingkat mahasiswa.",
+        "image_path": "/images/achievements/cert-competition.webp",
+        "verification_url": "https://certificate.verification.url/sample1",
+        "category": "Award",
+        "sort_order": 1,
+        "is_visible": true,
+        "publication_status": "published",
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z"
+      },
+      {
+        "id": "ach-2",
+        "title": "Certified Web Developer: Modern Frontend & Backend",
+        "organizer": "Dicoding Academy Indonesia",
+        "achievement_date": "2025",
+        "description": "Sertifikasi kompetensi pengembangan aplikasi web berskala enterprise menggunakan JavaScript, Next.js, dan RESTful architecture.",
+        "image_path": "/images/achievements/cert-dicoding.webp",
+        "verification_url": "https://www.dicoding.com/certificates/sample",
+        "category": "Certification",
+        "sort_order": 2,
+        "is_visible": true,
+        "publication_status": "published",
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z"
+      },
+      {
+        "id": "ach-3",
+        "title": "Database Engineering & Cloud Foundations",
+        "organizer": "Cisco Networking Academy",
+        "achievement_date": "2024",
+        "description": "Kompetensi perancangan skema relasional, optimasi query SQL, serta konfigurasi keamanan data dan basis komputasi awan.",
+        "image_path": "/images/achievements/cert-cisco.webp",
+        "verification_url": "https://cisco.credential.net/sample",
+        "category": "Certification",
+        "sort_order": 3,
+        "is_visible": true,
+        "publication_status": "published",
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z"
+      }
+    ],
+    "experiences": [
+      {
+        "id": "exp-1",
+        "position": "Koordinator Divisi Riset & Pengembangan Web",
+        "organization": "Himpunan Mahasiswa Teknik Informatika",
+        "start_date": "2024",
+        "end_date": null,
+        "is_current": true,
+        "description": "Memimpin tim teknis dalam pengembangan website himpunan, platform informasi kegiatan akademik, dan workshop coding bagi mahasiswa baru.",
+        "responsibilities": [
+          "Mengkoordinasikan tim pengembangan web dan arsitektur database proyek mahasiswa",
+          "Mengadakan pelatihan dasar pemrograman web dan Git collaboration untuk 50+ peserta",
+          "Merancang standarisasi kode dan code review internal himpunan"
+        ],
+        "logo_path": "/images/experience/hmti-logo.webp",
+        "sort_order": 1,
+        "is_visible": true,
+        "publication_status": "published",
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z"
+      },
+      {
+        "id": "exp-2",
+        "position": "Full-Stack Developer (Proyek Kolaboratif)",
+        "organization": "Lab Rekayasa Perangkat Lunak TIK",
+        "start_date": "2024",
+        "end_date": "2025",
+        "is_current": false,
+        "description": "Berkontribusi dalam riset dan implementasi sistem informasi absensi dan pelacakan aset laboratorium jurusan.",
+        "responsibilities": [
+          "Mengembangkan modul frontend interaktif berbasis React dan Tailwind CSS",
+          "Mengintegrasikan API backend PostgreSQL dengan keamanan autentikasi berbasis token",
+          "Melakukan uji fungsionalitas dan pemeliharaan performa sistem"
+        ],
+        "logo_path": "/images/experience/lab-logo.webp",
+        "sort_order": 2,
+        "is_visible": true,
+        "publication_status": "published",
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z"
+      }
+    ],
+    "socialLinks": [
+      {
+        "id": "soc-1",
+        "platform": "github",
+        "label": "GitHub",
+        "url": "https://github.com/abrar-astafaraiz",
+        "icon_name": "Github",
+        "sort_order": 1,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z"
+      },
+      {
+        "id": "soc-2",
+        "platform": "linkedin",
+        "label": "LinkedIn",
+        "url": "https://linkedin.com/in/abrar-astafaraiz",
+        "icon_name": "Linkedin",
+        "sort_order": 2,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z"
+      },
+      {
+        "id": "soc-3",
+        "platform": "instagram",
+        "label": "Instagram",
+        "url": "https://instagram.com/abrar_astafaraiz",
+        "icon_name": "Instagram",
+        "sort_order": 3,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z"
+      },
+      {
+        "id": "soc-4",
+        "platform": "email",
+        "label": "Email",
+        "url": "mailto:abrar.astafaraiz@gmail.com",
+        "icon_name": "Mail",
+        "sort_order": 4,
+        "is_visible": true,
+        "created_at": "2026-10-18T14:47:00.078Z",
+        "updated_at": "2026-10-18T14:47:00.078Z"
+      }
+    ],
+    "sections": [
+      {
+        "id": "s-1",
+        "section_key": "hero",
+        "title": "Beranda",
+        "subtitle": "Pengantar Singkat",
+        "nav_label": "Home",
+        "is_visible": true,
+        "show_in_nav": true,
+        "sort_order": 1,
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "s-2",
+        "section_key": "about",
+        "title": "Tentang Saya",
+        "subtitle": "Latar Belakang & Profil Singkat",
+        "nav_label": "About",
+        "is_visible": true,
+        "show_in_nav": true,
+        "sort_order": 2,
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "s-3",
+        "section_key": "skills",
+        "title": "Keahlian & Teknologi",
+        "subtitle": "Teknologi & Tools yang Dikuasai",
+        "nav_label": "Skills",
+        "is_visible": true,
+        "show_in_nav": true,
+        "sort_order": 3,
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "s-4",
+        "section_key": "projects",
+        "title": "Proyek Pilihan",
+        "subtitle": "Karya & Proyek Terpilih",
+        "nav_label": "Projects",
+        "is_visible": true,
+        "show_in_nav": true,
+        "sort_order": 4,
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "s-5",
+        "section_key": "achievements",
+        "title": "Sertifikat & Pencapaian",
+        "subtitle": "Sertifikasi & Lisensi",
+        "nav_label": "Achievements",
+        "is_visible": true,
+        "show_in_nav": true,
+        "sort_order": 5,
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "s-6",
+        "section_key": "experience",
+        "title": "Pengalaman & Organisasi",
+        "subtitle": "Riwayat Kerja & Organisasi",
+        "nav_label": "Experience",
+        "is_visible": true,
+        "show_in_nav": true,
+        "sort_order": 6,
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      },
+      {
+        "id": "s-7",
+        "section_key": "contact",
+        "title": "Hubungi Saya",
+        "subtitle": "Informasi Kontak & Media Sosial",
+        "nav_label": "Contact",
+        "is_visible": true,
+        "show_in_nav": true,
+        "sort_order": 7,
+        "updated_at": "2026-10-18T14:47:00.077Z"
+      }
+    ],
+    "settings": {
+      "appearance": {
+        "default_public_theme": "light",
+        "animations_enabled": true,
+        "animation_intensity": "standard",
+        "hero_gradient": "aurora"
+      },
+      "seo": {
+        "site_title": "Abrar Astafaraiz | Personal Website",
+        "meta_description": "Personal website of Abrar Astafaraiz, showcasing software development projects, technical skills, experience, and professional achievements.",
+        "canonical_url": "https://abrar-astafaraiz.vercel.app",
+        "og_title": "Abrar Astafaraiz — Full-Stack Developer Portfolio",
+        "og_description": "Building Digital Experiences Through Code. Explore web engineering projects, certifications, and technical proficiencies.",
+        "og_image": "/images/og-image.webp",
+        "robots": "index, follow"
+      },
+      "contact_info": {
+        "email": "abrar.astafaraiz@gmail.com",
+        "location": "Indonesia",
+        "cta_heading": "Hubungi Saya Langsung",
+        "cta_subtext": "Ingin bertanya seputar proyek, mendiskusikan peluang kerja sama, atau sekadar bertukar pengalaman? Anda bisa langsung menghubungi saya lewat kontak di bawah.",
+        "footer_text": "© 2026 Abrar Astafaraiz. All rights reserved. Crafted with Next.js & Supabase."
+      },
+      "about_highlights": [
+        {
+          "id": "ah-1",
+          "icon_name": "GraduationCap",
+          "title": "Pendidikan Akademik",
+          "description": "Mahasiswa Teknik Informatika dengan pemahaman teori komputasi, algoritma, dan rekayasa perangkat lunak."
+        },
+        {
+          "id": "ah-2",
+          "icon_name": "Terminal",
+          "title": "Software & Web Engineering",
+          "description": "Berpengalaman membangun aplikasi full-stack modern dengan TypeScript, React, Next.js, dan RESTful API."
+        },
+        {
+          "id": "ah-3",
+          "icon_name": "Database",
+          "title": "Manajemen Data & Keamanan",
+          "description": "Perancangan skema relasional, optimasi query PostgreSQL/MySQL, serta integrasi Supabase Auth & RLS."
+        },
+        {
+          "id": "ah-4",
+          "icon_name": "Sparkles",
+          "title": "Desain & Pengalaman Pengguna",
+          "description": "Mengutamakan kejelasan hierarki visual, aksesibilitas, responsivitas, dan interaksi yang halus."
+        }
+      ]
+    },
+    "lastUpdated": "2026-10-18T14:47:00.079Z"
+  }
+}

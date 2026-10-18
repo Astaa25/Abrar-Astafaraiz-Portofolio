@@ -151,16 +151,17 @@ export async function POST(req: Request) {
       await supabase.from('section_settings').upsert(sectionsPayload, { onConflict: 'section_key' });
     }
 
-    // 3. Upsert Skills
-    if (content.skills && content.skills.length > 0) {
-      const skillsPayload = content.skills.map((sk) => ({
+    // 3. Upsert All Skills (both active & inactive for all 3 majors)
+    const allSkills = DataService.getDraftSkills();
+    if (allSkills && allSkills.length > 0) {
+      const skillsPayload = allSkills.map((sk) => ({
         name: sk.name,
         category: sk.category,
         description: sk.description || null,
         icon_name: sk.icon_name || null,
         proficiency_label: sk.proficiency_label || null,
         sort_order: sk.sort_order,
-        is_visible: sk.is_visible,
+        is_visible: Boolean(sk.is_visible),
         updated_at: new Date().toISOString(),
       }));
       await supabase.from('skills').upsert(skillsPayload, { onConflict: 'name' });
@@ -200,6 +201,48 @@ export async function POST(req: Request) {
         updated_at: new Date().toISOString(),
       }));
       await supabase.from('projects').upsert(projectsPayload, { onConflict: 'slug' });
+    }
+
+    // 6. Upsert Achievements
+    const achievements = DataService.getDraftAchievements();
+    if (achievements && achievements.length > 0) {
+      // Clear old then insert fresh to ensure clean list
+      await supabase.from('achievements').delete().neq('id', '00000000-0000-0000-0000-000000000000');
+      const achievementsPayload = achievements.map((a) => ({
+        title: a.title,
+        organizer: a.organizer,
+        achievement_date: a.achievement_date,
+        description: a.description,
+        image_path: a.image_path || null,
+        verification_url: a.verification_url || null,
+        category: a.category || 'Certification',
+        sort_order: a.sort_order,
+        is_visible: a.is_visible,
+        publication_status: a.publication_status || 'published',
+        updated_at: new Date().toISOString(),
+      }));
+      await supabase.from('achievements').insert(achievementsPayload);
+    }
+
+    // 7. Upsert Experiences
+    const experiences = DataService.getDraftExperiences();
+    if (experiences && experiences.length > 0) {
+      await supabase.from('experiences').delete().neq('id', '00000000-0000-0000-0000-000000000000');
+      const experiencesPayload = experiences.map((e) => ({
+        position: e.position,
+        organization: e.organization,
+        start_date: e.start_date,
+        end_date: e.end_date || null,
+        is_current: Boolean(e.is_current),
+        description: e.description,
+        responsibilities: e.responsibilities || [],
+        logo_path: e.logo_path || null,
+        sort_order: e.sort_order,
+        is_visible: e.is_visible,
+        publication_status: e.publication_status || 'published',
+        updated_at: new Date().toISOString(),
+      }));
+      await supabase.from('experiences').insert(experiencesPayload);
     }
 
     // Revalidate public pages

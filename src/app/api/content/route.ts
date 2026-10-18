@@ -59,6 +59,68 @@ export async function POST(req: Request) {
             { onConflict: 'id' }
           );
         }
+
+        if (pub.sections && pub.sections.length > 0) {
+          const sectionsPayload = pub.sections.map((s: any) => ({
+            section_key: s.section_key,
+            title: s.title,
+            subtitle: s.subtitle,
+            nav_label: s.nav_label,
+            is_visible: s.is_visible,
+            show_in_nav: s.show_in_nav,
+            sort_order: s.sort_order,
+            updated_at: new Date().toISOString(),
+          }));
+          await supabase.from('section_settings').upsert(sectionsPayload, { onConflict: 'section_key' });
+        }
+
+        if (pub.skills && pub.skills.length > 0) {
+          const skillsPayload = pub.skills.map((sk: any) => ({
+            name: sk.name,
+            category: sk.category,
+            description: sk.description || null,
+            icon_name: sk.icon_name || null,
+            proficiency_label: sk.proficiency_label || null,
+            sort_order: sk.sort_order,
+            is_visible: Boolean(sk.is_visible),
+            updated_at: new Date().toISOString(),
+          }));
+          await supabase.from('skills').upsert(skillsPayload, { onConflict: 'name' });
+        }
+
+        if (pub.socialLinks && pub.socialLinks.length > 0) {
+          const socialsPayload = pub.socialLinks.map((soc: any) => ({
+            platform: soc.platform,
+            label: soc.label,
+            url: soc.url,
+            icon_name: soc.icon_name,
+            sort_order: soc.sort_order,
+            is_visible: soc.is_visible,
+            updated_at: new Date().toISOString(),
+          }));
+          await supabase.from('social_links').upsert(socialsPayload, { onConflict: 'platform' });
+        }
+
+        if (pub.projects && pub.projects.length > 0) {
+          const projectsPayload = pub.projects.map((p: any) => ({
+            title: p.title,
+            slug: p.slug,
+            short_description: p.short_description,
+            full_description: p.full_description,
+            year: p.year,
+            category: p.category,
+            technologies: p.technologies || [],
+            cover_image_path: p.cover_image_path,
+            project_url: p.project_url || null,
+            project_url_enabled: Boolean(p.project_url_enabled),
+            is_featured: Boolean(p.is_featured),
+            is_visible: Boolean(p.is_visible),
+            sort_order: p.sort_order,
+            publication_status: p.publication_status || 'published',
+            updated_at: new Date().toISOString(),
+          }));
+          await supabase.from('projects').upsert(projectsPayload, { onConflict: 'slug' });
+        }
       } catch (sbErr) {
         console.warn('Silent sync to Supabase encountered an error:', sbErr);
       }
