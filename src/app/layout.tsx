@@ -4,6 +4,7 @@ import './globals.css';
 import { ThemeProvider } from '@/lib/theme/theme-context';
 import { AuthProvider } from '@/lib/auth/auth-context';
 import { ToastProvider } from '@/components/feedback/ToastContext';
+import { ScrollRestoration } from '@/components/layout/ScrollRestoration';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -47,6 +48,7 @@ export default function RootLayout({
       lang="id"
       data-public-theme="light"
       data-admin-theme="light"
+      data-scroll-behavior="smooth"
       className={`${plusJakartaSans.variable} antialiased`}
       suppressHydrationWarning
     >
@@ -76,6 +78,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col selection:bg-[#EAE7FF] selection:text-[#6C5CE7]">
+        <ScrollRestoration />
         <ThemeProvider>
           <AuthProvider>
             <ToastProvider>{children}</ToastProvider>

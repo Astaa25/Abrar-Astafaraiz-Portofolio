@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Skill } from '@/types/database';
 import {
   Code2,
@@ -52,12 +52,54 @@ export function SkillsSection({
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const cardsScrollRef = useRef<HTMLDivElement>(null);
 
+  // Restore active category and horizontal scroll position on client mount
+  useEffect(() => {
+    try {
+      const savedCategory = sessionStorage.getItem('abrar_skills_active_category');
+      if (savedCategory) {
+        setActiveCategory(savedCategory);
+      }
+      const savedLeft = sessionStorage.getItem('abrar_skills_scroll_left');
+      if (savedLeft && cardsScrollRef.current) {
+        const left = parseInt(savedLeft, 10);
+        if (!isNaN(left)) {
+          cardsScrollRef.current.scrollLeft = left;
+        }
+      }
+    } catch {}
+  }, []);
+
+  const handleSelectCategory = (cat: string) => {
+    setActiveCategory(cat);
+    try {
+      sessionStorage.setItem('abrar_skills_active_category', cat);
+    } catch {}
+  };
+
   const handleScrollCards = (direction: 'left' | 'right') => {
     if (cardsScrollRef.current) {
       const scrollAmount = direction === 'left' ? -360 : 360;
       cardsScrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      try {
+        sessionStorage.setItem(
+          'abrar_skills_scroll_left',
+          (cardsScrollRef.current.scrollLeft + scrollAmount).toString()
+        );
+      } catch {}
     }
   };
+
+  useEffect(() => {
+    const el = cardsScrollRef.current;
+    if (!el) return;
+    const onScroll = () => {
+      try {
+        sessionStorage.setItem('abrar_skills_scroll_left', el.scrollLeft.toString());
+      } catch {}
+    };
+    el.addEventListener('scroll', onScroll, { passive: true });
+    return () => el.removeEventListener('scroll', onScroll);
+  }, []);
 
   // Standard ordered technical categories per original PRD
   const preferredOrder = [
@@ -185,7 +227,7 @@ export function SkillsSection({
                 <button
                   key={cat}
                   suppressHydrationWarning
-                  onClick={() => setActiveCategory(cat)}
+                  onClick={() => handleSelectCategory(cat)}
                   className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap border ${
                     isActive
                       ? 'bg-[#5846DE] text-white border-[#5846DE] shadow-sm dark:bg-[#7966D9] dark:border-[#7966D9] dark:text-white'
@@ -207,7 +249,7 @@ export function SkillsSection({
                   <button
                     key={cat}
                     suppressHydrationWarning
-                    onClick={() => setActiveCategory(cat)}
+                    onClick={() => handleSelectCategory(cat)}
                     className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap border ${
                       isActive
                         ? 'bg-[#5846DE] text-white border-[#5846DE] shadow-sm dark:bg-[#7966D9] dark:border-[#7966D9] dark:text-white'

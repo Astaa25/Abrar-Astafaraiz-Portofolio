@@ -31,7 +31,17 @@ export function Navbar({ sections, displayName = 'Abrar Astafaraiz' }: NavbarPro
       for (let i = sectionElements.length - 1; i >= 0; i--) {
         const el = sectionElements[i];
         if (el && el.offsetTop <= scrollPos) {
-          setActiveSection(sections[i].section_key);
+          const currentKey = sections[i].section_key;
+          setActiveSection(currentKey);
+
+          if (typeof window !== 'undefined' && window.location.pathname === '/') {
+            const currentHash = window.location.hash.replace('#', '');
+            if (currentHash !== currentKey && currentKey !== 'hero') {
+              history.replaceState(null, '', `#${currentKey}`);
+            } else if (currentKey === 'hero' && currentHash) {
+              history.replaceState(null, '', window.location.pathname);
+            }
+          }
           break;
         }
       }
