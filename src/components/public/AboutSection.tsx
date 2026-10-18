@@ -15,7 +15,7 @@ export function AboutSection({
 }: AboutSectionProps) {
   const highlights = [
     {
-      icon: <GraduationCap className="w-5 h-5 text-[#6C5CE7] dark:text-[#A99BFF]" />,
+      icon: <GraduationCap className="w-5 h-5 text-[#5846DE] dark:text-[#A99BFF]" />,
       title: 'Pendidikan Akademik',
       desc: 'Mahasiswa Teknik Informatika dengan pemahaman teori komputasi, algoritma, dan rekayasa perangkat lunak.',
     },
@@ -25,7 +25,7 @@ export function AboutSection({
       desc: 'Berpengalaman membangun aplikasi full-stack modern dengan TypeScript, React, Next.js, dan RESTful API.',
     },
     {
-      icon: <Database className="w-5 h-5 text-[#6C5CE7] dark:text-[#A99BFF]" />,
+      icon: <Database className="w-5 h-5 text-[#5846DE] dark:text-[#A99BFF]" />,
       title: 'Manajemen Data & Keamanan',
       desc: 'Perancangan skema relasional, optimasi query PostgreSQL/MySQL, serta integrasi Supabase Auth & RLS.',
     },
@@ -37,14 +37,14 @@ export function AboutSection({
   ];
 
   return (
-    <section id="about" className="py-24 bg-white dark:bg-[#10111B] transition-colors">
+    <section id="about" className="py-24 bg-white dark:bg-[#10111B] transition-colors border-t border-[#E6E7F0]/60 dark:border-[#353449]/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#6C5CE7] dark:text-[#A99BFF]">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#5846DE] dark:text-[#A99BFF]">
             {subtitle}
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#20233A] dark:text-[#F5F3FF]">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#181A2A] dark:text-[#F5F3FF]">
             {title}
           </h2>
           <div className="w-16 h-1 rounded-full gradient-aurora mx-auto mt-2" />
@@ -52,8 +52,8 @@ export function AboutSection({
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Main Story Text */}
-          <div className="lg:col-span-7 space-y-6 text-[#62647A] dark:text-[#C4C2D8] leading-relaxed text-base sm:text-lg">
-            <p className="font-medium text-[#20233A] dark:text-[#F5F3FF]">
+          <div className="lg:col-span-7 space-y-6 text-[#33364D] dark:text-[#C4C2D8] leading-relaxed text-base sm:text-lg">
+            <p className="font-semibold text-[#181A2A] dark:text-[#F5F3FF]">
               {profile.about_content}
             </p>
 
@@ -63,7 +63,7 @@ export function AboutSection({
               dari perancangan basis data hingga polesan detail interaksi antarmuka pengguna.
             </p>
 
-            <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm font-semibold text-[#20233A] dark:text-[#F5F3FF]">
+            <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm font-semibold text-[#181A2A] dark:text-[#F5F3FF]">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#177A56] dark:text-[#65D6A6]" />
                 <span>Clean Code & Architecture</span>
@@ -95,10 +95,10 @@ export function AboutSection({
                     {item.icon}
                   </div>
                   <div>
-                    <h3 className="font-bold text-sm sm:text-base text-[#20233A] dark:text-[#F5F3FF]">
+                    <h3 className="font-bold text-sm sm:text-base text-[#181A2A] dark:text-[#F5F3FF]">
                       {item.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-[#62647A] dark:text-[#C4C2D8] mt-1 leading-normal">
+                    <p className="text-xs sm:text-sm text-[#4F526B] dark:text-[#C4C2D8] mt-1 leading-normal">
                       {item.desc}
                     </p>
                   </div>

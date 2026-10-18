@@ -43,9 +43,37 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="id" className={`${plusJakartaSans.variable} antialiased`}>
+    <html
+      lang="id"
+      data-public-theme="light"
+      data-admin-theme="light"
+      className={`${plusJakartaSans.variable} antialiased`}
+      suppressHydrationWarning
+    >
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var pub = localStorage.getItem('abrar_public_theme_pref');
+                  if (pub === 'dark' || pub === 'light') {
+                    document.documentElement.setAttribute('data-public-theme', pub);
+                  } else {
+                    document.documentElement.setAttribute('data-public-theme', 'light');
+                  }
+                  var adm = localStorage.getItem('abrar_admin_theme_pref');
+                  if (adm === 'dark' || adm === 'light') {
+                    document.documentElement.setAttribute('data-admin-theme', adm);
+                  } else {
+                    document.documentElement.setAttribute('data-admin-theme', 'light');
+                  }
+                } catch(e) {}
+              })();
+            `,
+          }}
+        />
       </head>
       <body className="min-h-screen flex flex-col selection:bg-[#EAE7FF] selection:text-[#6C5CE7]">
         <ThemeProvider>
