@@ -12,11 +12,42 @@ import { Switch } from '@/components/ui/Switch';
 import { Badge } from '@/components/ui/Badge';
 import { Plus, Edit2, Trash2, Briefcase, Calendar } from 'lucide-react';
 
+const MONTHS = [
+  'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+  'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+];
+
+const YEARS = Array.from({ length: 20 }, (_, i) => (2016 + i).toString());
+
+const parseDateParts = (dateStr?: string | null) => {
+  if (!dateStr || dateStr.toLowerCase() === 'sekarang') {
+    return { month: 'Januari', year: new Date().getFullYear().toString() };
+  }
+  const cleaned = dateStr.split(/[-—]/)[0].trim();
+  const parts = cleaned.split(/\s+/);
+  if (parts.length === 1) {
+    if (/^\d{4}$/.test(parts[0])) {
+      return { month: 'Januari', year: parts[0] };
+    }
+    const foundMonth = MONTHS.find((m) => m.toLowerCase().startsWith(parts[0].toLowerCase())) || 'Januari';
+    return { month: foundMonth, year: new Date().getFullYear().toString() };
+  }
+  const foundMonth = MONTHS.find((m) => m.toLowerCase().startsWith(parts[0].toLowerCase())) || 'Januari';
+  const foundYear = parts.find((p) => /^\d{4}$/.test(p)) || parts[1] || new Date().getFullYear().toString();
+  return { month: foundMonth, year: foundYear };
+};
+
 export default function AdminExperiencesPage() {
   const [experiences, setExperiences] = useState<Experience[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editing, setEditing] = useState<Partial<Experience> | null>(null);
   const [respInput, setRespInput] = useState('');
+
+  // Month & Year dedicated states
+  const [startMonth, setStartMonth] = useState('Januari');
+  const [startYear, setStartYear] = useState(new Date().getFullYear().toString());
+  const [endMonth, setEndMonth] = useState('Januari');
+  const [endYear, setEndYear] = useState(new Date().getFullYear().toString());
 
   const { success, error } = useToast();
 
@@ -29,10 +60,16 @@ export default function AdminExperiencesPage() {
   }, []);
 
   const handleOpenAdd = () => {
+    const curYear = new Date().getFullYear().toString();
+    setStartMonth('Januari');
+    setStartYear(curYear);
+    setEndMonth('Desember');
+    setEndYear(curYear);
+
     setEditing({
       position: '',
       organization: '',
-      start_date: new Date().getFullYear().toString(),
+      start_date: `Januari ${curYear}`,
       end_date: '',
       is_current: false,
       description: '',
@@ -46,6 +83,14 @@ export default function AdminExperiencesPage() {
   };
 
   const handleOpenEdit = (item: Experience) => {
+    const startParts = parseDateParts(item.start_date);
+    setStartMonth(startParts.month);
+    setStartYear(startParts.year);
+
+    const endParts = parseDateParts(item.end_date);
+    setEndMonth(endParts.month);
+    setEndYear(endParts.year);
+
     setEditing({ ...item });
     setRespInput((item.responsibilities || []).join('\n'));
     setIsModalOpen(true);
@@ -71,13 +116,16 @@ export default function AdminExperiencesPage() {
       .map((r) => r.trim())
       .filter(Boolean);
 
+    const finalStartDate = `${startMonth} ${startYear}`.trim();
+    const finalEndDate = editing.is_current ? null : `${endMonth} ${endYear}`.trim();
+
     try {
       DataService.saveDraftExperience({
         id: editing.id,
         position: editing.position,
         organization: editing.organization,
-        start_date: editing.start_date || new Date().getFullYear().toString(),
-        end_date: editing.is_current ? null : editing.end_date || null,
+        start_date: finalStartDate,
+        end_date: finalEndDate,
         is_current: !!editing.is_current,
         description: editing.description || '',
         responsibilities: respArray,
@@ -207,22 +255,77 @@ export default function AdminExperiencesPage() {
             />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <Input
-                label="Periode Mulai (Bulan & Tahun)"
-                value={editing.start_date || ''}
-                onChange={(e) => setEditing({ ...editing, start_date: e.target.value })}
-                placeholder="Maret 2024"
-                helperText="Format: Bulan Tahun (misal: Maret 2024)"
-                required
-              />
-              <Input
-                label="Periode Berakhir"
-                value={editing.is_current ? 'Sekarang' : editing.end_date || ''}
-                disabled={!!editing.is_current}
-                onChange={(e) => setEditing({ ...editing, end_date: e.target.value })}
-                placeholder="Januari 2025"
-                helperText={editing.is_current ? 'Otomatis diatur ke Sekarang' : 'Format: Bulan Tahun (misal: Januari 2025)'}
-              />
+              {/* Periode Mulai */}
+              <div className="space-y-1.5 text-left">
+                <label className="block text-xs font-semibold text-[#39324E] dark:text-[#F7F3FF]">
+                  Periode Mulai (Bulan & Tahun) <span className="text-[#C43D4B]">*</span>
+                </label>
+                <div className="grid grid-cols-2 gap-2">
+                  <select
+                    value={startMonth}
+                    onChange={(e) => setStartMonth(e.target.value)}
+                    className="block w-full rounded-xl border border-[#E6E0F1] bg-white px-3 py-2.5 text-sm font-medium text-[#39324E] transition-colors focus:border-[#7966D9] focus:outline-none focus:ring-2 focus:ring-[#7966D9]/20 dark:border-[#3B334D] dark:bg-[#211D2D] dark:text-[#F7F3FF] dark:focus:border-[#B7A7FF]"
+                  >
+                    {MONTHS.map((m) => (
+                      <option key={m} value={m} className="bg-white dark:bg-[#211D2D] text-[#39324E] dark:text-[#F7F3FF]">
+                        {m}
+                      </option>
+                    ))}
+                  </select>
+                  <select
+                    value={startYear}
+                    onChange={(e) => setStartYear(e.target.value)}
+                    className="block w-full rounded-xl border border-[#E6E0F1] bg-white px-3 py-2.5 text-sm font-medium text-[#39324E] transition-colors focus:border-[#7966D9] focus:outline-none focus:ring-2 focus:ring-[#7966D9]/20 dark:border-[#3B334D] dark:bg-[#211D2D] dark:text-[#F7F3FF] dark:focus:border-[#B7A7FF]"
+                  >
+                    {YEARS.map((y) => (
+                      <option key={y} value={y} className="bg-white dark:bg-[#211D2D] text-[#39324E] dark:text-[#F7F3FF]">
+                        {y}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <p className="text-[11px] text-[#706981] dark:text-[#A096B5]">Pilih bulan dan tahun mulai</p>
+              </div>
+
+              {/* Periode Berakhir */}
+              <div className="space-y-1.5 text-left">
+                <label className="block text-xs font-semibold text-[#39324E] dark:text-[#F7F3FF]">
+                  Periode Berakhir (Bulan & Tahun)
+                </label>
+                {editing.is_current ? (
+                  <div className="flex items-center h-[42px] px-3.5 rounded-xl border border-dashed border-[#7966D9]/40 bg-[#EDE8FF]/40 dark:bg-[#7966D9]/10 text-xs font-semibold text-[#7966D9] dark:text-[#B7A7FF]">
+                    Sekarang (Masih Aktif Menjabat)
+                  </div>
+                ) : (
+                  <div className="grid grid-cols-2 gap-2">
+                    <select
+                      value={endMonth}
+                      onChange={(e) => setEndMonth(e.target.value)}
+                      className="block w-full rounded-xl border border-[#E6E0F1] bg-white px-3 py-2.5 text-sm font-medium text-[#39324E] transition-colors focus:border-[#7966D9] focus:outline-none focus:ring-2 focus:ring-[#7966D9]/20 dark:border-[#3B334D] dark:bg-[#211D2D] dark:text-[#F7F3FF] dark:focus:border-[#B7A7FF]"
+                    >
+                      {MONTHS.map((m) => (
+                        <option key={m} value={m} className="bg-white dark:bg-[#211D2D] text-[#39324E] dark:text-[#F7F3FF]">
+                          {m}
+                        </option>
+                      ))}
+                    </select>
+                    <select
+                      value={endYear}
+                      onChange={(e) => setEndYear(e.target.value)}
+                      className="block w-full rounded-xl border border-[#E6E0F1] bg-white px-3 py-2.5 text-sm font-medium text-[#39324E] transition-colors focus:border-[#7966D9] focus:outline-none focus:ring-2 focus:ring-[#7966D9]/20 dark:border-[#3B334D] dark:bg-[#211D2D] dark:text-[#F7F3FF] dark:focus:border-[#B7A7FF]"
+                    >
+                      {YEARS.map((y) => (
+                        <option key={y} value={y} className="bg-white dark:bg-[#211D2D] text-[#39324E] dark:text-[#F7F3FF]">
+                          {y}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                )}
+                <p className="text-[11px] text-[#706981] dark:text-[#A096B5]">
+                  {editing.is_current ? 'Otomatis diatur ke Sekarang' : 'Pilih bulan dan tahun selesai'}
+                </p>
+              </div>
             </div>
 
             <Switch
