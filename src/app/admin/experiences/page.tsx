@@ -208,10 +208,11 @@ export default function AdminExperiencesPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Input
-                label="Periode Mulai (Tahun / Bulan)"
+                label="Periode Mulai (Bulan & Tahun)"
                 value={editing.start_date || ''}
                 onChange={(e) => setEditing({ ...editing, start_date: e.target.value })}
-                placeholder="2024"
+                placeholder="Maret 2024"
+                helperText="Format: Bulan Tahun (misal: Maret 2024)"
                 required
               />
               <Input
@@ -219,7 +220,8 @@ export default function AdminExperiencesPage() {
                 value={editing.is_current ? 'Sekarang' : editing.end_date || ''}
                 disabled={!!editing.is_current}
                 onChange={(e) => setEditing({ ...editing, end_date: e.target.value })}
-                placeholder="2025"
+                placeholder="Januari 2025"
+                helperText={editing.is_current ? 'Otomatis diatur ke Sekarang' : 'Format: Bulan Tahun (misal: Januari 2025)'}
               />
             </div>
 

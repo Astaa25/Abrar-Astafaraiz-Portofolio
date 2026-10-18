@@ -1607,7 +1607,7 @@ export const INITIAL_EXPERIENCES: Experience[] = [
     id: 'exp-1',
     position: 'Koordinator Divisi Riset & Pengembangan Web',
     organization: 'Himpunan Mahasiswa Teknik Informatika',
-    start_date: '2024',
+    start_date: 'Maret 2024',
     end_date: null,
     is_current: true,
     description:
@@ -1628,8 +1628,8 @@ export const INITIAL_EXPERIENCES: Experience[] = [
     id: 'exp-2',
     position: 'Full-Stack Developer (Proyek Kolaboratif)',
     organization: 'Lab Rekayasa Perangkat Lunak TIK',
-    start_date: '2024',
-    end_date: '2025',
+    start_date: 'Agustus 2024',
+    end_date: 'Januari 2025',
     is_current: false,
     description:
       'Berkontribusi dalam riset dan implementasi sistem informasi absensi dan pelacakan aset laboratorium jurusan.',
