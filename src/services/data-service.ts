@@ -117,7 +117,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-1',
     name: 'TypeScript',
-    category: 'Teknik Informatika',
+    category: 'Programming Languages',
     description: 'Static typing for scalable modern web applications and robust architectures',
     icon_name: 'Code2',
     proficiency_label: 'Proficient',
@@ -129,7 +129,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-2',
     name: 'JavaScript',
-    category: 'Teknik Informatika',
+    category: 'Programming Languages',
     description: 'Core scripting for frontend interactivity, event-driven DOM, and backend APIs',
     icon_name: 'FileCode2',
     proficiency_label: 'Advanced',
@@ -141,7 +141,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-3',
     name: 'Next.js',
-    category: 'Teknik Informatika',
+    category: 'Web Development',
     description: 'Full-stack React framework with App Router, SSR, Turbopack, and Server Actions',
     icon_name: 'Layers',
     proficiency_label: 'Advanced',
@@ -153,7 +153,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-4',
     name: 'React',
-    category: 'Teknik Informatika',
+    category: 'Web Development',
     description: 'Component-driven interactive UI engineering with hooks and state management',
     icon_name: 'Atom',
     proficiency_label: 'Advanced',
@@ -165,7 +165,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-5',
     name: 'Node.js & Express',
-    category: 'Teknik Informatika',
+    category: 'Web Development',
     description: 'High-performance event-driven runtime and RESTful API backend architecture',
     icon_name: 'Server',
     proficiency_label: 'Proficient',
@@ -177,7 +177,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-6',
     name: 'Python',
-    category: 'Teknik Informatika',
+    category: 'Programming Languages',
     description: 'Data processing, scripting, backend development, and AI/automation scripts',
     icon_name: 'Terminal',
     proficiency_label: 'Proficient',
@@ -189,7 +189,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-7',
     name: 'PHP & Laravel',
-    category: 'Teknik Informatika',
+    category: 'Web Development',
     description: 'Robust MVC backend web application development and Eloquent ORM',
     icon_name: 'FileCode',
     proficiency_label: 'Proficient',
@@ -201,7 +201,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-8',
     name: 'C++',
-    category: 'Teknik Informatika',
+    category: 'Programming Languages',
     description: 'Algorithmic problem solving, low-level data structures, and computer science foundations',
     icon_name: 'Cpu',
     proficiency_label: 'Familiar',
@@ -213,7 +213,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-9',
     name: 'Java',
-    category: 'Teknik Informatika',
+    category: 'Programming Languages',
     description: 'Object-oriented programming, enterprise patterns, and algorithmic foundations',
     icon_name: 'Coffee',
     proficiency_label: 'Proficient',
@@ -225,7 +225,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-10',
     name: 'Golang',
-    category: 'Teknik Informatika',
+    category: 'Programming Languages',
     description: 'Concurrent, high-throughput microservices and system programming',
     icon_name: 'Zap',
     proficiency_label: 'Familiar',
@@ -237,7 +237,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-11',
     name: 'Tailwind CSS',
-    category: 'Teknik Informatika',
+    category: 'Web Development',
     description: 'Utility-first modern styling, responsive layouts, and dynamic themes',
     icon_name: 'Palette',
     proficiency_label: 'Advanced',
@@ -249,7 +249,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-12',
     name: 'PostgreSQL',
-    category: 'Database & Cloud',
+    category: 'Database Management',
     description: 'Advanced relational schema modeling, indexing, foreign keys, and complex queries',
     icon_name: 'Database',
     proficiency_label: 'Proficient',
@@ -261,7 +261,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-13',
     name: 'Supabase',
-    category: 'Database & Cloud',
+    category: 'Database Management',
     description: 'BaaS: Auth, Realtime Postgres, Storage, and Row Level Security (RLS)',
     icon_name: 'ShieldCheck',
     proficiency_label: 'Proficient',
@@ -273,7 +273,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-14',
     name: 'MySQL',
-    category: 'Database & Cloud',
+    category: 'Database Management',
     description: 'Relational data management, database normalization, and query optimization',
     icon_name: 'DatabaseZap',
     proficiency_label: 'Proficient',
@@ -285,7 +285,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-15',
     name: 'MongoDB',
-    category: 'Database & Cloud',
+    category: 'Database Management',
     description: 'NoSQL document-oriented database design and JSON aggregation pipelines',
     icon_name: 'Box',
     proficiency_label: 'Familiar',
@@ -297,7 +297,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-16',
     name: 'Redis',
-    category: 'Database & Cloud',
+    category: 'Database Management',
     description: 'In-memory key-value data structure store, caching layer, and session store',
     icon_name: 'Zap',
     proficiency_label: 'Familiar',
@@ -309,7 +309,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-17',
     name: 'Git & GitHub',
-    category: 'Teknik Informatika',
+    category: 'Tools & Platforms',
     description: 'Version control, branch workflows, pull requests, and collaboration',
     icon_name: 'GitBranch',
     proficiency_label: 'Advanced',
@@ -321,7 +321,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-18',
     name: 'Docker',
-    category: 'Teknik Informatika',
+    category: 'Tools & Platforms',
     description: 'Containerization, Dockerfile configuration, and consistent development environments',
     icon_name: 'Box',
     proficiency_label: 'Familiar',
@@ -335,7 +335,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-19',
     name: 'Cisco Packet Tracer',
-    category: 'Rekayasa Jaringan (TRKJ)',
+    category: 'Network & Security',
     description: 'Simulasi dan perancangan topologi jaringan skala LAN, MAN, hingga WAN',
     icon_name: 'Network',
     proficiency_label: 'Advanced',
@@ -347,7 +347,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-20',
     name: 'Mikrotik RouterOS',
-    category: 'Rekayasa Jaringan (TRKJ)',
+    category: 'Network & Security',
     description: 'Konfigurasi routing, firewall filter, bandwidth queue management, dan hotspot gateway',
     icon_name: 'Router',
     proficiency_label: 'Proficient',
@@ -359,7 +359,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-21',
     name: 'Wireshark',
-    category: 'Rekayasa Jaringan (TRKJ)',
+    category: 'Network & Security',
     description: 'Analisis protokol paket data jaringan (TCP/IP, UDP, DNS, HTTP) dan troubleshooting koneksi',
     icon_name: 'Activity',
     proficiency_label: 'Proficient',
@@ -371,7 +371,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-22',
     name: 'Routing & Switching',
-    category: 'Rekayasa Jaringan (TRKJ)',
+    category: 'Network & Security',
     description: 'Implementasi VLAN, Trunking, Spanning Tree Protocol (STP), OSPF, RIP, dan BGP routing',
     icon_name: 'Network',
     proficiency_label: 'Proficient',
@@ -383,7 +383,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-23',
     name: 'Network Security & Firewall',
-    category: 'Rekayasa Jaringan (TRKJ)',
+    category: 'Network & Security',
     description: 'Keamanan jaringan, IDS/IPS, konfigurasi NAT, VPN (OpenVPN, WireGuard), dan access control list',
     icon_name: 'ShieldAlert',
     proficiency_label: 'Proficient',
@@ -395,7 +395,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-24',
     name: 'Linux Server Administration',
-    category: 'Rekayasa Jaringan (TRKJ)',
+    category: 'Network & Security',
     description: 'Pengelolaan Ubuntu Server, Debian, Nginx/Apache web server, SSH, DNS, dan Bash script',
     icon_name: 'TerminalSquare',
     proficiency_label: 'Advanced',
@@ -407,7 +407,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-25',
     name: 'Virtualization & Proxmox',
-    category: 'Rekayasa Jaringan (TRKJ)',
+    category: 'Network & Security',
     description: 'Virtualisasi server dengan Proxmox VE, VMware ESXi, KVM, dan LXC container',
     icon_name: 'HardDrive',
     proficiency_label: 'Proficient',
@@ -419,7 +419,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-26',
     name: 'Penetration Testing (Kali Linux)',
-    category: 'Rekayasa Jaringan (TRKJ)',
+    category: 'Network & Security',
     description: 'Vulnerability assessment dan port scanning menggunakan Nmap, Metasploit, dan Burp Suite',
     icon_name: 'ShieldCheck',
     proficiency_label: 'Familiar',
@@ -431,7 +431,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-27',
     name: 'GNS3 & PNetLab',
-    category: 'Rekayasa Jaringan (TRKJ)',
+    category: 'Network & Security',
     description: 'Emulasi topologi jaringan kompleks dengan router Cisco IOS, IOU, dan virtual appliances',
     icon_name: 'Network',
     proficiency_label: 'Familiar',
@@ -443,7 +443,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-28',
     name: 'IoT & Microcontroller',
-    category: 'Rekayasa Jaringan (TRKJ)',
+    category: 'Network & Security',
     description: 'Pemrograman hardware sensor dan aktuator dengan Arduino, ESP32, ESP8266, dan Raspberry Pi',
     icon_name: 'Cpu',
     proficiency_label: 'Familiar',
@@ -457,7 +457,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-29',
     name: 'Figma',
-    category: 'Rekayasa Multimedia (TRM)',
+    category: 'UI/UX Design',
     description: 'UI/UX design, wireframing, high-fidelity interactive prototyping, and design tokens',
     icon_name: 'Layout',
     proficiency_label: 'Advanced',
@@ -469,7 +469,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-30',
     name: 'Adobe Photoshop',
-    category: 'Rekayasa Multimedia (TRM)',
+    category: 'UI/UX Design',
     description: 'Pengolahan citra digital, manipulasi raster grafis, retouching foto, dan komposisi visual',
     icon_name: 'Image',
     proficiency_label: 'Proficient',
@@ -481,7 +481,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-31',
     name: 'Adobe Illustrator',
-    category: 'Rekayasa Multimedia (TRM)',
+    category: 'UI/UX Design',
     description: 'Pembuatan grafis vektor, desain logo, ikon antarmuka, dan branding visual presisi',
     icon_name: 'PenTool',
     proficiency_label: 'Proficient',
@@ -493,7 +493,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-32',
     name: 'Adobe Premiere Pro',
-    category: 'Rekayasa Multimedia (TRM)',
+    category: 'UI/UX Design',
     description: 'Editing video profesional, timeline trimming, color correction Lumetri, dan mixing audio',
     icon_name: 'Video',
     proficiency_label: 'Proficient',
@@ -505,7 +505,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-33',
     name: 'Adobe After Effects',
-    category: 'Rekayasa Multimedia (TRM)',
+    category: 'UI/UX Design',
     description: 'Motion graphics, animasi tipografi, visual effects (VFX), dan compositing video',
     icon_name: 'Film',
     proficiency_label: 'Familiar',
@@ -517,7 +517,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-34',
     name: 'Blender 3D',
-    category: 'Rekayasa Multimedia (TRM)',
+    category: 'UI/UX Design',
     description: 'Pemodelan objek 3D (3D Modeling), texturing PBR, lighting, dan rendering Eevee/Cycles',
     icon_name: 'Box',
     proficiency_label: 'Familiar',
@@ -529,7 +529,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-35',
     name: 'Unity 3D',
-    category: 'Rekayasa Multimedia (TRM)',
+    category: 'UI/UX Design',
     description: 'Pengembangan aplikasi game interaktif, simulasi visual, dan integrasi aset 3D dengan C#',
     icon_name: 'Layers',
     proficiency_label: 'Familiar',
@@ -541,7 +541,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-36',
     name: 'DaVinci Resolve',
-    category: 'Rekayasa Multimedia (TRM)',
+    category: 'UI/UX Design',
     description: 'Color grading cinematic, video editing berkinerja tinggi, dan audio post-production Fairlight',
     icon_name: 'Video',
     proficiency_label: 'Familiar',
@@ -553,7 +553,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-37',
     name: 'Audacity & Sound Design',
-    category: 'Rekayasa Multimedia (TRM)',
+    category: 'UI/UX Design',
     description: 'Perekaman audio, audio cleaning/noise reduction, sound effects, dan mastering podcast',
     icon_name: 'Music',
     proficiency_label: 'Proficient',
@@ -567,7 +567,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-38',
     name: 'Flutter & Dart',
-    category: 'Teknik Informatika',
+    category: 'Programming Languages',
     description: 'Pengembangan aplikasi mobile multi-platform (Android & iOS) dengan performa native',
     icon_name: 'Layers',
     proficiency_label: 'Proficient',
@@ -579,7 +579,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-39',
     name: 'React Native',
-    category: 'Teknik Informatika',
+    category: 'Web Development',
     description: 'Framework mobile lintas platform menggunakan basis React dan JavaScript/TypeScript',
     icon_name: 'Atom',
     proficiency_label: 'Proficient',
@@ -591,7 +591,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-40',
     name: 'Kotlin (Android Native)',
-    category: 'Teknik Informatika',
+    category: 'Programming Languages',
     description: 'Pemrograman aplikasi Android native modern dengan Jetpack Compose dan coroutines',
     icon_name: 'Code2',
     proficiency_label: 'Familiar',
@@ -603,7 +603,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-41',
     name: 'Swift (iOS Native)',
-    category: 'Teknik Informatika',
+    category: 'Programming Languages',
     description: 'Pemrograman aplikasi ekosistem Apple native dengan SwiftUI dan integrasi UIKit',
     icon_name: 'Code2',
     proficiency_label: 'Familiar',
@@ -615,7 +615,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-42',
     name: 'Vue.js & Nuxt.js',
-    category: 'Teknik Informatika',
+    category: 'Web Development',
     description: 'Framework frontend reaktif dengan Composition API dan Server Side Rendering (SSR)',
     icon_name: 'Layers',
     proficiency_label: 'Proficient',
@@ -627,7 +627,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-43',
     name: 'Angular',
-    category: 'Teknik Informatika',
+    category: 'Web Development',
     description: 'Framework TypeScript enterprise-grade dengan dependency injection dan RxJS',
     icon_name: 'Layers',
     proficiency_label: 'Familiar',
@@ -639,7 +639,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-44',
     name: 'Svelte & SvelteKit',
-    category: 'Teknik Informatika',
+    category: 'Web Development',
     description: 'Kompiler antarmuka web ultra-ringan tanpa overhead virtual DOM runtime',
     icon_name: 'Zap',
     proficiency_label: 'Familiar',
@@ -651,7 +651,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-45',
     name: 'FastAPI (Python)',
-    category: 'Teknik Informatika',
+    category: 'Web Development',
     description: 'Framework backend asinkronus berkecepatan tinggi dengan auto dokumentasi Swagger/OpenAPI',
     icon_name: 'Zap',
     proficiency_label: 'Proficient',
@@ -663,7 +663,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-46',
     name: 'Django (Python)',
-    category: 'Teknik Informatika',
+    category: 'Web Development',
     description: 'Framework web full-featured dengan built-in ORM, admin panel, dan modul autentikasi',
     icon_name: 'Server',
     proficiency_label: 'Proficient',
@@ -675,7 +675,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-47',
     name: 'Spring Boot (Java)',
-    category: 'Teknik Informatika',
+    category: 'Web Development',
     description: 'Framework microservices enterprise dengan Hibernate JPA, Spring Security, dan MVC',
     icon_name: 'Coffee',
     proficiency_label: 'Familiar',
@@ -687,7 +687,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-48',
     name: 'ASP.NET Core (C#)',
-    category: 'Teknik Informatika',
+    category: 'Web Development',
     description: 'Platform pengembangan web dan Web API modern berkinerja tinggi dari Microsoft',
     icon_name: 'Layers',
     proficiency_label: 'Familiar',
@@ -699,7 +699,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-49',
     name: 'GraphQL',
-    category: 'Teknik Informatika',
+    category: 'Web Development',
     description: 'Bahasa kueri fleksibel untuk API yang mencegah over-fetching dan under-fetching data',
     icon_name: 'Network',
     proficiency_label: 'Proficient',
@@ -711,7 +711,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-50',
     name: 'gRPC & Protobuf',
-    category: 'Teknik Informatika',
+    category: 'Web Development',
     description: 'Komunikasi RPC berkinerja tinggi antar microservice berbasis HTTP/2 dan serialisasi biner',
     icon_name: 'Zap',
     proficiency_label: 'Familiar',
@@ -723,7 +723,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-51',
     name: 'WebSockets & Socket.io',
-    category: 'Teknik Informatika',
+    category: 'Web Development',
     description: 'Protokol komunikasi real-time dua arah untuk chat, live notification, dan kolaborasi online',
     icon_name: 'Activity',
     proficiency_label: 'Proficient',
@@ -735,7 +735,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-52',
     name: 'Kubernetes (K8s)',
-    category: 'Teknik Informatika',
+    category: 'Tools & Platforms',
     description: 'Orkestrasi kontainer otomatis untuk deployment, scaling, dan manajemen cluster aplikasi',
     icon_name: 'Box',
     proficiency_label: 'Familiar',
@@ -747,7 +747,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-53',
     name: 'CI/CD Pipelines (GitHub Actions)',
-    category: 'Teknik Informatika',
+    category: 'Tools & Platforms',
     description: 'Automasi pengujian, build, linting, dan continuous deployment ke server produksi',
     icon_name: 'GitBranch',
     proficiency_label: 'Proficient',
@@ -759,7 +759,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-54',
     name: 'Terraform (IaC)',
-    category: 'Teknik Informatika',
+    category: 'Tools & Platforms',
     description: 'Pengelolaan infrastruktur cloud melalui kode deklaratif (Infrastructure as Code)',
     icon_name: 'Wrench',
     proficiency_label: 'Familiar',
@@ -771,7 +771,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-55',
     name: 'Unit & Integration Testing (Jest/Vitest)',
-    category: 'Teknik Informatika',
+    category: 'Tools & Platforms',
     description: 'Pengujian kode otomatis untuk memastikan keandalan fungsi, regresi, dan clean architecture',
     icon_name: 'ShieldCheck',
     proficiency_label: 'Proficient',
@@ -783,7 +783,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-56',
     name: 'Playwright & E2E Testing',
-    category: 'Teknik Informatika',
+    category: 'Tools & Platforms',
     description: 'Automasi pengujian menyeluruh (End-to-End) lintas peramban (Chromium, Firefox, WebKit)',
     icon_name: 'Terminal',
     proficiency_label: 'Proficient',
@@ -795,7 +795,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-57',
     name: 'Vite & Webpack',
-    category: 'Teknik Informatika',
+    category: 'Tools & Platforms',
     description: 'Modern frontend build tool, Hot Module Replacement (HMR), dan bundling aset produksi',
     icon_name: 'Zap',
     proficiency_label: 'Advanced',
@@ -807,7 +807,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-58',
     name: 'Bun & Deno',
-    category: 'Teknik Informatika',
+    category: 'Tools & Platforms',
     description: 'Runtime JavaScript/TypeScript modern all-in-one dengan kecepatan eksekusi tinggi',
     icon_name: 'Zap',
     proficiency_label: 'Familiar',
@@ -819,7 +819,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-59',
     name: 'PyTorch & Machine Learning',
-    category: 'Teknik Informatika',
+    category: 'Tools & Platforms',
     description: 'Pelatihan model neural network, deep learning, dan integrasi inferensi kecerdasan buatan',
     icon_name: 'Cpu',
     proficiency_label: 'Familiar',
@@ -831,7 +831,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-60',
     name: 'Pandas & Data Science',
-    category: 'Teknik Informatika',
+    category: 'Tools & Platforms',
     description: 'Manipulasi data tabular, eksplorasi data analisis (EDA), dan visualisasi data Python',
     icon_name: 'Database',
     proficiency_label: 'Proficient',
@@ -843,7 +843,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-61',
     name: 'OpenCV (Computer Vision)',
-    category: 'Teknik Informatika',
+    category: 'Tools & Platforms',
     description: 'Pemrosesan citra digital, deteksi tepi, face recognition, dan ekstraksi fitur visual',
     icon_name: 'Activity',
     proficiency_label: 'Familiar',
@@ -855,7 +855,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-62',
     name: 'LLM & AI Prompt Engineering',
-    category: 'Teknik Informatika',
+    category: 'Tools & Platforms',
     description: 'Integrasi model bahasa besar (OpenAI, Gemini API, Claude) dan Retrieval-Augmented Generation (RAG)',
     icon_name: 'Terminal',
     proficiency_label: 'Proficient',
@@ -869,7 +869,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-63',
     name: 'pfSense & OPNsense',
-    category: 'Rekayasa Jaringan (TRKJ)',
+    category: 'Network & Security',
     description: 'Implementasi firewall tingkat lanjut, traffic shaper, captive portal, dan gateway keamanan',
     icon_name: 'ShieldAlert',
     proficiency_label: 'Proficient',
@@ -881,7 +881,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-64',
     name: 'OpenVPN & WireGuard',
-    category: 'Rekayasa Jaringan (TRKJ)',
+    category: 'Network & Security',
     description: 'Konfigurasi virtual private network (VPN) terenkripsi untuk akses jarak jauh yang aman',
     icon_name: 'ShieldCheck',
     proficiency_label: 'Advanced',
@@ -893,7 +893,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-65',
     name: 'Nginx & Reverse Proxy',
-    category: 'Rekayasa Jaringan (TRKJ)',
+    category: 'Network & Security',
     description: 'Web server berkinerja tinggi, load balancer, SSL/TLS certificate management, dan caching',
     icon_name: 'Server',
     proficiency_label: 'Advanced',
@@ -905,7 +905,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-66',
     name: 'DNS Management (BIND9)',
-    category: 'Rekayasa Jaringan (TRKJ)',
+    category: 'Network & Security',
     description: 'Konfigurasi Authoritative & Recursive DNS Server, DNSSEC, dan pencatatan zona rekaman domain',
     icon_name: 'Network',
     proficiency_label: 'Proficient',
@@ -917,7 +917,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-67',
     name: 'DHCP & IP Subnetting (CIDR)',
-    category: 'Rekayasa Jaringan (TRKJ)',
+    category: 'Network & Security',
     description: 'Alokasi alamat IP dinamis, reservasi MAC, pembagian subnetting VLSM dan supernetting',
     icon_name: 'Network',
     proficiency_label: 'Advanced',
@@ -929,7 +929,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-68',
     name: 'SNMP & Monitoring (Zabbix/PRTG)',
-    category: 'Rekayasa Jaringan (TRKJ)',
+    category: 'Network & Security',
     description: 'Pemantauan kesehatan perangkat jaringan, beban bandwidth, server uptime, dan alerting otomatis',
     icon_name: 'Activity',
     proficiency_label: 'Proficient',
@@ -941,7 +941,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-69',
     name: 'Suricata / Snort (IDS/IPS)',
-    category: 'Rekayasa Jaringan (TRKJ)',
+    category: 'Network & Security',
     description: 'Deteksi dan pencegahan intrusi jaringan real-time berbasis signature dan deteksi anomali',
     icon_name: 'ShieldAlert',
     proficiency_label: 'Familiar',
@@ -953,7 +953,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-70',
     name: 'Windows Server & Active Directory',
-    category: 'Rekayasa Jaringan (TRKJ)',
+    category: 'Network & Security',
     description: 'Manajemen Domain Controller, Group Policy Objects (GPO), LDAP, dan hak akses pengguna jaringan',
     icon_name: 'Server',
     proficiency_label: 'Proficient',
@@ -965,7 +965,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-71',
     name: 'Ansible IT Automation',
-    category: 'Rekayasa Jaringan (TRKJ)',
+    category: 'Network & Security',
     description: 'Otomasi konfigurasi server massal, provisioning, dan deployment multi-node tanpa agent',
     icon_name: 'TerminalSquare',
     proficiency_label: 'Familiar',
@@ -977,7 +977,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-72',
     name: 'VMware vSphere & ESXi',
-    category: 'Rekayasa Jaringan (TRKJ)',
+    category: 'Network & Security',
     description: 'Manajemen hypervisor bare-metal tingkat perusahaan, vSwitch, dan high availability VM',
     icon_name: 'HardDrive',
     proficiency_label: 'Proficient',
@@ -989,7 +989,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-73',
     name: 'TrueNAS & SAN/NAS Storage',
-    category: 'Rekayasa Jaringan (TRKJ)',
+    category: 'Network & Security',
     description: 'Manajemen penyimpanan data terpusat, RAID pool ZFS, iSCSI, NFS, dan automated snapshot backup',
     icon_name: 'Database',
     proficiency_label: 'Proficient',
@@ -1001,7 +1001,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-74',
     name: 'Cloudflare WAF & CDN',
-    category: 'Rekayasa Jaringan (TRKJ)',
+    category: 'Network & Security',
     description: 'Pengaturan keamanan Web Application Firewall (WAF), mitigasi DDoS, dan caching edge global',
     icon_name: 'ShieldCheck',
     proficiency_label: 'Advanced',
@@ -1013,7 +1013,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-75',
     name: 'AWS Cloud (EC2, S3, VPC)',
-    category: 'Database & Cloud',
+    category: 'Database Management',
     description: 'Arsitektur cloud publik Amazon Web Services: virtual instance, routing VPC, dan cloud storage',
     icon_name: 'Server',
     proficiency_label: 'Proficient',
@@ -1025,7 +1025,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-76',
     name: 'Google Cloud Platform (GCP)',
-    category: 'Database & Cloud',
+    category: 'Database Management',
     description: 'Deployment serverless, container registry, Compute Engine, dan Cloud Storage',
     icon_name: 'Server',
     proficiency_label: 'Familiar',
@@ -1037,7 +1037,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-77',
     name: 'Burp Suite (Web Security Audit)',
-    category: 'Rekayasa Jaringan (TRKJ)',
+    category: 'Network & Security',
     description: 'Audit keamanan aplikasi web, pengujian kerentanan SQL Injection, XSS, dan intercept proxy',
     icon_name: 'ShieldAlert',
     proficiency_label: 'Proficient',
@@ -1049,7 +1049,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-78',
     name: 'Metasploit Framework',
-    category: 'Rekayasa Jaringan (TRKJ)',
+    category: 'Network & Security',
     description: 'Eksplorasi modul keamanan, verifikasi kelemahan sistem, dan simulasi penetration testing',
     icon_name: 'Terminal',
     proficiency_label: 'Familiar',
@@ -1061,7 +1061,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-79',
     name: 'MQTT & IoT Protocols',
-    category: 'Rekayasa Jaringan (TRKJ)',
+    category: 'Network & Security',
     description: 'Protokol publish/subscribe ringan untuk transmisi data sensor IoT ke broker Mosquitto',
     icon_name: 'Activity',
     proficiency_label: 'Proficient',
@@ -1073,7 +1073,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-80',
     name: 'Wireless Networking (WLAN 802.11)',
-    category: 'Rekayasa Jaringan (TRKJ)',
+    category: 'Network & Security',
     description: 'Perencanaan frekuensi 2.4GHz/5GHz, site survey WiFi, WPA3 Enterprise, dan roaming access point',
     icon_name: 'Network',
     proficiency_label: 'Proficient',
@@ -1087,7 +1087,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-81',
     name: 'Three.js & 3D WebGL',
-    category: 'Rekayasa Multimedia (TRM)',
+    category: 'Web Development',
     description: 'Render grafis 3D interaktif pada web browser menggunakan WebGL, shader, dan material 3D',
     icon_name: 'Box',
     proficiency_label: 'Proficient',
@@ -1099,7 +1099,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-82',
     name: 'Framer Motion & Web Animation',
-    category: 'Rekayasa Multimedia (TRM)',
+    category: 'Web Development',
     description: 'Animasi antarmuka web interaktif yang halus dengan spring physics dan micro-interaction',
     icon_name: 'Palette',
     proficiency_label: 'Advanced',
@@ -1111,7 +1111,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-83',
     name: 'Adobe InDesign',
-    category: 'Rekayasa Multimedia (TRM)',
+    category: 'UI/UX Design',
     description: 'Tata letak editorial profesional, pembuatan buku, majalah digital, dan proposal publikasi',
     icon_name: 'Layout',
     proficiency_label: 'Proficient',
@@ -1123,7 +1123,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-84',
     name: 'CorelDRAW Graphic Suite',
-    category: 'Rekayasa Multimedia (TRM)',
+    category: 'UI/UX Design',
     description: 'Desain ilustrasi vektor presisi, layout grafis media cetak, dan produksi merchandise visual',
     icon_name: 'PenTool',
     proficiency_label: 'Proficient',
@@ -1135,7 +1135,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-85',
     name: 'Adobe Audition',
-    category: 'Rekayasa Multimedia (TRM)',
+    category: 'UI/UX Design',
     description: 'Restorasi audio multitrack, pembersihan desis kebisingan (noise removal), dan mastering suara',
     icon_name: 'Music',
     proficiency_label: 'Proficient',
@@ -1147,7 +1147,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-86',
     name: 'FL Studio & Sound Design',
-    category: 'Rekayasa Multimedia (TRM)',
+    category: 'UI/UX Design',
     description: 'Komposisi musik digital (DAW), aransemen soundtrack latar game/video, dan sintesis audio',
     icon_name: 'Music',
     proficiency_label: 'Familiar',
@@ -1159,7 +1159,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-87',
     name: 'Autodesk Maya',
-    category: 'Rekayasa Multimedia (TRM)',
+    category: 'UI/UX Design',
     description: 'Animasi karakter 3D industri, rigging kerangka, UV mapping, dan simulasi partikel',
     icon_name: 'Box',
     proficiency_label: 'Familiar',
@@ -1171,7 +1171,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-88',
     name: 'Substance 3D Painter',
-    category: 'Rekayasa Multimedia (TRM)',
+    category: 'UI/UX Design',
     description: 'Teksturing 3D material Physically Based Rendering (PBR) dengan sistem mask dan smart material',
     icon_name: 'Palette',
     proficiency_label: 'Familiar',
@@ -1183,7 +1183,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-89',
     name: 'Cinema 4D',
-    category: 'Rekayasa Multimedia (TRM)',
+    category: 'UI/UX Design',
     description: 'Motion graphics 3D dinamis, integrasi simulasi mograph, dan visual branding komersial',
     icon_name: 'Film',
     proficiency_label: 'Familiar',
@@ -1195,7 +1195,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-90',
     name: 'ZBrush Digital Sculpting',
-    category: 'Rekayasa Multimedia (TRM)',
+    category: 'UI/UX Design',
     description: 'Pemahatan digital resolusi tinggi (high-poly sculpting) untuk karakter game dan aset detail',
     icon_name: 'Box',
     proficiency_label: 'Familiar',
@@ -1207,7 +1207,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-91',
     name: 'Godot Engine',
-    category: 'Rekayasa Multimedia (TRM)',
+    category: 'UI/UX Design',
     description: 'Game engine open-source berbobot ringan untuk pengembangan game 2D & 3D dengan GDScript',
     icon_name: 'Layers',
     proficiency_label: 'Familiar',
@@ -1219,7 +1219,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-92',
     name: 'Unreal Engine 5 (UE5)',
-    category: 'Rekayasa Multimedia (TRM)',
+    category: 'UI/UX Design',
     description: 'Visualisasi 3D fotorealistis menggunakan teknologi Nanite, Lumen, dan sistem Blueprint visual',
     icon_name: 'Layers',
     proficiency_label: 'Familiar',
@@ -1231,7 +1231,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-93',
     name: 'OBS Studio (Broadcasting)',
-    category: 'Rekayasa Multimedia (TRM)',
+    category: 'UI/UX Design',
     description: 'Setup streaming live profesional, mixing audio-visual multi-source, dan encoding video RTMP',
     icon_name: 'Video',
     proficiency_label: 'Advanced',
@@ -1243,7 +1243,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-94',
     name: 'Color Grading & ACES Color',
-    category: 'Rekayasa Multimedia (TRM)',
+    category: 'UI/UX Design',
     description: 'Manajemen warna sinematik, kurva tone, gamut transform, dan penciptaan mood filmik',
     icon_name: 'Film',
     proficiency_label: 'Proficient',
@@ -1255,7 +1255,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-95',
     name: 'CapCut Pro & Creative Editing',
-    category: 'Rekayasa Multimedia (TRM)',
+    category: 'UI/UX Design',
     description: 'Produksi video pendek viral, transisi dinamis, auto-captioning, dan format mobile vertical',
     icon_name: 'Video',
     proficiency_label: 'Advanced',
@@ -1267,7 +1267,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-96',
     name: 'Design Systems & UI Token',
-    category: 'Rekayasa Multimedia (TRM)',
+    category: 'UI/UX Design',
     description: 'Penyusunan komponen desain terstandarisasi, token warna, tipografi, dan konsistensi UX',
     icon_name: 'Layout',
     proficiency_label: 'Advanced',
@@ -1279,7 +1279,7 @@ export const INITIAL_SKILLS: Skill[] = [
   {
     id: 'sk-97',
     name: 'Motion Graphics & Typography Animation',
-    category: 'Rekayasa Multimedia (TRM)',
+    category: 'UI/UX Design',
     description: 'Animasi tipografi dinamis, kinetic text, title sequence, dan visual identity animasi',
     icon_name: 'Film',
     proficiency_label: 'Proficient',
@@ -1769,7 +1769,7 @@ interface ContentStoreState {
   versionCount: number;
 }
 
-const STORAGE_KEY = 'abrar_portfolio_content_store_v3';
+const STORAGE_KEY = 'abrar_portfolio_content_store_v4';
 
 function getDefaultStore(): ContentStoreState {
   const baseContent: WebsiteContent = {

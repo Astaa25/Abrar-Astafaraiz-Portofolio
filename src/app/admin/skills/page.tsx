@@ -48,7 +48,7 @@ export default function AdminSkillsPage() {
   const handleOpenAdd = () => {
     setEditingSkill({
       name: '',
-      category: 'Teknik Informatika',
+      category: 'Programming Languages',
       proficiency_label: 'Proficient',
       description: '',
       icon_name: 'Code2',
@@ -110,10 +110,12 @@ export default function AdminSkillsPage() {
 
   const categories = [
     'Semua',
-    'Teknik Informatika',
-    'Rekayasa Jaringan (TRKJ)',
-    'Rekayasa Multimedia (TRM)',
-    'Database & Cloud',
+    'Programming Languages',
+    'Web Development',
+    'Database Management',
+    'Network & Security',
+    'UI/UX Design',
+    'Tools & Platforms',
   ];
 
   const filtered = skills.filter((s) => {
@@ -287,14 +289,15 @@ export default function AdminSkillsPage() {
                 Kategori Keahlian
               </label>
               <select
-                value={editingSkill.category || 'Teknik Informatika'}
+                value={editingSkill.category || 'Programming Languages'}
                 onChange={(e) => setEditingSkill({ ...editingSkill, category: e.target.value })}
                 className="block w-full rounded-xl border border-[#E6E0F1] bg-white px-3.5 py-2.5 text-sm text-[#39324E] focus:border-[#7966D9] focus:outline-none dark:border-[#3B334D] dark:bg-[#211D2D] dark:text-[#F7F3FF]"
               >
-                <option value="Teknik Informatika">Teknik Informatika (Software & Web)</option>
-                <option value="Rekayasa Jaringan (TRKJ)">Rekayasa Jaringan (TRKJ)</option>
-                <option value="Rekayasa Multimedia (TRM)">Rekayasa Multimedia (TRM)</option>
-                <option value="Database & Cloud">Database & Cloud</option>
+                <option value="Programming Languages">Programming Languages</option>
+                <option value="Web Development">Web Development</option>
+                <option value="Database Management">Database Management</option>
+                <option value="Network & Security">Network & Security</option>
+                <option value="UI/UX Design">UI/UX Design</option>
                 <option value="Tools & Platforms">Tools & Platforms</option>
               </select>
             </div>
