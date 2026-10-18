@@ -1685,7 +1685,7 @@ export const INITIAL_SOCIAL_LINKS: SocialLink[] = [
     id: 'soc-4',
     platform: 'email',
     label: 'Email',
-    url: 'mailto:abrar.astafaraiz@gmail.com',
+    url: 'mailto:astaabrar@gmail.com',
     icon_name: 'Mail',
     sort_order: 4,
     is_visible: true,
@@ -1713,7 +1713,7 @@ export const INITIAL_SETTINGS: SiteSettingsMap = {
     robots: 'index, follow',
   },
   contact_info: {
-    email: 'abrar.astafaraiz@gmail.com',
+    email: 'astaabrar@gmail.com',
     location: 'Indonesia',
     cta_heading: 'Hubungi Saya Langsung',
     cta_subtext:

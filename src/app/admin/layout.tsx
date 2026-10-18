@@ -139,9 +139,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
         {/* User & Logout Footer */}
         <div className="p-4 border-t border-[#E6E0F1] dark:border-[#3B334D] space-y-2">
-          <div className="px-3 py-1.5 flex items-center justify-between text-xs">
-            <span className="font-medium text-[#706981] dark:text-[#A096B5] truncate">
-              {user?.email}
+          <div className="px-3 py-1 flex flex-col text-xs">
+            <span className="font-bold text-[#39324E] dark:text-[#F7F3FF] truncate">
+              {user?.name || 'Abrar Astafaraiz'}
+            </span>
+            <span className="font-medium text-[#706981] dark:text-[#A096B5] truncate text-[11px]">
+              {user?.email || 'astaabrar@gmail.com'}
             </span>
           </div>
           <button
@@ -198,7 +201,15 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               })}
             </nav>
 
-            <div className="p-4 border-t border-[#E6E0F1] dark:border-[#3B334D]">
+            <div className="p-4 border-t border-[#E6E0F1] dark:border-[#3B334D] space-y-2">
+              <div className="px-3 py-1 flex flex-col text-xs">
+                <span className="font-bold text-[#39324E] dark:text-[#F7F3FF] truncate">
+                  {user?.name || 'Abrar Astafaraiz'}
+                </span>
+                <span className="font-medium text-[#706981] dark:text-[#A096B5] truncate text-[11px]">
+                  {user?.email || 'astaabrar@gmail.com'}
+                </span>
+              </div>
               <button
                 onClick={() => logout()}
                 className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-[#A82F42] hover:bg-[#FFE5E8] dark:hover:bg-[#492831] transition-colors"

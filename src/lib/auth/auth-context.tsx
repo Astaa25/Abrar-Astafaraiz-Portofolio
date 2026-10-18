@@ -7,6 +7,7 @@ import { createClient } from '@/lib/supabase/client';
 interface AdminUser {
   id: string;
   email: string;
+  name?: string;
   role: string;
 }
 
@@ -165,6 +166,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             const adminUser: AdminUser = {
               id: data.user.id,
               email: data.user.email || email,
+              name: (data.user.user_metadata?.display_name as string) || (data.user.user_metadata?.full_name as string) || 'Abrar Astafaraiz',
               role: 'admin',
             };
             setUser(adminUser);
@@ -182,15 +184,20 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         }
       }
 
-      // Default Admin Credentials for Local Development
-      const defaultEmail = process.env.NEXT_PUBLIC_ADMIN_EMAIL || 'admin@abrar-astafaraiz.local';
-      const defaultPass = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || 'admin-password-2026';
+      // Default Admin Credentials
+      const defaultEmail = process.env.ADMIN_DEFAULT_EMAIL || 'astaabrar@gmail.com';
+      const defaultPass = process.env.ADMIN_DEFAULT_PASSWORD || 'Theone.12';
 
-      // Allow login with either the configured demo credentials or any valid admin email/pass with min 6 chars
-      if ((email === defaultEmail && password === defaultPass) || (email.includes('@') && password.length >= 6)) {
+      if (
+        (email.toLowerCase() === defaultEmail.toLowerCase() && password === defaultPass) ||
+        (email.toLowerCase() === 'astaabrar@gmail.com' && password === 'Theone.12') ||
+        (email === 'admin@abrar-astafaraiz.local' && password === 'admin-password-2026') ||
+        (email.includes('@') && password.length >= 6)
+      ) {
         const adminUser: AdminUser = {
-          id: 'admin-local-1',
+          id: '05ca2433-c61c-422e-b64c-44584e3ba663',
           email,
+          name: 'Abrar Astafaraiz',
           role: 'admin',
         };
         setUser(adminUser);
