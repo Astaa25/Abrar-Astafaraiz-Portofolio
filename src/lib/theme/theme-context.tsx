@@ -21,22 +21,26 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [adminTheme, setAdminTheme] = useState<ThemeMode>('light');
 
   useEffect(() => {
+    const isAdmin = typeof window !== 'undefined' && window.location.pathname.startsWith('/admin');
+
     // Read saved public theme
     const savedPublic = localStorage.getItem(PUBLIC_THEME_KEY) as ThemeMode | null;
-    if (savedPublic === 'dark' || savedPublic === 'light') {
-      setPublicTheme(savedPublic);
-      document.documentElement.setAttribute('data-public-theme', savedPublic);
-    } else {
-      document.documentElement.setAttribute('data-public-theme', 'light');
-    }
+    const initialPublic = (savedPublic === 'dark' || savedPublic === 'light') ? savedPublic : 'light';
+    setPublicTheme(initialPublic);
+    document.documentElement.setAttribute('data-public-theme', initialPublic);
 
     // Read saved admin theme
     const savedAdmin = localStorage.getItem(ADMIN_THEME_KEY) as ThemeMode | null;
-    if (savedAdmin === 'dark' || savedAdmin === 'light') {
-      setAdminTheme(savedAdmin);
-      document.documentElement.setAttribute('data-admin-theme', savedAdmin);
+    const initialAdmin = (savedAdmin === 'dark' || savedAdmin === 'light') ? savedAdmin : 'light';
+    setAdminTheme(initialAdmin);
+    document.documentElement.setAttribute('data-admin-theme', initialAdmin);
+
+    // Apply dark class based on current active view
+    const shouldBeDark = isAdmin ? initialAdmin === 'dark' : initialPublic === 'dark';
+    if (shouldBeDark) {
+      document.documentElement.classList.add('dark');
     } else {
-      document.documentElement.setAttribute('data-admin-theme', 'light');
+      document.documentElement.classList.remove('dark');
     }
   }, []);
 
@@ -45,6 +49,14 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     setPublicTheme(next);
     localStorage.setItem(PUBLIC_THEME_KEY, next);
     document.documentElement.setAttribute('data-public-theme', next);
+    const isAdmin = typeof window !== 'undefined' && window.location.pathname.startsWith('/admin');
+    if (!isAdmin) {
+      if (next === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
   };
 
   const toggleAdminTheme = () => {
@@ -52,6 +64,14 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     setAdminTheme(next);
     localStorage.setItem(ADMIN_THEME_KEY, next);
     document.documentElement.setAttribute('data-admin-theme', next);
+    const isAdmin = typeof window !== 'undefined' && window.location.pathname.startsWith('/admin');
+    if (isAdmin) {
+      if (next === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
   };
 
   return (

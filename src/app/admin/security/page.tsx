@@ -148,6 +148,75 @@ export default function AdminSecurityPage() {
           </form>
         </div>
       </div>
+
+      {/* Security Policies & Supabase Connection Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+        {/* 15-Minute Inactivity Policy */}
+        <div className="rounded-3xl bg-white dark:bg-[#211D2D] border border-[#E6E0F1] dark:border-[#3B334D] p-6 shadow-xs space-y-4">
+          <div className="flex items-center justify-between pb-3 border-b border-[#E6E0F1] dark:border-[#3B334D]">
+            <div className="flex items-center gap-2">
+              <ShieldCheck className="w-5 h-5 text-[#176A4A] dark:text-[#8CE3BD]" />
+              <h3 className="font-bold text-sm text-[#39324E] dark:text-[#F7F3FF]">
+                Kebijakan Sesi Otomatis (15 Menit)
+              </h3>
+            </div>
+            <span className="px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#DDF7EC] text-[#176A4A] dark:bg-[#1D3B32] dark:text-[#8CE3BD]">
+              Aktif & Terproteksi
+            </span>
+          </div>
+
+          <p className="text-xs text-[#706981] dark:text-[#A096B5] leading-relaxed">
+            Sistem perlindungan tingkat tinggi aktif secara otomatis. Jika tidak ada aktivitas interaksi (mouse, keyboard, scroll, atau sentuhan layar) selama <strong>15 menit berturut-turut</strong>, sesi autentikasi langsung diputus dan diarahkan kembali ke halaman login.
+          </p>
+
+          <div className="p-3 rounded-2xl bg-[#F7F5FF] dark:bg-[#2D263D] text-xs text-[#58506E] dark:text-[#C0B8D2] space-y-1.5">
+            <div className="flex items-center justify-between">
+              <span>Batas Waktu Idle (Inactivity):</span>
+              <strong className="text-[#7966D9] dark:text-[#B7A7FF]">15 Menit</strong>
+            </div>
+            <div className="flex items-center justify-between">
+              <span>Verifikasi Multi-Tab:</span>
+              <strong className="text-[#176A4A] dark:text-[#8CE3BD]">Real-Time & Background</strong>
+            </div>
+            <div className="flex items-center justify-between">
+              <span>Pembersihan Cookie & Token:</span>
+              <strong className="text-[#176A4A] dark:text-[#8CE3BD]">Otomatis saat Expired</strong>
+            </div>
+          </div>
+        </div>
+
+        {/* Supabase Connection Status & Guide */}
+        <div className="rounded-3xl bg-white dark:bg-[#211D2D] border border-[#E6E0F1] dark:border-[#3B334D] p-6 shadow-xs space-y-4">
+          <div className="flex items-center justify-between pb-3 border-b border-[#E6E0F1] dark:border-[#3B334D]">
+            <div className="flex items-center gap-2">
+              <KeyRound className="w-5 h-5 text-[#7966D9] dark:text-[#B7A7FF]" />
+              <h3 className="font-bold text-sm text-[#39324E] dark:text-[#F7F3FF]">
+                Integrasi Database Supabase
+              </h3>
+            </div>
+            <span className="px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#EDE8FF] text-[#7966D9] dark:bg-[#352D4A] dark:text-[#B7A7FF]">
+              Konfigurasi .env.local
+            </span>
+          </div>
+
+          <p className="text-xs text-[#706981] dark:text-[#A096B5] leading-relaxed">
+            Untuk menyambungkan database Supabase secara permanen, cukup isi kredensial di file <code className="px-1.5 py-0.5 rounded-md bg-[#EDE8FF] dark:bg-[#352D4A] text-[#7966D9] dark:text-[#B7A7FF] font-mono text-[11px]">.env.local</code>:
+          </p>
+
+          <div className="p-3 rounded-2xl bg-[#1B1827] text-white text-[11px] font-mono overflow-x-auto space-y-1">
+            <div className="text-[#8CE3BD]"># Tambahkan di .env.local:</div>
+            <div>NEXT_PUBLIC_SUPABASE_URL=https://xxx.supabase.co</div>
+            <div>NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJh...</div>
+            <div>SUPABASE_SERVICE_ROLE_KEY=eyJh...</div>
+          </div>
+
+          <div className="text-[11px] text-[#706981] dark:text-[#A096B5] space-y-1">
+            <p>1. Buka <strong>supabase.com</strong> dan buat project gratis.</p>
+            <p>2. Salin Project URL & Anon Key dari menu <em>Settings &gt; API</em>.</p>
+            <p>3. Di menu <em>SQL Editor</em>, jalankan file skema <code className="text-[#7966D9] dark:text-[#B7A7FF]">supabase/migrations/20261018000000_initial_schema.sql</code>.</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { useAuth } from '@/lib/auth/auth-context';
 import { useToast } from '@/components/feedback/ToastContext';
-import { ShieldCheck, Mail, Lock, ArrowLeft, LogIn } from 'lucide-react';
+import { ShieldCheck, Mail, Lock, ArrowLeft, LogIn, Clock, ShieldAlert } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 
@@ -13,6 +13,7 @@ function AdminLoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const redirectUrl = searchParams.get('redirect') || '/admin';
+  const reasonParam = searchParams.get('reason');
 
   const { login } = useAuth();
   const { success, error: toastError } = useToast();
@@ -21,10 +22,25 @@ function AdminLoginForm() {
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [isIdleTimeout, setIsIdleTimeout] = useState(false);
+
+  React.useEffect(() => {
+    if (reasonParam === 'idle_timeout') {
+      setIsIdleTimeout(true);
+    } else {
+      try {
+        const storedReason = sessionStorage.getItem('abrar_auth_timeout_reason');
+        if (storedReason === 'idle_timeout') {
+          setIsIdleTimeout(true);
+        }
+      } catch {}
+    }
+  }, [reasonParam]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMessage('');
+    setIsIdleTimeout(false);
 
     if (!email || !password) {
       setErrorMessage('Mohon lengkapi email dan kata sandi.');
@@ -77,6 +93,19 @@ function AdminLoginForm() {
             Masuk untuk mengelola konten dan pengaturan website
           </p>
         </div>
+
+        {/* 15-Minute Inactivity Cut Alert */}
+        {isIdleTimeout && (
+          <div className="p-3.5 rounded-2xl bg-[#FFF6E5] border border-[#F4C96B]/50 dark:bg-[#382C18] dark:border-[#9A6700]/50 text-[#855B00] dark:text-[#FFD782] text-xs space-y-1 animate-in fade-in duration-300">
+            <div className="flex items-center gap-2 font-bold">
+              <Clock className="w-4 h-4 text-[#D9822B] shrink-0" />
+              <span>Sesi Berakhir Otomatis (15 Menit)</span>
+            </div>
+            <p className="text-[11px] leading-relaxed text-[#735002] dark:text-[#FFE3A8]">
+              Demi keamanan tingkat tinggi, akses diputus karena tidak ada aktivitas selama 15 menit. Silakan login kembali.
+            </p>
+          </div>
+        )}
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-4">

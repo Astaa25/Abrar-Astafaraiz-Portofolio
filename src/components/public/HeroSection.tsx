@@ -85,43 +85,48 @@ export function HeroSection({ profile }: HeroSectionProps) {
 
           {/* Right Column: Visual Avatar & Aurora Card */}
           <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
+            <div className="relative w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[400px]">
               {/* Outer Glow Ring */}
-              <div className="absolute inset-0 rounded-3xl gradient-aurora opacity-30 blur-2xl transform rotate-6 animate-pulse" />
+              <div className="absolute inset-0 rounded-3xl gradient-aurora opacity-35 blur-2xl transform rotate-3 animate-pulse" />
 
               {/* Main Card Frame */}
-              <div className="relative w-full h-full rounded-3xl bg-white dark:bg-[#1B1C2A] border-2 border-white/80 dark:border-[#353449] shadow-xl overflow-hidden p-3 flex flex-col">
-                <div className="w-full h-full rounded-2xl bg-[#EAE7FF] dark:bg-[#302B4D] relative overflow-hidden flex items-center justify-center group">
-                  {/* Decorative avatar graphic */}
-                  <div className="flex flex-col items-center justify-center text-center p-6 space-y-3">
-                    {profile.profile_image_path ? (
-                      <div className="w-24 h-24 rounded-2xl overflow-hidden shadow-lg border-2 border-white dark:border-[#5846DE]/40 bg-white">
-                        <img
-                          src={profile.profile_image_path}
-                          alt={profile.display_name}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    ) : (
-                      <div className="w-24 h-24 rounded-2xl gradient-aurora flex items-center justify-center text-white font-extrabold text-3xl shadow-lg">
-                        AA
-                      </div>
-                    )}
-                    <div>
-                      <h3 className="font-extrabold text-lg text-[#181A2A] dark:text-[#F5F3FF]">
-                        {profile.display_name}
-                      </h3>
-                      <p className="text-xs font-medium text-[#4F526B] dark:text-[#C4C2D8]">
-                        Teknik Informatika
-                      </p>
+              <div className="relative w-full rounded-3xl bg-white dark:bg-[#1B1C2A] border-2 border-white/80 dark:border-[#353449] shadow-2xl overflow-hidden p-4 sm:p-5 flex flex-col items-center">
+                <div className="w-full rounded-2xl bg-gradient-to-b from-[#F0EDFA] to-[#EAE7FF] dark:from-[#252038] dark:to-[#1B1C2A] p-4 sm:p-6 flex flex-col items-center text-center relative overflow-hidden group">
+                  {/* Large Profile Photo */}
+                  {profile.profile_image_path ? (
+                    <div className="relative w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border-3 border-white dark:border-[#7966D9]/50 bg-white group-hover:scale-102 transition-transform duration-300">
+                      <img
+                        src={profile.profile_image_path}
+                        alt={profile.display_name}
+                        className="w-full h-full object-cover object-center"
+                      />
                     </div>
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-[#DDF7F0] text-[#177A56] dark:bg-[#234A43] dark:text-[#65D6A6] shadow-2xs">
+                  ) : (
+                    <div className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-2xl sm:rounded-3xl gradient-aurora flex items-center justify-center text-white font-extrabold text-5xl shadow-xl">
+                      AA
+                    </div>
+                  )}
+
+                  {/* Profile Details Below Photo */}
+                  <div className="mt-4 sm:mt-5 space-y-1">
+                    <h3 className="font-extrabold text-xl sm:text-2xl text-[#181A2A] dark:text-[#F5F3FF]">
+                      {profile.display_name}
+                    </h3>
+                    <p className="text-xs sm:text-sm font-semibold text-[#5846DE] dark:text-[#A99BFF]">
+                      Teknik Informatika
+                    </p>
+                  </div>
+
+                  {/* Status Badge */}
+                  <div className="mt-3">
+                    <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#DDF7F0] text-[#177A56] dark:bg-[#234A43] dark:text-[#65D6A6] shadow-2xs">
+                      <span className="w-2 h-2 rounded-full bg-[#177A56] dark:bg-[#65D6A6] animate-pulse" />
                       Active Developer
                     </span>
                   </div>
 
-                  {/* Hover visual effect */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#6C5CE7]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  {/* Hover visual subtle sheen */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#6C5CE7]/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 </div>
               </div>
             </div>

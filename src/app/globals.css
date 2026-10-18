@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where([data-public-theme="dark"], [data-public-theme="dark"] *, [data-admin-theme="dark"], [data-admin-theme="dark"] *));
+@variant dark (&:where(.dark, .dark *, [data-public-theme="dark"], [data-public-theme="dark"] *, [data-admin-theme="dark"], [data-admin-theme="dark"] *));
 
 /* 
   Aurora Violet & Lavender Studio Design System

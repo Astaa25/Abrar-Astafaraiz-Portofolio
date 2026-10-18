@@ -64,10 +64,10 @@ export function Navbar({ sections, displayName = 'Abrar Astafaraiz' }: NavbarPro
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-40 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/85 dark:bg-[#10111B]/85 backdrop-blur-md shadow-xs border-b border-[#E6E7F0] dark:border-[#353449] py-3'
-          : 'bg-transparent py-5'
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+        isScrolled || mobileMenuOpen
+          ? 'bg-white/95 dark:bg-[#10111B]/95 backdrop-blur-md shadow-xs border-b border-[#E6E7F0] dark:border-[#353449] py-3'
+          : 'bg-transparent py-4 sm:py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -106,18 +106,19 @@ export function Navbar({ sections, displayName = 'Abrar Astafaraiz' }: NavbarPro
           </nav>
 
           {/* Right Action Icons: Theme Toggle & Admin Login */}
-          <div className="flex items-center gap-2.5">
-            {/* Theme Toggle */}
+          <div className="flex items-center gap-2 sm:gap-2.5">
+            {/* Theme Toggle Button */}
             <button
               type="button"
               onClick={togglePublicTheme}
               aria-label={publicTheme === 'light' ? 'Beralih ke mode gelap' : 'Beralih ke mode terang'}
-              className="p-2 rounded-xl text-[#62647A] hover:text-[#20233A] bg-[#F0F0FA] hover:bg-[#EAE7FF] dark:text-[#C4C2D8] dark:hover:text-[#F5F3FF] dark:bg-[#25243A] dark:hover:bg-[#302B4D] transition-colors cursor-pointer"
+              title={publicTheme === 'light' ? 'Mode Gelap' : 'Mode Terang'}
+              className="p-2.5 rounded-xl text-[#62647A] hover:text-[#20233A] bg-[#F0F0FA] hover:bg-[#EAE7FF] dark:text-[#C4C2D8] dark:hover:text-[#F5F3FF] dark:bg-[#25243A] dark:hover:bg-[#302B4D] transition-colors cursor-pointer touch-manipulation active:scale-95"
             >
               {publicTheme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
             </button>
 
-            {/* Admin / Login Button */}
+            {/* Admin / Login Button (Desktop) */}
             {isAuthenticated ? (
               <Link
                 href="/admin"
@@ -140,8 +141,8 @@ export function Navbar({ sections, displayName = 'Abrar Astafaraiz' }: NavbarPro
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label={mobileMenuOpen ? 'Tutup navigasi' : 'Buka navigasi'}
-              className="md:hidden p-2 rounded-xl text-[#62647A] hover:text-[#20233A] bg-[#F0F0FA] hover:bg-[#EAE7FF] dark:text-[#C4C2D8] dark:hover:text-[#F5F3FF] dark:bg-[#25243A] dark:hover:bg-[#302B4D] transition-colors"
+              aria-label={mobileMenuOpen ? 'Tutup menu' : 'Buka menu navigasi'}
+              className="md:hidden p-2.5 rounded-xl text-[#62647A] hover:text-[#20233A] bg-[#F0F0FA] hover:bg-[#EAE7FF] dark:text-[#C4C2D8] dark:hover:text-[#F5F3FF] dark:bg-[#25243A] dark:hover:bg-[#302B4D] transition-colors cursor-pointer touch-manipulation active:scale-95"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -157,32 +158,64 @@ export function Navbar({ sections, displayName = 'Abrar Astafaraiz' }: NavbarPro
                   key={item.id}
                   href={`#${item.section_key}`}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`px-3 py-2 rounded-xl text-sm font-medium transition-colors ${
+                  className={`px-3 py-2.5 rounded-xl text-sm font-semibold transition-colors flex items-center justify-between ${
                     activeSection === item.section_key
-                      ? 'text-[#6C5CE7] dark:text-[#A99BFF] bg-[#EAE7FF]/60 dark:bg-[#302B4D]/60'
-                      : 'text-[#62647A] hover:text-[#20233A] dark:text-[#C4C2D8] dark:hover:text-[#F5F3FF]'
+                      ? 'text-[#6C5CE7] dark:text-[#A99BFF] bg-[#EAE7FF]/70 dark:bg-[#302B4D]/70'
+                      : 'text-[#62647A] hover:text-[#20233A] dark:text-[#C4C2D8] dark:hover:text-[#F5F3FF] hover:bg-[#F0F0FA] dark:hover:bg-[#25243A]'
                   }`}
                 >
-                  {item.nav_label}
+                  <span>{item.nav_label}</span>
+                  {activeSection === item.section_key && (
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#6C5CE7] dark:bg-[#A99BFF]" />
+                  )}
                 </a>
               ))}
-              <div className="pt-3 border-t border-[#E6E7F0] dark:border-[#353449] flex items-center justify-between">
+
+              {/* Mobile Quick Theme Switcher */}
+              <div className="pt-2 my-1 border-t border-[#E6E7F0] dark:border-[#353449]">
+                <div className="flex items-center justify-between px-3 py-2 rounded-xl bg-[#F7F8FC] dark:bg-[#25243A]">
+                  <span className="text-xs font-semibold text-[#4F526B] dark:text-[#C4C2D8]">
+                    Tema: {publicTheme === 'dark' ? 'Mode Gelap' : 'Mode Terang'}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={togglePublicTheme}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-white dark:bg-[#10111B] text-[#5846DE] dark:text-[#A99BFF] border border-[#D4D6E6] dark:border-[#353449] shadow-2xs cursor-pointer touch-manipulation"
+                  >
+                    {publicTheme === 'light' ? (
+                      <>
+                        <Moon className="w-3.5 h-3.5" />
+                        <span>Gelap</span>
+                      </>
+                    ) : (
+                      <>
+                        <Sun className="w-3.5 h-3.5" />
+                        <span>Terang</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+              </div>
+
+              {/* Mobile Admin / Dashboard Link */}
+              <div className="pt-2">
                 {isAuthenticated ? (
                   <Link
                     href="/admin"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold bg-[#EDE8FF] text-[#7966D9] w-full justify-center"
+                    className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-bold bg-[#EDE8FF] text-[#7966D9] w-full justify-center shadow-xs"
                   >
                     <Shield className="w-4 h-4" />
-                    Buka Dashboard
+                    Buka Dashboard Administrator
                   </Link>
                 ) : (
                   <Link
                     href="/admin-login"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold text-[#62647A] hover:text-[#20233A] border border-[#E6E7F0] w-full justify-center dark:text-[#C4C2D8] dark:border-[#353449]"
+                    className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-bold text-[#62647A] hover:text-[#20233A] border border-[#E6E7F0] w-full justify-center dark:text-[#C4C2D8] dark:border-[#353449] hover:bg-[#F0F0FA] dark:hover:bg-[#25243A]"
                   >
-                    Masuk ke Admin
+                    <span>Masuk ke Admin</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 )}
               </div>

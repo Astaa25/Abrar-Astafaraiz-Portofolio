@@ -59,17 +59,27 @@ export default function RootLayout({
             __html: `
               (function() {
                 try {
+                  var isAdm = window.location.pathname.indexOf('/admin') === 0;
                   var pub = localStorage.getItem('abrar_public_theme_pref');
-                  if (pub === 'dark' || pub === 'light') {
-                    document.documentElement.setAttribute('data-public-theme', pub);
+                  var adm = localStorage.getItem('abrar_admin_theme_pref');
+
+                  if (pub === 'dark') {
+                    document.documentElement.setAttribute('data-public-theme', 'dark');
                   } else {
                     document.documentElement.setAttribute('data-public-theme', 'light');
                   }
-                  var adm = localStorage.getItem('abrar_admin_theme_pref');
-                  if (adm === 'dark' || adm === 'light') {
-                    document.documentElement.setAttribute('data-admin-theme', adm);
+
+                  if (adm === 'dark') {
+                    document.documentElement.setAttribute('data-admin-theme', 'dark');
                   } else {
                     document.documentElement.setAttribute('data-admin-theme', 'light');
+                  }
+
+                  var shouldDark = isAdm ? (adm === 'dark') : (pub === 'dark');
+                  if (shouldDark) {
+                    document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
                   }
                 } catch(e) {}
               })();
