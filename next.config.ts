@@ -5,6 +5,11 @@ const nextConfig: NextConfig = {
   devIndicators: false,
   cacheComponents: true,
   partialPrefetching: true,
+  experimental: {
+    instantInsights: {
+      validationLevel: 'manual-warning',
+    },
+  },
   turbopack: {
     rules: {
       "*.css": {
