@@ -159,25 +159,26 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     try {
       const supabase = createClient();
       if (supabase) {
-        const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-        if (error) {
-          setIsLoading(false);
-          return { success: false, error: error.message };
-        }
-        if (data.user) {
-          const adminUser: AdminUser = {
-            id: data.user.id,
-            email: data.user.email || email,
-            role: 'admin',
-          };
-          setUser(adminUser);
-          if (typeof window !== 'undefined') {
-            localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(adminUser));
-            localStorage.setItem(LAST_ACTIVITY_KEY, Date.now().toString());
-            sessionStorage.removeItem('abrar_auth_timeout_reason');
+        try {
+          const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+          if (!error && data?.user) {
+            const adminUser: AdminUser = {
+              id: data.user.id,
+              email: data.user.email || email,
+              role: 'admin',
+            };
+            setUser(adminUser);
+            if (typeof window !== 'undefined') {
+              localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(adminUser));
+              localStorage.setItem(LAST_ACTIVITY_KEY, Date.now().toString());
+              sessionStorage.removeItem('abrar_auth_timeout_reason');
+              document.cookie = `abrar_admin_session=active; path=/; max-age=28800; SameSite=Lax`;
+            }
+            setIsLoading(false);
+            return { success: true };
           }
-          setIsLoading(false);
-          return { success: true };
+        } catch {
+          // If Supabase Auth fails or user is not yet in Supabase Auth table, continue to fallback
         }
       }
 

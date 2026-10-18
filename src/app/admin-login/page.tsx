@@ -61,10 +61,6 @@ function AdminLoginForm() {
     }
   };
 
-  const handleFillDemo = () => {
-    setEmail('admin@abrar-astafaraiz.local');
-    setPassword('admin-password-2026');
-  };
 
   return (
     <div className="w-full max-w-md">
@@ -148,20 +144,6 @@ function AdminLoginForm() {
             </Button>
           </div>
         </form>
-
-        {/* Quick Demo Credentials Assistant */}
-        <div className="pt-4 border-t border-[#E6E0F1] dark:border-[#3B334D] text-center space-y-2">
-          <p className="text-xs text-[#928AA5] dark:text-[#A096B5]">
-            Kredensial Pengembang Lokal / Demo:
-          </p>
-          <button
-            type="button"
-            onClick={handleFillDemo}
-            className="text-xs font-semibold text-[#7966D9] hover:underline dark:text-[#B7A7FF] cursor-pointer"
-          >
-            Klik untuk isi kredensial otomatis
-          </button>
-        </div>
       </div>
     </div>
   );
