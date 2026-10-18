@@ -1,40 +1,93 @@
 import React from 'react';
-import { Profile } from '@/types/database';
-import { GraduationCap, Terminal, Database, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Profile, AboutHighlight } from '@/types/database';
+import {
+  GraduationCap,
+  Terminal,
+  Database,
+  Sparkles,
+  CheckCircle2,
+  Cpu,
+  Network,
+  Layout,
+  Server,
+  Code2,
+  Wrench,
+  BookOpen,
+} from 'lucide-react';
 
 interface AboutSectionProps {
   profile: Profile;
   title?: string;
   subtitle?: string;
+  highlights?: AboutHighlight[];
 }
 
 export function AboutSection({
   profile,
   title = 'Tentang Saya',
   subtitle = 'Mengenal Latar Belakang & Fokus Profesional',
+  highlights,
 }: AboutSectionProps) {
-  const highlights = [
-    {
-      icon: <GraduationCap className="w-5 h-5 text-[#5846DE] dark:text-[#A99BFF]" />,
-      title: 'Pendidikan Akademik',
-      desc: 'Mahasiswa Teknik Informatika dengan pemahaman teori komputasi, algoritma, dan rekayasa perangkat lunak.',
-    },
-    {
-      icon: <Terminal className="w-5 h-5 text-[#177A56] dark:text-[#65D6A6]" />,
-      title: 'Software & Web Engineering',
-      desc: 'Berpengalaman membangun aplikasi full-stack modern dengan TypeScript, React, Next.js, dan RESTful API.',
-    },
-    {
-      icon: <Database className="w-5 h-5 text-[#5846DE] dark:text-[#A99BFF]" />,
-      title: 'Manajemen Data & Keamanan',
-      desc: 'Perancangan skema relasional, optimasi query PostgreSQL/MySQL, serta integrasi Supabase Auth & RLS.',
-    },
-    {
-      icon: <Sparkles className="w-5 h-5 text-[#177A56] dark:text-[#65D6A6]" />,
-      title: 'Desain & Pengalaman Pengguna',
-      desc: 'Mengutamakan kejelasan hierarki visual, aksesibilitas, responsivitas, dan interaksi yang halus.',
-    },
-  ];
+  const getHighlightIcon = (iconName?: string) => {
+    switch (iconName?.toLowerCase()) {
+      case 'graduationcap':
+        return <GraduationCap className="w-5 h-5 text-[#5846DE] dark:text-[#A99BFF]" />;
+      case 'terminal':
+        return <Terminal className="w-5 h-5 text-[#177A56] dark:text-[#65D6A6]" />;
+      case 'database':
+        return <Database className="w-5 h-5 text-[#5846DE] dark:text-[#A99BFF]" />;
+      case 'sparkles':
+        return <Sparkles className="w-5 h-5 text-[#177A56] dark:text-[#65D6A6]" />;
+      case 'cpu':
+        return <Cpu className="w-5 h-5 text-[#5846DE] dark:text-[#A99BFF]" />;
+      case 'network':
+        return <Network className="w-5 h-5 text-[#177A56] dark:text-[#65D6A6]" />;
+      case 'layout':
+        return <Layout className="w-5 h-5 text-[#5846DE] dark:text-[#A99BFF]" />;
+      case 'server':
+        return <Server className="w-5 h-5 text-[#177A56] dark:text-[#65D6A6]" />;
+      case 'code2':
+        return <Code2 className="w-5 h-5 text-[#5846DE] dark:text-[#A99BFF]" />;
+      case 'bookopen':
+        return <BookOpen className="w-5 h-5 text-[#5846DE] dark:text-[#A99BFF]" />;
+      default:
+        return <Wrench className="w-5 h-5 text-[#5846DE] dark:text-[#A99BFF]" />;
+    }
+  };
+
+  const activeHighlights =
+    highlights && highlights.length > 0
+      ? highlights
+      : [
+          {
+            id: 'ah-1',
+            icon_name: 'GraduationCap',
+            title: 'Pendidikan Akademik',
+            description:
+              'Mahasiswa Teknik Informatika dengan pemahaman teori komputasi, algoritma, dan rekayasa perangkat lunak.',
+          },
+          {
+            id: 'ah-2',
+            icon_name: 'Terminal',
+            title: 'Software & Web Engineering',
+            description:
+              'Berpengalaman membangun aplikasi full-stack modern dengan TypeScript, React, Next.js, dan RESTful API.',
+          },
+          {
+            id: 'ah-3',
+            icon_name: 'Database',
+            title: 'Manajemen Data & Keamanan',
+            description:
+              'Perancangan skema relasional, optimasi query PostgreSQL/MySQL, serta integrasi Supabase Auth & RLS.',
+          },
+          {
+            id: 'ah-4',
+            icon_name: 'Sparkles',
+            title: 'Desain & Pengalaman Pengguna',
+            description:
+              'Mengutamakan kejelasan hierarki visual, aksesibilitas, responsivitas, dan interaksi yang halus.',
+          },
+        ];
 
   return (
     <section id="about" className="py-24 bg-white dark:bg-[#10111B] transition-colors border-t border-[#E6E7F0]/60 dark:border-[#353449]/60">
@@ -85,21 +138,21 @@ export function AboutSection({
 
           {/* Feature Highlights Grid */}
           <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
-            {highlights.map((item, idx) => (
+            {activeHighlights.map((item) => (
               <div
-                key={idx}
+                key={item.id}
                 className="p-5 rounded-2xl bg-[#F7F8FC] dark:bg-[#1B1C2A] border border-[#E6E7F0] dark:border-[#353449] hover:border-[#C9C0FF] dark:hover:border-[#6C5CE7]/40 transition-all hover:shadow-md"
               >
                 <div className="flex items-start gap-4">
                   <div className="p-2.5 rounded-xl bg-[#EAE7FF] dark:bg-[#302B4D] shrink-0">
-                    {item.icon}
+                    {getHighlightIcon(item.icon_name)}
                   </div>
                   <div>
                     <h3 className="font-bold text-sm sm:text-base text-[#181A2A] dark:text-[#F5F3FF]">
                       {item.title}
                     </h3>
                     <p className="text-xs sm:text-sm text-[#4F526B] dark:text-[#C4C2D8] mt-1 leading-normal">
-                      {item.desc}
+                      {item.description}
                     </p>
                   </div>
                 </div>

@@ -7,6 +7,7 @@ import { useToast } from '@/components/feedback/ToastContext';
 import { Input } from '@/components/ui/Input';
 import { Textarea } from '@/components/ui/Textarea';
 import { Button } from '@/components/ui/Button';
+import { ImageUploadField } from '@/components/ui/ImageUploadField';
 import { Save, User, Sparkles, Image as ImageIcon } from 'lucide-react';
 
 export default function AdminProfilePage() {
@@ -93,33 +94,17 @@ export default function AdminProfilePage() {
           <div className="flex items-center gap-2 pb-3 border-b border-[#E6E0F1] dark:border-[#3B334D]">
             <ImageIcon className="w-5 h-5 text-[#7966D9] dark:text-[#B7A7FF]" />
             <h3 className="font-bold text-sm text-[#39324E] dark:text-[#F7F3FF]">
-              Foto Profil & Visual
+              Foto Profil Utama (Hero Section)
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
-            <Input
-              label="Path / URL Foto Profil"
-              value={profile.profile_image_path}
-              onChange={(e) => setProfile({ ...profile, profile_image_path: e.target.value })}
-              helperText="Dapat berupa URL Supabase Storage atau path aset publik"
-              required
-            />
-
-            <div className="flex items-center gap-4 p-4 rounded-2xl bg-[#F7F5FF] dark:bg-[#171421] border border-[#E6E0F1] dark:border-[#3B334D]">
-              <div className="w-16 h-16 rounded-2xl bg-[#EDE8FF] dark:bg-[#352D4A] flex items-center justify-center font-bold text-lg text-[#7966D9] dark:text-[#B7A7FF] shrink-0 overflow-hidden">
-                AA
-              </div>
-              <div>
-                <span className="text-xs font-semibold text-[#39324E] dark:text-[#F7F3FF] block">
-                  Pratinjau Avatar
-                </span>
-                <span className="text-[11px] text-[#706981] dark:text-[#A096B5]">
-                  {profile.display_name}
-                </span>
-              </div>
-            </div>
-          </div>
+          <ImageUploadField
+            label="Foto Profil Anda"
+            value={profile.profile_image_path || ''}
+            onChange={(url) => setProfile({ ...profile, profile_image_path: url })}
+            folder="profile"
+            helperText="Unggah foto formal/semi-formal Anda. Foto akan langsung ditampilkan di kartu Hero website publik."
+          />
         </div>
 
         {/* CTAs Configuration */}

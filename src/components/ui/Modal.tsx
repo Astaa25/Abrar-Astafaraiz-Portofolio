@@ -22,16 +22,17 @@ export function Modal({
   className,
 }: ModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
-  const previouslyFocusedElement = useRef<HTMLElement | null>(null);
+  const onCloseRef = useRef(onClose);
+  onCloseRef.current = onClose;
 
   useEffect(() => {
     if (isOpen) {
-      previouslyFocusedElement.current = document.activeElement as HTMLElement;
+      const prevActive = document.activeElement as HTMLElement | null;
       document.body.style.overflow = 'hidden';
 
       const handleKeyDown = (e: KeyboardEvent) => {
         if (e.key === 'Escape') {
-          onClose();
+          onCloseRef.current();
         }
       };
 
@@ -39,12 +40,12 @@ export function Modal({
       return () => {
         window.removeEventListener('keydown', handleKeyDown);
         document.body.style.overflow = '';
-        if (previouslyFocusedElement.current) {
-          previouslyFocusedElement.current.focus();
+        if (prevActive && typeof prevActive.focus === 'function') {
+          prevActive.focus();
         }
       };
     }
-  }, [isOpen, onClose]);
+  }, [isOpen]);
 
   if (!isOpen) return null;
 

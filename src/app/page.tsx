@@ -38,6 +38,7 @@ export default async function HomePage() {
             profile={content.profile}
             title={getSectionMeta('about')?.title}
             subtitle={getSectionMeta('about')?.subtitle}
+            highlights={content.settings?.about_highlights}
           />
         )}
 

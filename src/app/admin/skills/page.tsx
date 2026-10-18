@@ -9,11 +9,29 @@ import { Input } from '@/components/ui/Input';
 import { Modal } from '@/components/ui/Modal';
 import { Switch } from '@/components/ui/Switch';
 import { Badge } from '@/components/ui/Badge';
-import { Plus, Edit2, Trash2, Wrench, Search } from 'lucide-react';
+import {
+  Plus,
+  Edit2,
+  Trash2,
+  Wrench,
+  Search,
+  Code2,
+  Terminal,
+  Network,
+  Layout,
+  Video,
+  Database,
+  Cpu,
+  Layers,
+  Palette,
+  Server,
+  Zap,
+} from 'lucide-react';
 
 export default function AdminSkillsPage() {
   const [skills, setSkills] = useState<Skill[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('Semua');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingSkill, setEditingSkill] = useState<Partial<Skill> | null>(null);
 
@@ -30,7 +48,7 @@ export default function AdminSkillsPage() {
   const handleOpenAdd = () => {
     setEditingSkill({
       name: '',
-      category: 'Web Development',
+      category: 'Teknik Informatika',
       proficiency_label: 'Proficient',
       description: '',
       icon_name: 'Code2',
@@ -46,11 +64,20 @@ export default function AdminSkillsPage() {
   };
 
   const handleDelete = (id: string, name: string) => {
-    if (confirm(`Hapus keahlian "${name}" dari draft?`)) {
+    if (confirm(`Hapus keahlian "${name}"?`)) {
       DataService.deleteDraftSkill(id);
       success(`Skill "${name}" berhasil dihapus.`);
       loadSkills();
     }
+  };
+
+  const handleToggleVisible = (skill: Skill, nextChecked: boolean) => {
+    DataService.saveDraftSkill({
+      ...skill,
+      is_visible: nextChecked,
+    });
+    loadSkills();
+    success(`Skill "${skill.name}" kini ${nextChecked ? 'Aktif (Tampil)' : 'Nonaktif (Tersembunyi)'}.`);
   };
 
   const handleSaveModal = (e: React.FormEvent) => {
@@ -72,7 +99,7 @@ export default function AdminSkillsPage() {
         is_visible: editingSkill.is_visible !== undefined ? editingSkill.is_visible : true,
       });
 
-      success('Skill berhasil disimpan ke draft!');
+      success('Skill berhasil disimpan dan langsung aktif!');
       setIsModalOpen(false);
       setEditingSkill(null);
       loadSkills();
@@ -81,11 +108,25 @@ export default function AdminSkillsPage() {
     }
   };
 
-  const filtered = skills.filter(
-    (s) =>
+  const categories = [
+    'Semua',
+    'Teknik Informatika',
+    'Rekayasa Jaringan (TRKJ)',
+    'Rekayasa Multimedia (TRM)',
+    'Database & Cloud',
+  ];
+
+  const filtered = skills.filter((s) => {
+    const matchSearch =
       s.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      s.category.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+      s.category.toLowerCase().includes(searchQuery.toLowerCase());
+
+    const matchCategory =
+      selectedCategory === 'Semua' ||
+      s.category.toLowerCase() === selectedCategory.toLowerCase();
+
+    return matchSearch && matchCategory;
+  });
 
   return (
     <div className="space-y-6">
@@ -96,7 +137,7 @@ export default function AdminSkillsPage() {
             Manajemen Keahlian & Teknologi
           </h2>
           <p className="text-xs text-[#706981] dark:text-[#A096B5] mt-1">
-            Kelola daftar keahlian, kategori teknis, dan tingkat penguasaan kontekstual.
+            Katalog lengkap keahlian Teknik Informatika, Rekayasa Jaringan (TRKJ), dan Multimedia (TRM). Aktifkan/nonaktifkan skill sesuai kebutuhan dengan sakelar di bawah.
           </p>
         </div>
 
@@ -110,8 +151,25 @@ export default function AdminSkillsPage() {
         </Button>
       </div>
 
-      {/* Filter & Search Bar */}
-      <div className="flex items-center gap-4">
+      {/* Category Pills & Search */}
+      <div className="space-y-4">
+        <div className="flex flex-wrap items-center gap-2">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              type="button"
+              onClick={() => setSelectedCategory(cat)}
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                selectedCategory === cat
+                  ? 'bg-[#7966D9] text-white shadow-xs'
+                  : 'bg-white dark:bg-[#211D2D] text-[#706981] dark:text-[#C0B8D2] border border-[#E6E0F1] dark:border-[#3B334D] hover:border-[#7966D9]'
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
         <div className="max-w-md w-full">
           <Input
             placeholder="Cari keahlian atau kategori..."
@@ -132,7 +190,7 @@ export default function AdminSkillsPage() {
                 <th className="py-3.5 px-6 font-semibold">Kategori</th>
                 <th className="py-3.5 px-6 font-semibold">Penguasaan</th>
                 <th className="py-3.5 px-6 font-semibold">Urutan</th>
-                <th className="py-3.5 px-6 font-semibold">Visibilitas</th>
+                <th className="py-3.5 px-6 font-semibold">Status Aktif (Tampil di Web)</th>
                 <th className="py-3.5 px-6 font-semibold text-right">Aksi</th>
               </tr>
             </thead>
@@ -143,18 +201,27 @@ export default function AdminSkillsPage() {
                   className="hover:bg-[#F0EDFA]/40 dark:hover:bg-[#2D263D]/40 transition-colors"
                 >
                   <td className="py-4 px-6 font-bold text-[#39324E] dark:text-[#F7F3FF]">
-                    <div className="flex items-center gap-2">
-                      <div className="p-1.5 rounded-lg bg-[#EDE8FF] dark:bg-[#352D4A] text-[#7966D9] dark:text-[#B7A7FF]">
+                    <div className="flex items-center gap-2.5">
+                      <div className="p-1.5 rounded-lg bg-[#EDE8FF] dark:bg-[#352D4A] text-[#7966D9] dark:text-[#B7A7FF] shrink-0">
                         <Wrench className="w-3.5 h-3.5" />
                       </div>
-                      <span>{skill.name}</span>
+                      <div>
+                        <span>{skill.name}</span>
+                        {skill.description && (
+                          <p className="text-[11px] font-normal text-[#706981] dark:text-[#A096B5] line-clamp-1 max-w-xs">
+                            {skill.description}
+                          </p>
+                        )}
+                      </div>
                     </div>
                   </td>
                   <td className="py-4 px-6 text-[#706981] dark:text-[#C0B8D2]">
-                    {skill.category}
+                    <span className="inline-block px-2.5 py-1 rounded-lg bg-[#F7F5FF] dark:bg-[#171421] border border-[#E6E0F1] dark:border-[#3B334D] text-xs font-semibold">
+                      {skill.category}
+                    </span>
                   </td>
                   <td className="py-4 px-6">
-                    <Badge variant={skill.proficiency_label === 'Advanced' ? 'violet' : 'mint'}>
+                    <Badge variant={skill.proficiency_label === 'Advanced' ? 'violet' : skill.proficiency_label === 'Proficient' ? 'mint' : 'neutral'}>
                       {skill.proficiency_label || 'Proficient'}
                     </Badge>
                   </td>
@@ -162,15 +229,15 @@ export default function AdminSkillsPage() {
                     {skill.sort_order}
                   </td>
                   <td className="py-4 px-6">
-                    {skill.is_visible ? (
-                      <span className="text-xs font-semibold text-[#176A4A] dark:text-[#8CE3BD]">
-                        Aktif
+                    <div className="flex items-center gap-2">
+                      <Switch
+                        checked={skill.is_visible}
+                        onChange={(checked) => handleToggleVisible(skill, checked)}
+                      />
+                      <span className={`text-xs font-semibold ${skill.is_visible ? 'text-[#176A4A] dark:text-[#8CE3BD]' : 'text-[#85869B] dark:text-[#9A99B5]'}`}>
+                        {skill.is_visible ? 'Aktif' : 'Nonaktif'}
                       </span>
-                    ) : (
-                      <span className="text-xs font-semibold text-[#85869B] dark:text-[#9A99B5]">
-                        Nonaktif
-                      </span>
-                    )}
+                    </div>
                   </td>
                   <td className="py-4 px-6 text-right">
                     <div className="flex items-center justify-end gap-2">
@@ -178,6 +245,7 @@ export default function AdminSkillsPage() {
                         onClick={() => handleOpenEdit(skill)}
                         className="p-1.5 rounded-lg text-[#706981] hover:text-[#7966D9] hover:bg-[#F0EDFA] dark:text-[#C0B8D2] dark:hover:bg-[#2D263D] transition-colors"
                         aria-label="Edit keahlian"
+                        title="Edit keahlian"
                       >
                         <Edit2 className="w-4 h-4" />
                       </button>
@@ -185,6 +253,7 @@ export default function AdminSkillsPage() {
                         onClick={() => handleDelete(skill.id, skill.name)}
                         className="p-1.5 rounded-lg text-[#A82F42] hover:bg-[#FFE5E8] dark:hover:bg-[#492831] transition-colors"
                         aria-label="Hapus keahlian"
+                        title="Hapus keahlian"
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>
@@ -209,26 +278,54 @@ export default function AdminSkillsPage() {
               label="Nama Keahlian / Teknologi"
               value={editingSkill.name || ''}
               onChange={(e) => setEditingSkill({ ...editingSkill, name: e.target.value })}
-              placeholder="Contoh: Next.js, PostgreSQL, TypeScript"
+              placeholder="Contoh: Next.js, Cisco Packet Tracer, Blender 3D"
               required
             />
 
             <div className="w-full space-y-1.5 text-left">
               <label className="block text-xs font-semibold text-[#39324E] dark:text-[#F7F3FF]">
-                Kategori
+                Kategori Keahlian
               </label>
               <select
-                value={editingSkill.category || 'Web Development'}
+                value={editingSkill.category || 'Teknik Informatika'}
                 onChange={(e) => setEditingSkill({ ...editingSkill, category: e.target.value })}
                 className="block w-full rounded-xl border border-[#E6E0F1] bg-white px-3.5 py-2.5 text-sm text-[#39324E] focus:border-[#7966D9] focus:outline-none dark:border-[#3B334D] dark:bg-[#211D2D] dark:text-[#F7F3FF]"
               >
-                <option value="Programming Languages">Programming Languages</option>
-                <option value="Web Development">Web Development</option>
-                <option value="Mobile Development">Mobile Development</option>
-                <option value="Database Management">Database Management</option>
+                <option value="Teknik Informatika">Teknik Informatika (Software & Web)</option>
+                <option value="Rekayasa Jaringan (TRKJ)">Rekayasa Jaringan (TRKJ)</option>
+                <option value="Rekayasa Multimedia (TRM)">Rekayasa Multimedia (TRM)</option>
+                <option value="Database & Cloud">Database & Cloud</option>
                 <option value="Tools & Platforms">Tools & Platforms</option>
-                <option value="UI/UX Design">UI/UX Design</option>
-                <option value="Other Technical Skills">Other Technical Skills</option>
+              </select>
+            </div>
+
+            <div className="w-full space-y-1.5 text-left">
+              <label className="block text-xs font-semibold text-[#39324E] dark:text-[#F7F3FF]">
+                Pilih Ikon Representasi
+              </label>
+              <select
+                value={editingSkill.icon_name || 'Code2'}
+                onChange={(e) => setEditingSkill({ ...editingSkill, icon_name: e.target.value })}
+                className="block w-full rounded-xl border border-[#E6E0F1] bg-white px-3.5 py-2.5 text-sm text-[#39324E] focus:border-[#7966D9] focus:outline-none dark:border-[#3B334D] dark:bg-[#211D2D] dark:text-[#F7F3FF]"
+              >
+                <option value="Code2">Coding / Kode (Code2)</option>
+                <option value="Terminal">Terminal / Skrip (Terminal)</option>
+                <option value="Layers">Fullstack / Layers (Layers)</option>
+                <option value="Atom">React / Atom (Atom)</option>
+                <option value="Server">Server / Backend (Server)</option>
+                <option value="Network">Jaringan / Router / Network (Network)</option>
+                <option value="Router">Mikrotik / Router (Router)</option>
+                <option value="Activity">Wireshark / Traffic (Activity)</option>
+                <option value="Layout">UI/UX / Figma / Layout (Layout)</option>
+                <option value="Palette">Styling / Desain Grafis (Palette)</option>
+                <option value="Video">Video Editing (Video)</option>
+                <option value="Film">Motion Graphics / Film (Film)</option>
+                <option value="Database">Database / Storage (Database)</option>
+                <option value="ShieldCheck">Keamanan / Security (ShieldCheck)</option>
+                <option value="Cpu">Hardware / IoT / Cpu (Cpu)</option>
+                <option value="Box">3D / Docker / Box (Box)</option>
+                <option value="GitBranch">Git / Version Control (GitBranch)</option>
+                <option value="Zap">Zap / Performance (Zap)</option>
               </select>
             </div>
 
@@ -247,16 +344,13 @@ export default function AdminSkillsPage() {
                 <option value="Proficient">Proficient (Kompeten)</option>
                 <option value="Familiar">Familiar (Dasar)</option>
               </select>
-              <p className="text-[11px] text-[#706981] dark:text-[#A096B5]">
-                Catatan PRD: Tidak menggunakan persentase angka fiktif.
-              </p>
             </div>
 
             <Input
-              label="Deskripsi Singkat (Opsional)"
+              label="Deskripsi Singkat Penggunaan"
               value={editingSkill.description || ''}
               onChange={(e) => setEditingSkill({ ...editingSkill, description: e.target.value })}
-              placeholder="Peruntukan teknologi dalam arsitektur"
+              placeholder="Contoh: Perancangan skema database relasional"
             />
 
             <div className="grid grid-cols-2 gap-4">
@@ -272,7 +366,7 @@ export default function AdminSkillsPage() {
                 <Switch
                   checked={editingSkill.is_visible !== false}
                   onChange={(checked) => setEditingSkill({ ...editingSkill, is_visible: checked })}
-                  label="Tampilkan di Web"
+                  label="Aktifkan Sekarang"
                 />
               </div>
             </div>

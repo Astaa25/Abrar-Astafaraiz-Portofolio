@@ -94,9 +94,19 @@ export function HeroSection({ profile }: HeroSectionProps) {
                 <div className="w-full h-full rounded-2xl bg-[#EAE7FF] dark:bg-[#302B4D] relative overflow-hidden flex items-center justify-center group">
                   {/* Decorative avatar graphic */}
                   <div className="flex flex-col items-center justify-center text-center p-6 space-y-3">
-                    <div className="w-24 h-24 rounded-2xl gradient-aurora flex items-center justify-center text-white font-extrabold text-3xl shadow-lg">
-                      AA
-                    </div>
+                    {profile.profile_image_path ? (
+                      <div className="w-24 h-24 rounded-2xl overflow-hidden shadow-lg border-2 border-white dark:border-[#5846DE]/40 bg-white">
+                        <img
+                          src={profile.profile_image_path}
+                          alt={profile.display_name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    ) : (
+                      <div className="w-24 h-24 rounded-2xl gradient-aurora flex items-center justify-center text-white font-extrabold text-3xl shadow-lg">
+                        AA
+                      </div>
+                    )}
                     <div>
                       <h3 className="font-extrabold text-lg text-[#181A2A] dark:text-[#F5F3FF]">
                         {profile.display_name}

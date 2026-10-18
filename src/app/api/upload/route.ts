@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
+import fs from 'fs';
+import path from 'path';
 
 export async function POST(req: NextRequest) {
   try {
@@ -11,10 +13,10 @@ export async function POST(req: NextRequest) {
     }
 
     // Validate mime type
-    const allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
+    const allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/svg+xml'];
     if (!allowedTypes.includes(file.type)) {
       return NextResponse.json(
-        { error: 'Format file tidak diizinkan. Hanya JPEG, PNG, dan WebP yang didukung.' },
+        { error: 'Format file tidak diizinkan. Hanya JPEG, PNG, WebP, GIF, dan SVG yang didukung.' },
         { status: 400 }
       );
     }
@@ -28,10 +30,22 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Safe random file name
+    // Clean filename
     const ext = file.name.split('.').pop() || 'webp';
     const cleanName = `${Date.now()}-${Math.random().toString(36).substring(2, 8)}.${ext}`;
-    const storagePath = `/images/${folder}/${cleanName}`;
+
+    // Target directory
+    const targetDir = path.join(process.cwd(), 'public', 'uploads');
+    if (!fs.existsSync(targetDir)) {
+      fs.mkdirSync(targetDir, { recursive: true });
+    }
+
+    const filePath = path.join(targetDir, cleanName);
+    const bytes = await file.arrayBuffer();
+    const buffer = Buffer.from(bytes);
+    await fs.promises.writeFile(filePath, buffer);
+
+    const storagePath = `/uploads/${cleanName}`;
 
     return NextResponse.json({
       success: true,

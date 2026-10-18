@@ -21,6 +21,17 @@ import {
   Layout,
   Network,
   Wrench,
+  Router,
+  Activity,
+  ShieldAlert,
+  Image as ImageIcon,
+  PenTool,
+  Video,
+  Film,
+  Music,
+  Coffee,
+  Zap,
+  HardDrive,
 } from 'lucide-react';
 import { Badge } from '@/components/ui/Badge';
 
@@ -39,11 +50,7 @@ export function SkillsSection({
 
   const categories = [
     'all',
-    'Programming Languages',
-    'Web Development',
-    'Database Management',
-    'Tools & Platforms',
-    'UI/UX Design',
+    ...Array.from(new Set(skills.map((s) => s.category))),
   ];
 
   const filteredSkills =
@@ -87,6 +94,28 @@ export function SkillsSection({
         return <Layout className="w-5 h-5 text-[#5846DE] dark:text-[#A99BFF]" />;
       case 'network':
         return <Network className="w-5 h-5 text-[#5846DE] dark:text-[#A99BFF]" />;
+      case 'router':
+        return <Router className="w-5 h-5 text-[#5846DE] dark:text-[#A99BFF]" />;
+      case 'activity':
+        return <Activity className="w-5 h-5 text-[#177A56] dark:text-[#65D6A6]" />;
+      case 'shieldalert':
+        return <ShieldAlert className="w-5 h-5 text-[#5846DE] dark:text-[#A99BFF]" />;
+      case 'image':
+        return <ImageIcon className="w-5 h-5 text-[#7966D9] dark:text-[#B7A7FF]" />;
+      case 'pentool':
+        return <PenTool className="w-5 h-5 text-[#5846DE] dark:text-[#A99BFF]" />;
+      case 'video':
+        return <Video className="w-5 h-5 text-[#177A56] dark:text-[#65D6A6]" />;
+      case 'film':
+        return <Film className="w-5 h-5 text-[#5846DE] dark:text-[#A99BFF]" />;
+      case 'music':
+        return <Music className="w-5 h-5 text-[#7966D9] dark:text-[#B7A7FF]" />;
+      case 'coffee':
+        return <Coffee className="w-5 h-5 text-[#5846DE] dark:text-[#A99BFF]" />;
+      case 'zap':
+        return <Zap className="w-5 h-5 text-[#177A56] dark:text-[#65D6A6]" />;
+      case 'harddrive':
+        return <HardDrive className="w-5 h-5 text-[#5846DE] dark:text-[#A99BFF]" />;
       default:
         return <Wrench className="w-5 h-5 text-[#5846DE] dark:text-[#A99BFF]" />;
     }

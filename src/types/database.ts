@@ -143,10 +143,18 @@ export interface ContactInfoSettings {
   footer_text: string;
 }
 
+export interface AboutHighlight {
+  id: string;
+  icon_name: string;
+  title: string;
+  description: string;
+}
+
 export interface SiteSettingsMap {
   appearance: AppearanceSettings;
   seo: SeoSettings;
   contact_info: ContactInfoSettings;
+  about_highlights?: AboutHighlight[];
 }
 
 export interface ContentVersion {

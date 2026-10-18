@@ -10,6 +10,7 @@ import { Textarea } from '@/components/ui/Textarea';
 import { Modal } from '@/components/ui/Modal';
 import { Switch } from '@/components/ui/Switch';
 import { Badge } from '@/components/ui/Badge';
+import { ImageUploadField } from '@/components/ui/ImageUploadField';
 import {
   Plus,
   Edit2,
@@ -386,13 +387,14 @@ export default function AdminProjectsPage() {
               required
             />
 
-            <Input
-              label="Cover Image Path / URL"
+            <ImageUploadField
+              label="Cover Image Proyek"
               value={editingProject.cover_image_path || ''}
-              onChange={(e) =>
-                setEditingProject({ ...editingProject, cover_image_path: e.target.value })
+              onChange={(url) =>
+                setEditingProject({ ...editingProject, cover_image_path: url })
               }
-              helperText="Gambar utama yang ditampilkan pada kartu proyek dan cover"
+              folder="projects"
+              helperText="Gambar utama kartu proyek dan banner modal."
               required
             />
 
