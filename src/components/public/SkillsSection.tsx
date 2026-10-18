@@ -50,13 +50,13 @@ export function SkillsSection({
 
   const categories = [
     'all',
-    ...Array.from(new Set(skills.map((s) => s.category))),
+    ...Array.from(new Set((skills || []).map((s) => s.category))),
   ];
 
   const filteredSkills =
     activeCategory === 'all'
-      ? skills
-      : skills.filter((s) => s.category.toLowerCase() === activeCategory.toLowerCase());
+      ? (skills || [])
+      : (skills || []).filter((s) => s.category.toLowerCase() === activeCategory.toLowerCase());
 
   const getIcon = (iconName?: string | null) => {
     switch (iconName?.toLowerCase()) {
@@ -147,10 +147,11 @@ export function SkillsSection({
         </div>
 
         {/* Category Filter Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-12" suppressHydrationWarning>
           {categories.map((cat) => (
             <button
               key={cat}
+              suppressHydrationWarning
               onClick={() => setActiveCategory(cat)}
               className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                 activeCategory.toLowerCase() === cat.toLowerCase()
