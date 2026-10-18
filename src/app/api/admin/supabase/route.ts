@@ -46,8 +46,11 @@ export async function GET() {
     if (profileErr) {
       const isMissingTable =
         profileErr.code === '42P01' ||
+        profileErr.code === 'PGRST205' ||
         profileErr.message?.toLowerCase().includes('relation') ||
-        profileErr.message?.toLowerCase().includes('not exist');
+        profileErr.message?.toLowerCase().includes('not exist') ||
+        profileErr.message?.toLowerCase().includes('schema cache') ||
+        profileErr.message?.toLowerCase().includes('could not find the table');
 
       return NextResponse.json({
         configured: true,
