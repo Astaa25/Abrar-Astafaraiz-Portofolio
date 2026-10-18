@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS public.profiles (
 -- 2. Skills Table
 CREATE TABLE IF NOT EXISTS public.skills (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    name TEXT NOT NULL,
+    name TEXT NOT NULL UNIQUE,
     category TEXT NOT NULL, -- 'Programming Languages', 'Web Development', 'Mobile Development', 'Database Management', 'Tools & Platforms', 'UI/UX Design', 'Other Technical Skills'
     description TEXT,
     icon_name TEXT,
@@ -106,7 +106,7 @@ CREATE TABLE IF NOT EXISTS public.experiences (
 -- 7. Social Links Table
 CREATE TABLE IF NOT EXISTS public.social_links (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    platform TEXT NOT NULL,
+    platform TEXT NOT NULL UNIQUE,
     label TEXT NOT NULL,
     url TEXT NOT NULL,
     icon_name TEXT NOT NULL,

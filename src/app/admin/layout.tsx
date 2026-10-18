@@ -31,6 +31,7 @@ import {
   Moon,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
+import { SupabaseSyncModal } from '@/components/admin/SupabaseSyncModal';
 
 interface NavItem {
   label: string;
@@ -89,6 +90,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       const res = DataService.publishChanges();
       setIsPublishing(false);
       if (res.success) {
+        // Trigger background sync to Supabase
+        fetch('/api/admin/supabase', { method: 'POST' }).catch(() => {});
         success(`Perubahan berhasil dipublikasikan! Versi publik aktif v${res.versionNumber}.`);
       } else {
         error(res.error || 'Gagal mempublikasikan perubahan.');
@@ -260,6 +263,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               <ExternalLink className="w-3.5 h-3.5" />
               <span>Website</span>
             </Link>
+
+            {/* Supabase Status & Sync Modal */}
+            <SupabaseSyncModal />
 
             {/* Publish CTA */}
             <Button

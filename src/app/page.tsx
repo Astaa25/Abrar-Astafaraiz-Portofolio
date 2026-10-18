@@ -1,5 +1,6 @@
 import React from 'react';
-import { DataService } from '@/services/data-service';
+import { connection } from 'next/server';
+import { ServerDataService } from '@/services/server-data-service';
 import { Navbar } from '@/components/layout/Navbar';
 import { HeroSection } from '@/components/public/HeroSection';
 import { AboutSection } from '@/components/public/AboutSection';
@@ -10,9 +11,9 @@ import { ExperienceSection } from '@/components/public/ExperienceSection';
 import { ContactSection } from '@/components/public/ContactSection';
 import { Footer } from '@/components/layout/Footer';
 
-
 export default async function HomePage() {
-  const content = DataService.getPublishedContent();
+  await connection();
+  const content = await ServerDataService.getPublishedContent();
 
   const getSectionMeta = (key: string) => {
     return content.sections.find((s) => s.section_key === key);

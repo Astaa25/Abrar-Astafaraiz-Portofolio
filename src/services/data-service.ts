@@ -1871,6 +1871,12 @@ function saveToStorage(store: ContentStoreState) {
   if (typeof window !== 'undefined') {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+      // Sync immediately to server disk via /api/content
+      fetch('/api/content', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(store),
+      }).catch(() => {});
     } catch (err) {
       console.warn('Failed to save content to localStorage', err);
     }
@@ -1878,6 +1884,12 @@ function saveToStorage(store: ContentStoreState) {
 }
 
 export class DataService {
+  /**
+   * Updates in-memory store on server from /api/content sync
+   */
+  static syncFromServerStore(store: ContentStoreState) {
+    memoryStore = store;
+  }
   /**
    * Retrieves strictly published and visible content for the public website.
    * Drafts are NEVER returned here.
