@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
+import { createAdminClient } from '@/lib/supabase/admin';
 
 export async function POST(req: NextRequest) {
   try {
@@ -32,27 +33,65 @@ export async function POST(req: NextRequest) {
 
     // Clean filename
     const ext = file.name.split('.').pop() || 'webp';
-    const cleanName = `${Date.now()}-${Math.random().toString(36).substring(2, 8)}.${ext}`;
-
-    // Target directory
-    const targetDir = path.join(process.cwd(), 'public', 'uploads');
-    if (!fs.existsSync(targetDir)) {
-      fs.mkdirSync(targetDir, { recursive: true });
-    }
-
-    const filePath = path.join(targetDir, cleanName);
+    const cleanName = `${folder}/${Date.now()}-${Math.random().toString(36).substring(2, 8)}.${ext}`;
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
-    await fs.promises.writeFile(filePath, buffer);
 
-    const storagePath = `/uploads/${cleanName}`;
+    // 1. Try Supabase Storage (Persistent for Cloud & Vercel)
+    const supabase = createAdminClient();
+    if (supabase) {
+      try {
+        const { data, error: uploadErr } = await supabase.storage
+          .from('portfolio-assets')
+          .upload(cleanName, buffer, {
+            contentType: file.type,
+            upsert: true,
+          });
 
-    return NextResponse.json({
-      success: true,
-      storagePath,
-      name: cleanName,
-      size: file.size,
-    });
+        if (!uploadErr && data) {
+          const { data: publicData } = supabase.storage
+            .from('portfolio-assets')
+            .getPublicUrl(cleanName);
+
+          return NextResponse.json({
+            success: true,
+            storagePath: publicData.publicUrl,
+            name: cleanName,
+            size: file.size,
+          });
+        }
+      } catch (sbErr) {
+        console.warn('Supabase Storage upload warning, falling back to local filesystem:', sbErr);
+      }
+    }
+
+    // 2. Fallback to local disk (if writable, e.g. local dev)
+    try {
+      const targetDir = path.join(process.cwd(), 'public', 'uploads');
+      if (!fs.existsSync(targetDir)) {
+        fs.mkdirSync(targetDir, { recursive: true });
+      }
+      const localCleanName = `${Date.now()}-${Math.random().toString(36).substring(2, 8)}.${ext}`;
+      const filePath = path.join(targetDir, localCleanName);
+      await fs.promises.writeFile(filePath, buffer);
+
+      return NextResponse.json({
+        success: true,
+        storagePath: `/uploads/${localCleanName}`,
+        name: localCleanName,
+        size: file.size,
+      });
+    } catch (fsErr) {
+      // In serverless read-only filesystem without Supabase, return data URL
+      const base64 = buffer.toString('base64');
+      const dataUrl = `data:${file.type};base64,${base64}`;
+      return NextResponse.json({
+        success: true,
+        storagePath: dataUrl,
+        name: cleanName,
+        size: file.size,
+      });
+    }
   } catch (err) {
     return NextResponse.json(
       { error: err instanceof Error ? err.message : 'Gagal memproses upload file.' },
