@@ -119,6 +119,8 @@ export const appearanceSettingsSchema = z.object({
   animations_enabled: z.boolean(),
   animation_intensity: z.enum(['subtle', 'standard', 'high']),
   hero_gradient: z.enum(['aurora', 'soft', 'subtle']),
+  site_logo_url: z.string().optional().nullable(),
+  site_logo_initials: z.string().max(6).optional(),
 });
 
 export const seoSettingsSchema = z.object({

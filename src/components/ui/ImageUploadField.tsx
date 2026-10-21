@@ -27,7 +27,8 @@ export function ImageUploadField({
   const { success, error } = useToast();
 
   const handleFile = async (file: File) => {
-    if (!file.type.startsWith('image/')) {
+    const isImageByExt = /\.(jpe?g|png|webp|gif|svg)$/i.test(file.name);
+    if (!file.type.startsWith('image/') && !isImageByExt) {
       error('Harap pilih file gambar (JPG, PNG, WebP, SVG).');
       return;
     }
@@ -56,14 +57,44 @@ export function ImageUploadField({
       onChange(data.storagePath);
       success('Foto berhasil diunggah!');
     } catch (err) {
-      // Fallback: convert to base64 Data URL so it always works even if api has an issue
+      console.warn('API upload fallback triggered:', err);
+      // Fallback: convert to compressed base64 Data URL so it stays small (<200KB) and never breaks localStorage
       try {
+        const img = new Image();
         const reader = new FileReader();
         reader.onload = (e) => {
-          if (e.target?.result) {
-            onChange(e.target.result as string);
-            success('Foto berhasil dimuat!');
-          }
+          if (!e.target?.result) return;
+          img.src = e.target.result as string;
+          img.onload = () => {
+            const canvas = document.createElement('canvas');
+            let { width, height } = img;
+            const maxDim = 1000;
+            if (width > maxDim || height > maxDim) {
+              if (width > height) {
+                height = Math.round((height * maxDim) / width);
+                width = maxDim;
+              } else {
+                width = Math.round((width * maxDim) / height);
+                height = maxDim;
+              }
+            }
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d');
+            if (ctx) {
+              ctx.drawImage(img, 0, 0, width, height);
+              const compressedDataUrl = canvas.toDataURL('image/jpeg', 0.85);
+              onChange(compressedDataUrl);
+              success('Foto berhasil dimuat!');
+            } else {
+              onChange(e.target?.result as string);
+              success('Foto dimuat!');
+            }
+          };
+          img.onerror = () => {
+            onChange(e.target?.result as string);
+            success('Foto dimuat!');
+          };
         };
         reader.readAsDataURL(file);
       } catch {

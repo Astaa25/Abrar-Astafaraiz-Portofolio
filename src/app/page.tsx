@@ -27,6 +27,8 @@ export default async function HomePage() {
       <Navbar
         sections={content.sections}
         displayName={content.profile.display_name}
+        siteLogoUrl={content.settings?.appearance?.site_logo_url}
+        siteLogoInitials={content.settings?.appearance?.site_logo_initials}
       />
 
       <main>
@@ -97,6 +99,8 @@ export default async function HomePage() {
         socialLinks={content.socialLinks}
         footerText={content.settings.contact_info.footer_text}
         displayName={content.profile.display_name}
+        siteLogoUrl={content.settings?.appearance?.site_logo_url}
+        siteLogoInitials={content.settings?.appearance?.site_logo_initials}
       />
     </div>
   );

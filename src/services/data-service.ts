@@ -1700,6 +1700,8 @@ export const INITIAL_SETTINGS: SiteSettingsMap = {
     animations_enabled: true,
     animation_intensity: 'standard',
     hero_gradient: 'aurora',
+    site_logo_url: '',
+    site_logo_initials: 'AA',
   },
   seo: {
     site_title: 'Abrar Astafaraiz | Personal Website',

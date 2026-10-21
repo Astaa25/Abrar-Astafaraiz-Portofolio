@@ -9,12 +9,16 @@ interface FooterProps {
   socialLinks: SocialLink[];
   footerText?: string;
   displayName?: string;
+  siteLogoUrl?: string | null;
+  siteLogoInitials?: string;
 }
 
 export function Footer({
   socialLinks,
   footerText = '© 2026 Abrar Astafaraiz. All rights reserved. Crafted with Next.js & Supabase.',
   displayName = 'Abrar Astafaraiz',
+  siteLogoUrl,
+  siteLogoInitials = 'AA',
 }: FooterProps) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -42,10 +46,25 @@ export function Footer({
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
           {/* Brand & Copy */}
           <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-            <span className="text-base font-bold text-[#20233A] dark:text-[#F5F3FF]">
-              {displayName}
-            </span>
-            <p className="text-xs text-[#85869B] dark:text-[#9A99B5] mt-1 max-w-md">
+            <div className="flex items-center gap-2.5">
+              {siteLogoUrl ? (
+                <div className="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center bg-white dark:bg-[#1B1C2A] border border-[#E6E7F0] dark:border-[#353449] shadow-2xs p-0.5">
+                  <img
+                    src={siteLogoUrl}
+                    alt={displayName}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              ) : (
+                <div className="w-8 h-8 rounded-lg gradient-aurora flex items-center justify-center text-white font-bold text-xs shadow-2xs">
+                  {siteLogoInitials || 'AA'}
+                </div>
+              )}
+              <span className="text-base font-bold text-[#20233A] dark:text-[#F5F3FF]">
+                {displayName}
+              </span>
+            </div>
+            <p className="text-xs text-[#85869B] dark:text-[#9A99B5] mt-2 max-w-md">
               {footerText}
             </p>
           </div>

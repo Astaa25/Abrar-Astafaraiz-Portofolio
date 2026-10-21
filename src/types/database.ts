@@ -123,6 +123,8 @@ export interface AppearanceSettings {
   animations_enabled: boolean;
   animation_intensity: 'subtle' | 'standard' | 'high';
   hero_gradient: 'aurora' | 'soft' | 'subtle';
+  site_logo_url?: string | null;
+  site_logo_initials?: string;
 }
 
 export interface SeoSettings {

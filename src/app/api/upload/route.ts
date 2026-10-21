@@ -13,9 +13,26 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Tidak ada file yang diunggah.' }, { status: 400 });
     }
 
-    // Validate mime type
-    const allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/svg+xml'];
-    if (!allowedTypes.includes(file.type)) {
+    // Extract extension
+    const ext = (file.name.split('.').pop() || 'webp').toLowerCase();
+
+    // Validate mime type and extension
+    const allowedTypes = [
+      'image/jpeg',
+      'image/jpg',
+      'image/pjpeg',
+      'image/png',
+      'image/x-png',
+      'image/webp',
+      'image/gif',
+      'image/svg+xml',
+    ];
+    const allowedExts = ['jpg', 'jpeg', 'png', 'webp', 'gif', 'svg'];
+
+    const isValidMime = allowedTypes.includes(file.type.toLowerCase()) || file.type.startsWith('image/');
+    const isValidExt = allowedExts.includes(ext);
+
+    if (!isValidMime && !isValidExt) {
       return NextResponse.json(
         { error: 'Format file tidak diizinkan. Hanya JPEG, PNG, WebP, GIF, dan SVG yang didukung.' },
         { status: 400 }
@@ -31,8 +48,18 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    // Normalize content-type for Supabase Storage compatibility
+    let normalizedContentType = file.type;
+    if (!normalizedContentType || normalizedContentType === 'application/octet-stream' || normalizedContentType === 'image/jpg' || normalizedContentType === 'image/pjpeg') {
+      if (ext === 'jpg' || ext === 'jpeg') normalizedContentType = 'image/jpeg';
+      else if (ext === 'png') normalizedContentType = 'image/png';
+      else if (ext === 'webp') normalizedContentType = 'image/webp';
+      else if (ext === 'gif') normalizedContentType = 'image/gif';
+      else if (ext === 'svg') normalizedContentType = 'image/svg+xml';
+      else normalizedContentType = 'image/jpeg';
+    }
+
     // Clean filename
-    const ext = file.name.split('.').pop() || 'webp';
     const cleanName = `${folder}/${Date.now()}-${Math.random().toString(36).substring(2, 8)}.${ext}`;
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
@@ -44,11 +71,13 @@ export async function POST(req: NextRequest) {
         const { data, error: uploadErr } = await supabase.storage
           .from('portfolio-assets')
           .upload(cleanName, buffer, {
-            contentType: file.type,
+            contentType: normalizedContentType,
             upsert: true,
           });
 
-        if (!uploadErr && data) {
+        if (uploadErr) {
+          console.warn('Supabase Storage upload returned error, falling back to local/base64:', uploadErr);
+        } else if (data) {
           const { data: publicData } = supabase.storage
             .from('portfolio-assets')
             .getPublicUrl(cleanName);

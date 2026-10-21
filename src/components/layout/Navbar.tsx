@@ -10,9 +10,16 @@ import { SectionSetting } from '@/types/database';
 interface NavbarProps {
   sections: SectionSetting[];
   displayName?: string;
+  siteLogoUrl?: string | null;
+  siteLogoInitials?: string;
 }
 
-export function Navbar({ sections, displayName = 'Abrar Astafaraiz' }: NavbarProps) {
+export function Navbar({
+  sections,
+  displayName = 'Abrar Astafaraiz',
+  siteLogoUrl,
+  siteLogoInitials = 'AA',
+}: NavbarProps) {
   const { publicTheme, togglePublicTheme } = useTheme();
   const { isAuthenticated } = useAuth();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -75,11 +82,21 @@ export function Navbar({ sections, displayName = 'Abrar Astafaraiz' }: NavbarPro
           {/* Logo / Brand Name */}
           <Link
             href="#hero"
-            className="flex items-center gap-2 group cursor-pointer focus:outline-hidden"
+            className="flex items-center gap-2.5 group cursor-pointer focus:outline-hidden"
           >
-            <div className="w-9 h-9 rounded-xl gradient-aurora flex items-center justify-center text-white font-bold text-base shadow-sm group-hover:scale-105 transition-transform">
-              AA
-            </div>
+            {siteLogoUrl ? (
+              <div className="w-9 h-9 rounded-xl overflow-hidden flex items-center justify-center bg-white dark:bg-[#1B1C2A] border border-[#E6E7F0] dark:border-[#353449] shadow-2xs group-hover:scale-105 transition-transform p-1">
+                <img
+                  src={siteLogoUrl}
+                  alt={displayName}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            ) : (
+              <div className="w-9 h-9 rounded-xl gradient-aurora flex items-center justify-center text-white font-bold text-base shadow-sm group-hover:scale-105 transition-transform">
+                {siteLogoInitials || 'AA'}
+              </div>
+            )}
             <span className="font-bold text-lg tracking-tight text-[#20233A] dark:text-[#F5F3FF] group-hover:text-[#6C5CE7] dark:group-hover:text-[#A99BFF] transition-colors">
               {displayName}
             </span>
