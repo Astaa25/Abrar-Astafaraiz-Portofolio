@@ -51,8 +51,8 @@ export function Footer({
             <div className="flex items-center gap-2.5">
               {siteLogoUrl ? (
                 <div
-                  className={`w-8 h-8 overflow-hidden flex items-center justify-center bg-white dark:bg-[#1B1C2A] border border-[#E6E7F0] dark:border-[#353449] shadow-2xs ${
-                    siteLogoShape === 'circle' ? 'rounded-full p-0' : 'rounded-lg p-0.5'
+                  className={`w-9 h-9 overflow-hidden flex items-center justify-center bg-white dark:bg-[#1B1C2A] border border-[#E6E7F0] dark:border-[#353449] shadow-2xs ${
+                    siteLogoShape === 'circle' ? 'rounded-full p-0' : 'rounded-xl p-0.5'
                   }`}
                 >
                   <img

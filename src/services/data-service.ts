@@ -1700,10 +1700,10 @@ export const INITIAL_SETTINGS: SiteSettingsMap = {
     animations_enabled: true,
     animation_intensity: 'standard',
     hero_gradient: 'aurora',
-    site_logo_url: '',
+    site_logo_url: 'https://jgvfdetdjnofvmkqcpbk.supabase.co/storage/v1/object/public/portfolio-assets/branding/brand-logo-rounded.png',
     site_logo_initials: 'AA',
     site_logo_shape: 'rounded',
-    favicon_url: '',
+    favicon_url: 'https://jgvfdetdjnofvmkqcpbk.supabase.co/storage/v1/object/public/portfolio-assets/branding/brand-logo-rounded.png',
   },
   seo: {
     site_title: 'Abrar Astafaraiz | Personal Website',

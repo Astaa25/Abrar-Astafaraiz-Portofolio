@@ -25,8 +25,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const ogImage = content?.settings?.seo?.og_image || '/images/og-image.webp';
 
   const iconUrlWithVersion = faviconUrl
-    ? `${faviconUrl}${faviconUrl.includes('?') ? '&' : '?'}v=3`
-    : '/favicon.svg?v=3';
+    ? `${faviconUrl}${faviconUrl.includes('?') ? '&' : '?'}v=4`
+    : '/favicon.svg?v=4';
 
   return {
     title: siteTitle,

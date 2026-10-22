@@ -65,7 +65,7 @@ export default function RootLayout({
     }
   } catch {}
 
-  const iconUrlWithVersion = `${faviconUrl}${faviconUrl.includes('?') ? '&' : '?'}v=3`;
+  const iconUrlWithVersion = `${faviconUrl}${faviconUrl.includes('?') ? '&' : '?'}v=4`;
 
   return (
     <html

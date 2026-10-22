@@ -88,8 +88,8 @@ export function Navbar({
           >
             {siteLogoUrl ? (
               <div
-                className={`w-9 h-9 overflow-hidden flex items-center justify-center bg-white dark:bg-[#1B1C2A] border border-[#E6E7F0] dark:border-[#353449] shadow-2xs group-hover:scale-105 transition-transform ${
-                  siteLogoShape === 'circle' ? 'rounded-full p-0' : 'rounded-xl p-1'
+                className={`w-9 h-9 sm:w-10 sm:h-10 overflow-hidden flex items-center justify-center bg-white dark:bg-[#1B1C2A] border border-[#E6E7F0] dark:border-[#353449] shadow-2xs group-hover:scale-105 transition-transform ${
+                  siteLogoShape === 'circle' ? 'rounded-full p-0' : 'rounded-xl p-0.5'
                 }`}
               >
                 <img
