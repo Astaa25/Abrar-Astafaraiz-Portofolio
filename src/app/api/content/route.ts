@@ -106,20 +106,18 @@ export async function POST(req: Request) {
         }
 
         // 4. Social Links
-        if (pub.socialLinks && Array.isArray(pub.socialLinks)) {
-          await supabase.from('social_links').delete().neq('id', '00000000-0000-0000-0000-000000000000');
-          if (pub.socialLinks.length > 0) {
-            const socialsPayload = pub.socialLinks.map((soc: any, index: number) => ({
-              platform: soc.platform,
-              label: soc.label,
-              url: soc.url,
-              icon_name: soc.icon_name,
-              sort_order: soc.sort_order ?? index + 1,
-              is_visible: soc.is_visible !== undefined ? Boolean(soc.is_visible) : true,
-              updated_at: new Date().toISOString(),
-            }));
-            await supabase.from('social_links').insert(socialsPayload);
-          }
+        if (pub.socialLinks && Array.isArray(pub.socialLinks) && pub.socialLinks.length > 0) {
+          const socialsPayload = pub.socialLinks.map((soc: any, index: number) => ({
+            ...(soc.id && /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(soc.id) ? { id: soc.id } : {}),
+            platform: soc.platform,
+            label: soc.label,
+            url: soc.url,
+            icon_name: soc.icon_name,
+            sort_order: soc.sort_order ?? index + 1,
+            is_visible: soc.is_visible !== undefined ? Boolean(soc.is_visible) : true,
+            updated_at: new Date().toISOString(),
+          }));
+          await supabase.from('social_links').upsert(socialsPayload);
         }
 
         // 5. Projects
@@ -148,24 +146,22 @@ export async function POST(req: Request) {
         }
 
         // 6. Achievements
-        if (pub.achievements && Array.isArray(pub.achievements)) {
-          await supabase.from('achievements').delete().neq('id', '00000000-0000-0000-0000-000000000000');
-          if (pub.achievements.length > 0) {
-            const achievementsPayload = pub.achievements.map((a: any, index: number) => ({
-              title: a.title,
-              organizer: a.organizer,
-              achievement_date: a.achievement_date,
-              description: a.description || '',
-              image_path: a.image_path || null,
-              verification_url: a.verification_url || null,
-              category: a.category || 'Certification',
-              sort_order: a.sort_order ?? index + 1,
-              is_visible: a.is_visible !== undefined ? Boolean(a.is_visible) : true,
-              publication_status: a.publication_status || 'published',
-              updated_at: new Date().toISOString(),
-            }));
-            await supabase.from('achievements').insert(achievementsPayload);
-          }
+        if (pub.achievements && Array.isArray(pub.achievements) && pub.achievements.length > 0) {
+          const achievementsPayload = pub.achievements.map((a: any, index: number) => ({
+            ...(a.id && /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(a.id) ? { id: a.id } : {}),
+            title: a.title,
+            organizer: a.organizer,
+            achievement_date: a.achievement_date,
+            description: a.description || '',
+            image_path: a.image_path || null,
+            verification_url: a.verification_url || null,
+            category: a.category || 'Certification',
+            sort_order: a.sort_order ?? index + 1,
+            is_visible: a.is_visible !== undefined ? Boolean(a.is_visible) : true,
+            publication_status: a.publication_status || 'published',
+            updated_at: new Date().toISOString(),
+          }));
+          await supabase.from('achievements').upsert(achievementsPayload);
         }
 
         // 7. Experiences

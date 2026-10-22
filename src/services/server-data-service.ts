@@ -69,27 +69,27 @@ export class ServerDataService {
               supabase.from('site_settings').select('*'),
             ]);
 
-          const skills = (skillsRes.status === 'fulfilled' && skillsRes.value.data)
+          const skills = (skillsRes.status === 'fulfilled' && skillsRes.value.data && skillsRes.value.data.length > 0)
             ? skillsRes.value.data
             : fallback.skills;
 
-          const projects = (projectsRes.status === 'fulfilled' && projectsRes.value.data)
+          const projects = (projectsRes.status === 'fulfilled' && projectsRes.value.data && projectsRes.value.data.length > 0)
             ? projectsRes.value.data
             : fallback.projects;
 
-          const achievements = (achievementsRes.status === 'fulfilled' && achievementsRes.value.data)
+          const achievements = (achievementsRes.status === 'fulfilled' && achievementsRes.value.data && achievementsRes.value.data.length > 0)
             ? achievementsRes.value.data
             : fallback.achievements;
 
-          const experiences = (experiencesRes.status === 'fulfilled' && experiencesRes.value.data)
+          const experiences = (experiencesRes.status === 'fulfilled' && experiencesRes.value.data && experiencesRes.value.data.length > 0)
             ? experiencesRes.value.data
             : fallback.experiences;
 
-          const socialLinks = (socialsRes.status === 'fulfilled' && socialsRes.value.data)
+          const socialLinks = (socialsRes.status === 'fulfilled' && socialsRes.value.data && socialsRes.value.data.length > 0)
             ? socialsRes.value.data
             : fallback.socialLinks;
 
-          const sections = (sectionsRes.status === 'fulfilled' && sectionsRes.value.data)
+          const sections = (sectionsRes.status === 'fulfilled' && sectionsRes.value.data && sectionsRes.value.data.length > 0)
             ? sectionsRes.value.data
             : fallback.sections;
 
