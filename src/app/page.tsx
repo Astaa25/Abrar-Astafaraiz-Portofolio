@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import { connection } from 'next/server';
 import { ServerDataService } from '@/services/server-data-service';
 import { Navbar } from '@/components/layout/Navbar';
@@ -12,6 +13,36 @@ import { ContactSection } from '@/components/public/ContactSection';
 import { Footer } from '@/components/layout/Footer';
 
 export const instant = false;
+
+export async function generateMetadata(): Promise<Metadata> {
+  await connection();
+  const content = await ServerDataService.getPublishedContent();
+  const faviconUrl = content?.settings?.appearance?.favicon_url || '/favicon.svg';
+  const siteTitle = content?.settings?.seo?.site_title || 'Abrar Astafaraiz | Personal Website';
+  const metaDescription =
+    content?.settings?.seo?.meta_description ||
+    'Personal website of Abrar Astafaraiz, showcasing software development projects, technical skills, experience, and professional achievements.';
+  const ogImage = content?.settings?.seo?.og_image || '/images/og-image.webp';
+
+  const iconUrlWithVersion = faviconUrl
+    ? `${faviconUrl}${faviconUrl.includes('?') ? '&' : '?'}v=2`
+    : '/favicon.svg';
+
+  return {
+    title: siteTitle,
+    description: metaDescription,
+    icons: {
+      icon: [{ url: iconUrlWithVersion, sizes: 'any' }],
+      shortcut: iconUrlWithVersion,
+      apple: iconUrlWithVersion,
+    },
+    openGraph: {
+      title: siteTitle,
+      description: metaDescription,
+      images: [{ url: ogImage }],
+    },
+  };
+}
 
 export default async function HomePage() {
   await connection();
@@ -29,6 +60,7 @@ export default async function HomePage() {
         displayName={content.profile.display_name}
         siteLogoUrl={content.settings?.appearance?.site_logo_url}
         siteLogoInitials={content.settings?.appearance?.site_logo_initials}
+        siteLogoShape={content.settings?.appearance?.site_logo_shape}
       />
 
       <main>
@@ -101,6 +133,7 @@ export default async function HomePage() {
         displayName={content.profile.display_name}
         siteLogoUrl={content.settings?.appearance?.site_logo_url}
         siteLogoInitials={content.settings?.appearance?.site_logo_initials}
+        siteLogoShape={content.settings?.appearance?.site_logo_shape}
       />
     </div>
   );

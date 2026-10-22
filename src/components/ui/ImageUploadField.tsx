@@ -27,9 +27,9 @@ export function ImageUploadField({
   const { success, error } = useToast();
 
   const handleFile = async (file: File) => {
-    const isImageByExt = /\.(jpe?g|png|webp|gif|svg)$/i.test(file.name);
+    const isImageByExt = /\.(jpe?g|png|webp|gif|svg|ico)$/i.test(file.name);
     if (!file.type.startsWith('image/') && !isImageByExt) {
-      error('Harap pilih file gambar (JPG, PNG, WebP, SVG).');
+      error('Harap pilih file gambar (JPG, PNG, WebP, SVG, ICO).');
       return;
     }
 
@@ -149,7 +149,7 @@ export function ImageUploadField({
           <input
             ref={fileInputRef}
             type="file"
-            accept="image/*"
+            accept="image/*,.ico,.svg,.png,.jpg,.jpeg,.webp"
             className="hidden"
             onChange={(e) => {
               if (e.target.files && e.target.files[0]) {

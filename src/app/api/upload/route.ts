@@ -26,15 +26,18 @@ export async function POST(req: NextRequest) {
       'image/webp',
       'image/gif',
       'image/svg+xml',
+      'image/x-icon',
+      'image/vnd.microsoft.icon',
+      'image/ico',
     ];
-    const allowedExts = ['jpg', 'jpeg', 'png', 'webp', 'gif', 'svg'];
+    const allowedExts = ['jpg', 'jpeg', 'png', 'webp', 'gif', 'svg', 'ico'];
 
     const isValidMime = allowedTypes.includes(file.type.toLowerCase()) || file.type.startsWith('image/');
     const isValidExt = allowedExts.includes(ext);
 
     if (!isValidMime && !isValidExt) {
       return NextResponse.json(
-        { error: 'Format file tidak diizinkan. Hanya JPEG, PNG, WebP, GIF, dan SVG yang didukung.' },
+        { error: 'Format file tidak diizinkan. Hanya JPEG, PNG, WebP, GIF, SVG, dan ICO yang didukung.' },
         { status: 400 }
       );
     }
@@ -56,7 +59,10 @@ export async function POST(req: NextRequest) {
       else if (ext === 'webp') normalizedContentType = 'image/webp';
       else if (ext === 'gif') normalizedContentType = 'image/gif';
       else if (ext === 'svg') normalizedContentType = 'image/svg+xml';
+      else if (ext === 'ico') normalizedContentType = 'image/x-icon';
       else normalizedContentType = 'image/jpeg';
+    } else if (ext === 'ico') {
+      normalizedContentType = 'image/x-icon';
     }
 
     // Clean filename

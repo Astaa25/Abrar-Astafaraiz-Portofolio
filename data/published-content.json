@@ -1701,15 +1701,17 @@
         "updated_at": "2026-10-19T04:55:14.035+00:00"
       }
     ],
-    "lastUpdated": "2026-10-21T04:41:29.447Z",
+    "lastUpdated": "2026-10-21T05:16:29.386Z",
     "settings": {
       "appearance": {
         "default_public_theme": "light",
         "animations_enabled": true,
         "animation_intensity": "standard",
         "hero_gradient": "aurora",
-        "site_logo_url": "",
-        "site_logo_initials": "AA"
+        "site_logo_url": "https://jgvfdetdjnofvmkqcpbk.supabase.co/storage/v1/object/public/portfolio-assets/profile/1792460002927-avatar.jpeg",
+        "site_logo_initials": "AA",
+        "site_logo_shape": "circle",
+        "favicon_url": "https://jgvfdetdjnofvmkqcpbk.supabase.co/storage/v1/object/public/portfolio-assets/profile/1792460002927-avatar.jpeg"
       },
       "seo": {
         "site_title": "Abrar Astafaraiz | Personal Website",
@@ -3464,8 +3466,10 @@
         "animations_enabled": true,
         "animation_intensity": "standard",
         "hero_gradient": "aurora",
-        "site_logo_url": "",
-        "site_logo_initials": "AA"
+        "site_logo_url": "https://jgvfdetdjnofvmkqcpbk.supabase.co/storage/v1/object/public/portfolio-assets/profile/1792460002927-avatar.jpeg",
+        "site_logo_initials": "AA",
+        "site_logo_shape": "circle",
+        "favicon_url": "https://jgvfdetdjnofvmkqcpbk.supabase.co/storage/v1/object/public/portfolio-assets/profile/1792460002927-avatar.jpeg"
       },
       "seo": {
         "site_title": "Abrar Astafaraiz | Personal Website",

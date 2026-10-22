@@ -4,6 +4,7 @@ import path from 'path';
 import { revalidatePath } from 'next/cache';
 import { DataService, INITIAL_SETTINGS } from '@/services/data-service';
 import { ServerDataService } from '@/services/server-data-service';
+import { createAdminClient } from '@/lib/supabase/admin';
 
 export async function GET() {
   try {
@@ -24,7 +25,37 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Data pengaturan kosong' }, { status: 400 });
     }
 
-    const currentSettings = DataService.getDraftSettings();
+    // 0. Load existing settings from disk first to ensure no fields are lost
+    let currentSettings = DataService.getDraftSettings();
+    try {
+      const dataDir = path.join(process.cwd(), 'data');
+      const filePath = path.join(dataDir, 'published-content.json');
+      if (fs.existsSync(filePath)) {
+        const raw = fs.readFileSync(filePath, 'utf-8');
+        const parsed = JSON.parse(raw);
+        if (parsed?.published?.settings) {
+          currentSettings = {
+            ...currentSettings,
+            ...parsed.published.settings,
+            appearance: {
+              ...currentSettings.appearance,
+              ...(parsed.published.settings.appearance || {}),
+            },
+            seo: {
+              ...currentSettings.seo,
+              ...(parsed.published.settings.seo || {}),
+            },
+            contact_info: {
+              ...currentSettings.contact_info,
+              ...(parsed.published.settings.contact_info || {}),
+            },
+          };
+        }
+      }
+    } catch (readErr) {
+      console.warn('Failed to read existing settings from disk:', readErr);
+    }
+
     const updatedSettings = {
       ...currentSettings,
       ...(body.appearance ? { appearance: { ...currentSettings.appearance, ...body.appearance } } : {}),
@@ -34,13 +65,13 @@ export async function POST(req: Request) {
 
     // 1. Update in-memory draft settings
     if (body.appearance) {
-      DataService.updateDraftSettings('appearance', body.appearance);
+      DataService.updateDraftSettings('appearance', updatedSettings.appearance);
     }
     if (body.seo) {
-      DataService.updateDraftSettings('seo', body.seo);
+      DataService.updateDraftSettings('seo', updatedSettings.seo);
     }
     if (body.contact_info) {
-      DataService.updateDraftSettings('contact_info', body.contact_info);
+      DataService.updateDraftSettings('contact_info', updatedSettings.contact_info);
     }
 
     // 2. Persist to data/published-content.json
@@ -73,6 +104,41 @@ export async function POST(req: Request) {
       fs.writeFileSync(filePath, JSON.stringify(merged, null, 2), 'utf-8');
     } catch (fsErr) {
       console.warn('Local file write skipped:', fsErr);
+    }
+
+    // 2.5. Persist to Supabase site_settings if available
+    try {
+      const supabase = createAdminClient();
+      if (supabase) {
+        const upsertPromises = [];
+        if (body.appearance) {
+          upsertPromises.push(
+            supabase.from('site_settings').upsert(
+              { setting_key: 'appearance', setting_value: updatedSettings.appearance },
+              { onConflict: 'setting_key' }
+            )
+          );
+        }
+        if (body.seo) {
+          upsertPromises.push(
+            supabase.from('site_settings').upsert(
+              { setting_key: 'seo', setting_value: updatedSettings.seo },
+              { onConflict: 'setting_key' }
+            )
+          );
+        }
+        if (body.contact_info) {
+          upsertPromises.push(
+            supabase.from('site_settings').upsert(
+              { setting_key: 'contact_info', setting_value: updatedSettings.contact_info },
+              { onConflict: 'setting_key' }
+            )
+          );
+        }
+        await Promise.allSettled(upsertPromises);
+      }
+    } catch (sbErr) {
+      console.warn('Supabase site_settings write skipped:', sbErr);
     }
 
     // 3. Revalidate frontend pages

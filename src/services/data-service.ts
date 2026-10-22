@@ -1702,6 +1702,8 @@ export const INITIAL_SETTINGS: SiteSettingsMap = {
     hero_gradient: 'aurora',
     site_logo_url: '',
     site_logo_initials: 'AA',
+    site_logo_shape: 'rounded',
+    favicon_url: '',
   },
   seo: {
     site_title: 'Abrar Astafaraiz | Personal Website',

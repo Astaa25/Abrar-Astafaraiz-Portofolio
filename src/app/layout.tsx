@@ -13,6 +13,8 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   display: 'swap',
 });
 
+import { ServerDataService } from '@/services/server-data-service';
+
 export const metadata: Metadata = {
   title: 'Abrar Astafaraiz | Personal Website',
   description:
@@ -28,6 +30,13 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Abrar Astafaraiz' }],
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
+  icons: {
+    icon: [
+      { url: '/favicon.svg', sizes: 'any' },
+    ],
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
   openGraph: {
     title: 'Abrar Astafaraiz | Personal Website',
     description:
@@ -43,6 +52,19 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  let faviconUrl = '/favicon.svg';
+  try {
+    const fs = require('fs');
+    const path = require('path');
+    const filePath = path.join(process.cwd(), 'data', 'published-content.json');
+    if (fs.existsSync(filePath)) {
+      const parsed = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+      if (parsed?.published?.settings?.appearance?.favicon_url) {
+        faviconUrl = parsed.published.settings.appearance.favicon_url;
+      }
+    }
+  } catch {}
+
   return (
     <html
       lang="id"
@@ -54,6 +76,8 @@ export default function RootLayout({
     >
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <link rel="icon" href={`${faviconUrl}${faviconUrl.includes('?') ? '&' : '?'}v=2`} sizes="any" key="site-favicon" />
+        <link rel="apple-touch-icon" href={`${faviconUrl}${faviconUrl.includes('?') ? '&' : '?'}v=2`} key="site-apple-icon" />
         <script
           dangerouslySetInnerHTML={{
             __html: `

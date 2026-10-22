@@ -121,6 +121,8 @@ export const appearanceSettingsSchema = z.object({
   hero_gradient: z.enum(['aurora', 'soft', 'subtle']),
   site_logo_url: z.string().optional().nullable(),
   site_logo_initials: z.string().max(6).optional(),
+  site_logo_shape: z.enum(['rounded', 'circle']).optional(),
+  favicon_url: z.string().optional().nullable(),
 });
 
 export const seoSettingsSchema = z.object({

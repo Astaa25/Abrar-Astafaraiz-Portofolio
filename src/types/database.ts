@@ -125,6 +125,8 @@ export interface AppearanceSettings {
   hero_gradient: 'aurora' | 'soft' | 'subtle';
   site_logo_url?: string | null;
   site_logo_initials?: string;
+  site_logo_shape?: 'rounded' | 'circle';
+  favicon_url?: string | null;
 }
 
 export interface SeoSettings {

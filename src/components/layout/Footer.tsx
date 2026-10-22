@@ -11,6 +11,7 @@ interface FooterProps {
   displayName?: string;
   siteLogoUrl?: string | null;
   siteLogoInitials?: string;
+  siteLogoShape?: 'rounded' | 'circle';
 }
 
 export function Footer({
@@ -19,6 +20,7 @@ export function Footer({
   displayName = 'Abrar Astafaraiz',
   siteLogoUrl,
   siteLogoInitials = 'AA',
+  siteLogoShape = 'rounded',
 }: FooterProps) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -48,15 +50,25 @@ export function Footer({
           <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
             <div className="flex items-center gap-2.5">
               {siteLogoUrl ? (
-                <div className="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center bg-white dark:bg-[#1B1C2A] border border-[#E6E7F0] dark:border-[#353449] shadow-2xs p-0.5">
+                <div
+                  className={`w-8 h-8 overflow-hidden flex items-center justify-center bg-white dark:bg-[#1B1C2A] border border-[#E6E7F0] dark:border-[#353449] shadow-2xs ${
+                    siteLogoShape === 'circle' ? 'rounded-full p-0' : 'rounded-lg p-0.5'
+                  }`}
+                >
                   <img
                     src={siteLogoUrl}
                     alt={displayName}
-                    className="w-full h-full object-contain"
+                    className={`w-full h-full ${
+                      siteLogoShape === 'circle' ? 'object-cover' : 'object-contain'
+                    }`}
                   />
                 </div>
               ) : (
-                <div className="w-8 h-8 rounded-lg gradient-aurora flex items-center justify-center text-white font-bold text-xs shadow-2xs">
+                <div
+                  className={`w-8 h-8 gradient-aurora flex items-center justify-center text-white font-bold text-xs shadow-2xs ${
+                    siteLogoShape === 'circle' ? 'rounded-full' : 'rounded-lg'
+                  }`}
+                >
                   {siteLogoInitials || 'AA'}
                 </div>
               )}
