@@ -65,6 +65,8 @@ export default function RootLayout({
     }
   } catch {}
 
+  const iconUrlWithVersion = `${faviconUrl}${faviconUrl.includes('?') ? '&' : '?'}v=3`;
+
   return (
     <html
       lang="id"
@@ -76,8 +78,9 @@ export default function RootLayout({
     >
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-        <link rel="icon" href={`${faviconUrl}${faviconUrl.includes('?') ? '&' : '?'}v=2`} sizes="any" key="site-favicon" />
-        <link rel="apple-touch-icon" href={`${faviconUrl}${faviconUrl.includes('?') ? '&' : '?'}v=2`} key="site-apple-icon" />
+        <link rel="icon" href={iconUrlWithVersion} sizes="any" key="site-favicon" />
+        <link rel="apple-touch-icon" href={iconUrlWithVersion} key="site-apple-icon" />
+        <link rel="shortcut icon" href={iconUrlWithVersion} key="site-shortcut-icon" />
         <script
           dangerouslySetInnerHTML={{
             __html: `

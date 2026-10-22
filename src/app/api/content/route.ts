@@ -189,6 +189,23 @@ export async function POST(req: Request) {
             await supabase.from('experiences').insert(experiencesPayload);
           }
         }
+
+        // 8. Settings (Persist to Supabase Storage site-config/settings.json)
+        if (pub.settings) {
+          try {
+            await supabase.storage.createBucket('site-config', { public: true });
+          } catch {}
+          try {
+            await supabase.storage
+              .from('site-config')
+              .upload('settings.json', Buffer.from(JSON.stringify(pub.settings, null, 2)), {
+                contentType: 'application/json',
+                upsert: true,
+              });
+          } catch (stErr) {
+            console.warn('Supabase storage settings upload skipped in content route:', stErr);
+          }
+        }
       } catch (sbErr) {
         console.error('Supabase real-time sync error:', sbErr);
       }

@@ -93,7 +93,7 @@ export class ServerDataService {
             ? sectionsRes.value.data
             : fallback.sections;
 
-          if (settingsRes.status === 'fulfilled' && settingsRes.value.data) {
+          if (settingsRes.status === 'fulfilled' && settingsRes.value.data && settingsRes.value.data.length > 0) {
             settingsRes.value.data.forEach((row: any) => {
               if (row.setting_key && row.setting_value) {
                 (mergedSettings as any)[row.setting_key] = {
@@ -102,6 +102,37 @@ export class ServerDataService {
                 };
               }
             });
+          } else {
+            // Load persistent settings from Supabase Storage bucket 'site-config'
+            try {
+              const { data: fileData, error: fileErr } = await supabase.storage
+                .from('site-config')
+                .download('settings.json');
+              if (fileData && !fileErr) {
+                const text = await fileData.text();
+                const parsed = JSON.parse(text);
+                if (parsed) {
+                  mergedSettings = {
+                    ...mergedSettings,
+                    ...parsed,
+                    appearance: {
+                      ...mergedSettings.appearance,
+                      ...(parsed.appearance || {}),
+                    },
+                    seo: {
+                      ...mergedSettings.seo,
+                      ...(parsed.seo || {}),
+                    },
+                    contact_info: {
+                      ...mergedSettings.contact_info,
+                      ...(parsed.contact_info || {}),
+                    },
+                  };
+                }
+              }
+            } catch (storageErr) {
+              console.warn('Supabase storage settings read skipped:', storageErr);
+            }
           }
 
           return {

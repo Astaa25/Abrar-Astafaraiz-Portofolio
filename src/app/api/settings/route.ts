@@ -25,35 +25,30 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Data pengaturan kosong' }, { status: 400 });
     }
 
-    // 0. Load existing settings from disk first to ensure no fields are lost
+    // 0. Load existing settings (Supabase Storage -> Disk -> In-Memory)
     let currentSettings = DataService.getDraftSettings();
     try {
-      const dataDir = path.join(process.cwd(), 'data');
-      const filePath = path.join(dataDir, 'published-content.json');
-      if (fs.existsSync(filePath)) {
-        const raw = fs.readFileSync(filePath, 'utf-8');
-        const parsed = JSON.parse(raw);
-        if (parsed?.published?.settings) {
-          currentSettings = {
-            ...currentSettings,
-            ...parsed.published.settings,
-            appearance: {
-              ...currentSettings.appearance,
-              ...(parsed.published.settings.appearance || {}),
-            },
-            seo: {
-              ...currentSettings.seo,
-              ...(parsed.published.settings.seo || {}),
-            },
-            contact_info: {
-              ...currentSettings.contact_info,
-              ...(parsed.published.settings.contact_info || {}),
-            },
-          };
-        }
+      const liveContent = await ServerDataService.getPublishedContent();
+      if (liveContent?.settings) {
+        currentSettings = {
+          ...currentSettings,
+          ...liveContent.settings,
+          appearance: {
+            ...currentSettings.appearance,
+            ...(liveContent.settings.appearance || {}),
+          },
+          seo: {
+            ...currentSettings.seo,
+            ...(liveContent.settings.seo || {}),
+          },
+          contact_info: {
+            ...currentSettings.contact_info,
+            ...(liveContent.settings.contact_info || {}),
+          },
+        };
       }
     } catch (readErr) {
-      console.warn('Failed to read existing settings from disk:', readErr);
+      console.warn('Failed to load existing settings from ServerDataService:', readErr);
     }
 
     const updatedSettings = {
@@ -74,7 +69,7 @@ export async function POST(req: Request) {
       DataService.updateDraftSettings('contact_info', updatedSettings.contact_info);
     }
 
-    // 2. Persist to data/published-content.json
+    // 2. Persist to data/published-content.json if writable
     try {
       const dataDir = path.join(process.cwd(), 'data');
       if (!fs.existsSync(dataDir)) {
@@ -106,10 +101,27 @@ export async function POST(req: Request) {
       console.warn('Local file write skipped:', fsErr);
     }
 
-    // 2.5. Persist to Supabase site_settings if available
+    // 2.5. Persist to Supabase Storage & Supabase site_settings
     try {
       const supabase = createAdminClient();
       if (supabase) {
+        // Ensure bucket exists and persist to site-config/settings.json
+        try {
+          await supabase.storage.createBucket('site-config', { public: true });
+        } catch {}
+
+        try {
+          await supabase.storage
+            .from('site-config')
+            .upload('settings.json', Buffer.from(JSON.stringify(updatedSettings, null, 2)), {
+              contentType: 'application/json',
+              upsert: true,
+            });
+        } catch (storageErr) {
+          console.warn('Supabase storage settings upload skipped:', storageErr);
+        }
+
+        // Also attempt table upsert if site_settings table exists
         const upsertPromises = [];
         if (body.appearance) {
           upsertPromises.push(
